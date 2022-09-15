@@ -122,23 +122,23 @@
 			// 
 			this.lbl_titulo.AutoSize = true;
 			this.lbl_titulo.BackColor = System.Drawing.Color.Transparent;
-			this.lbl_titulo.Font = new System.Drawing.Font("Bookman Old Style", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.lbl_titulo.Font = new System.Drawing.Font("Cambria", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
 			this.lbl_titulo.ForeColor = System.Drawing.Color.HotPink;
-			this.lbl_titulo.Location = new System.Drawing.Point(109, 69);
+			this.lbl_titulo.Location = new System.Drawing.Point(54, 96);
 			this.lbl_titulo.Name = "lbl_titulo";
-			this.lbl_titulo.Size = new System.Drawing.Size(289, 72);
+			this.lbl_titulo.Size = new System.Drawing.Size(427, 75);
 			this.lbl_titulo.TabIndex = 7;
-			this.lbl_titulo.Text = "Ingresar";
+			this.lbl_titulo.Text = "Bienvenido!!!";
 			// 
 			// lbl_nuevoUsuario
 			// 
 			this.lbl_nuevoUsuario.AutoSize = true;
 			this.lbl_nuevoUsuario.BackColor = System.Drawing.Color.Transparent;
-			this.lbl_nuevoUsuario.Font = new System.Drawing.Font("Lucida Fax", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-			this.lbl_nuevoUsuario.ForeColor = System.Drawing.Color.RoyalBlue;
-			this.lbl_nuevoUsuario.Location = new System.Drawing.Point(77, 425);
+			this.lbl_nuevoUsuario.Font = new System.Drawing.Font("Lucida Fax", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+			this.lbl_nuevoUsuario.ForeColor = System.Drawing.Color.OrangeRed;
+			this.lbl_nuevoUsuario.Location = new System.Drawing.Point(65, 426);
 			this.lbl_nuevoUsuario.Name = "lbl_nuevoUsuario";
-			this.lbl_nuevoUsuario.Size = new System.Drawing.Size(367, 27);
+			this.lbl_nuevoUsuario.Size = new System.Drawing.Size(384, 27);
 			this.lbl_nuevoUsuario.TabIndex = 8;
 			this.lbl_nuevoUsuario.Text = "¿Sos nuevo en la plataforma?";
 			// 

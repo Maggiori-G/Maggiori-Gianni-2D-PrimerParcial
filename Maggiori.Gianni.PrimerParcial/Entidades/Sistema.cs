@@ -30,6 +30,13 @@ namespace Entidades {
 			}
 			return retorno;
 		}
-		
+		public static bool AgregarNuevoUsuario(string nombre, string apellido, string nombreDeUsuario, string contraseña, string email, string dni) {
+			bool retorno=false;
+			if(!string.IsNullOrEmpty(nombre)&&!string.IsNullOrEmpty(apellido)&&!string.IsNullOrEmpty(nombreDeUsuario)&&!string.IsNullOrEmpty(contraseña)&&!string.IsNullOrEmpty(email)&&!string.IsNullOrEmpty(dni)) {
+				listaUsuarios.Add(new Usuario(nombre.Trim(), apellido.Trim(), nombreDeUsuario.Trim(), contraseña.Trim(), email.Trim(), dni.Trim()));
+				retorno=true;
+			}
+			return retorno;
+		}
 	}
 }

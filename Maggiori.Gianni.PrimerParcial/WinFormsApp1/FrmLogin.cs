@@ -41,9 +41,11 @@ namespace VistaAerolinea {
 		}
 		private void btn_nuevoUsuario_Click(object sender,EventArgs e) {
 			frmNuevoUsuario nuevoUsuario=new frmNuevoUsuario();
-			this.Hide();
-			nuevoUsuario.Show();
-
+			//this.Hide();
+			nuevoUsuario.ShowDialog();
+			if(nuevoUsuario.DialogResult==DialogResult.OK) {
+				this.Show();
+			}
 		}
 		internal static bool ValidarTextBox(Form form) {
 			bool retorno=true;
