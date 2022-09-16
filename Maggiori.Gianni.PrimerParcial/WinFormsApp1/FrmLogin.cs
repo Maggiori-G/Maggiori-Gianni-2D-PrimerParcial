@@ -20,8 +20,8 @@ namespace VistaAerolinea {
 			this.Close();
 		}
 		private void btn_iniciarSesion_Click(object sender,EventArgs e) {
-			Usuario usuarioParaVerificar=new Usuario(txt_usuario.Text.Trim(),txt_contraseña.Text.Trim());
-			if(ValidarTextBox(this)) {
+			Usuario usuarioParaVerificar=new Usuario(txt_usuario.Text.Trim(),txt_contraseña.Text.Trim(),"","","","","");
+			if(ControlVista.ValidarTextBox(this)) {
 				if(Sistema.ValidarDatosUsuarioExistente(usuarioParaVerificar)) {
 				frmPantallaPrincipal pantallaPrincipal=new frmPantallaPrincipal(usuarioParaVerificar);
 				pantallaPrincipal.Show();
@@ -36,26 +36,17 @@ namespace VistaAerolinea {
 			}
 		}
 		private void btn_autocompletar_Click(object sender,EventArgs e) {
-			this.txt_usuario.Text="admin";
-			this.txt_contraseña.Text="1234";
+			this.txt_usuario.Text="PepePeposo";
+			this.txt_contraseña.Text="pepe1";
 		}
 		private void btn_nuevoUsuario_Click(object sender,EventArgs e) {
-			frmNuevoUsuario nuevoUsuario=new frmNuevoUsuario();
-			//this.Hide();
-			nuevoUsuario.ShowDialog();
-			if(nuevoUsuario.DialogResult==DialogResult.OK) {
+			frmNuevoUsuario frmNuevoUsuario=new frmNuevoUsuario();
+			this.Hide();
+			frmNuevoUsuario.ShowDialog();
+			if(frmNuevoUsuario.DialogResult==DialogResult.OK) {
 				this.Show();
+				frmNuevoUsuario.Close();
 			}
-		}
-		internal static bool ValidarTextBox(Form form) {
-			bool retorno=true;
-			foreach(Control	control in form.Controls) {
-				if(control is TextBox && string.IsNullOrEmpty(control.Text)) {
-					retorno=false;
-					break;
-				}
-			}
-			return retorno;
 		}
 	}
 }

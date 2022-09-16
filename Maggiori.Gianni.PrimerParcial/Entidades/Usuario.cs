@@ -5,46 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Entidades {
-	public class Usuario {
-		private string nombre;
-		private string apellido;
+	public class Usuario:Persona {
+		
 		private string nombreDeUsuario;
 		private string contraseña;
-		private string email;
-		private string dni;
-		public Usuario(string nombreDeUsuario, string contraseña) {
+		
+		public Usuario(string nombreDeUsuario, string contraseña, string nombre, string apellido, string email, string dni, string numeroTelefono):base(nombre, apellido, email, dni, numeroTelefono) {
 			this.nombreDeUsuario = nombreDeUsuario;
 			this.contraseña=contraseña;
-		}
-		public Usuario(string nombre, string apellido, string nombreDeUsuario, string contraseña, string email, string dni):this(nombreDeUsuario,contraseña) {
-			this.nombre = nombre;
-			this.apellido = apellido;
-			this.email=email;
-			this.dni=dni;
-		}
-		public string Nombre {
-			get {
-				return this.nombre;
-			}
-		}
-		public string Apellido {
-			get {
-				return this.apellido;
-			}
-		}
+		}		
 		public string NombreDeUsuario {
 			get {
 				return this.nombreDeUsuario;	
-			}
-		}
-		public string Email {
-			get {
-				return this.email;
-			}
-		}
-		public string Dni {
-			get {
-				return this.dni;
 			}
 		}
 		internal string Contraseña {
@@ -60,7 +32,7 @@ namespace Entidades {
 			return usuario1 is not null && this==usuario1;
 		}
 		public override int GetHashCode() {
-			return HashCode.Combine(nombre,apellido,nombreDeUsuario,contraseña);
+			return HashCode.Combine(nombreDeUsuario,contraseña);
 		}
 		public static bool operator ==(Usuario u1, Usuario u2) {
 			return u1 is not null && u2 is not null &&  u1.nombreDeUsuario==u2.nombreDeUsuario && u1.contraseña==u2.contraseña;

@@ -19,8 +19,8 @@ namespace VistaAerolinea {
 			
 		}
 		private void btn_confirmar_Click(object sender,EventArgs e) {
-			if(frmLogin.ValidarTextBox(this)) {
-				if(Sistema.AgregarNuevoUsuario(txt_nombre.Text,txt_apellido.Text,txt_nombreUsuario.Text,txt_contraseña.Text,txt_email.Text,txt_dni.Text)) {
+			if(ControlVista.ValidarTextBox(this)) {
+				if(Sistema.AgregarNuevoUsuario(txt_nombre.Text,txt_apellido.Text,txt_nombreUsuario.Text,txt_contraseña.Text,txt_email.Text,txt_dni.Text, txt_numeroTelefono.Text)) {
 					this.DialogResult = DialogResult.OK;
 				}
 			}
