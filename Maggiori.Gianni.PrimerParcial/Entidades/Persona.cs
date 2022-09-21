@@ -9,13 +9,15 @@ namespace Entidades {
 
 		protected string nombre;
 		protected string apellido;
+		protected string edad;
 		protected string email;
 		protected string dni;
-		protected string numeroTelefono;
-		
-		protected Persona(string nombre,string apellido,string email,string dni, string numeroTelefono) {
+		private string numeroTelefono;
+
+		public Persona(string nombre,string apellido,string edad,string email,string dni, string numeroTelefono) {
 			this.nombre=nombre;
 			this.apellido=apellido;
+			this.edad=edad;
 			this.email=email;
 			this.dni=dni;
 			this.numeroTelefono=numeroTelefono;
@@ -38,6 +40,17 @@ namespace Entidades {
 		public string Dni {
 			get {
 				return this.dni;
+			}
+		}
+
+		public string NumeroTelefono {
+			get {
+				return this.numeroTelefono;
+			}
+		}
+		public string Edad {
+			get {
+				return this.edad;
 			}
 		}
 	}

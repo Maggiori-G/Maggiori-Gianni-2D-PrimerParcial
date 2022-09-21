@@ -41,12 +41,14 @@
 			this.lbl_titulo = new System.Windows.Forms.Label();
 			this.txt_numeroTelefono = new System.Windows.Forms.TextBox();
 			this.lbl_numeroTelefono = new System.Windows.Forms.Label();
+			this.lbl_edad = new System.Windows.Forms.Label();
+			this.txt_edad = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
 			// btn_confirmar
 			// 
 			this.btn_confirmar.Font = new System.Drawing.Font("Lucida Fax", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			this.btn_confirmar.Location = new System.Drawing.Point(102, 416);
+			this.btn_confirmar.Location = new System.Drawing.Point(101, 449);
 			this.btn_confirmar.Name = "btn_confirmar";
 			this.btn_confirmar.Size = new System.Drawing.Size(118, 32);
 			this.btn_confirmar.TabIndex = 6;
@@ -57,7 +59,7 @@
 			// btn_cancelar
 			// 
 			this.btn_cancelar.Font = new System.Drawing.Font("Lucida Fax", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			this.btn_cancelar.Location = new System.Drawing.Point(226, 416);
+			this.btn_cancelar.Location = new System.Drawing.Point(225, 449);
 			this.btn_cancelar.Name = "btn_cancelar";
 			this.btn_cancelar.Size = new System.Drawing.Size(119, 32);
 			this.btn_cancelar.TabIndex = 7;
@@ -218,6 +220,26 @@
 			this.lbl_numeroTelefono.TabIndex = 16;
 			this.lbl_numeroTelefono.Text = "Telefono:";
 			// 
+			// lbl_edad
+			// 
+			this.lbl_edad.AutoSize = true;
+			this.lbl_edad.BackColor = System.Drawing.Color.Transparent;
+			this.lbl_edad.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+			this.lbl_edad.ForeColor = System.Drawing.SystemColors.Window;
+			this.lbl_edad.Location = new System.Drawing.Point(102, 379);
+			this.lbl_edad.Name = "lbl_edad";
+			this.lbl_edad.Size = new System.Drawing.Size(52, 18);
+			this.lbl_edad.TabIndex = 18;
+			this.lbl_edad.Text = "Edad:";
+			// 
+			// txt_edad
+			// 
+			this.txt_edad.Font = new System.Drawing.Font("Lucida Fax", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.txt_edad.Location = new System.Drawing.Point(103, 400);
+			this.txt_edad.Name = "txt_edad";
+			this.txt_edad.Size = new System.Drawing.Size(242, 23);
+			this.txt_edad.TabIndex = 7;
+			// 
 			// frmNuevoUsuario
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -226,6 +248,8 @@
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.ClientSize = new System.Drawing.Size(436, 493);
+			this.Controls.Add(this.lbl_edad);
+			this.Controls.Add(this.txt_edad);
 			this.Controls.Add(this.lbl_numeroTelefono);
 			this.Controls.Add(this.txt_numeroTelefono);
 			this.Controls.Add(this.lbl_titulo);
@@ -272,5 +296,7 @@
 		private Label lbl_titulo;
 		private TextBox txt_numeroTelefono;
 		private Label lbl_numeroTelefono;
+		private Label lbl_edad;
+		private TextBox txt_edad;
 	}
 }

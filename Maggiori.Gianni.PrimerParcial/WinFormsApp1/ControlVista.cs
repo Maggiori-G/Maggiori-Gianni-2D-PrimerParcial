@@ -15,5 +15,23 @@ namespace VistaAerolinea {
 			}
 			return true;
 		}
+		internal static void AbrirForm(Form formPadre, Form formHijo) {
+			if (Application.OpenForms[formHijo.GetType().Name] != null){
+                Application.OpenForms[formHijo.GetType().Name].Activate();
+            }
+            else{
+				formHijo.MdiParent = formPadre;
+                formHijo.Show();
+			}
+		}
+		internal static void Salir(Form formPadre) {
+            Form frm = formPadre.ActiveMdiChild;
+            if (frm != null){
+                frm.Close();
+            }
+            else{
+                Application.Exit();
+            }
+        }
 	}
 }

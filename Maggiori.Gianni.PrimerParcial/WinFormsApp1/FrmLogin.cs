@@ -20,19 +20,20 @@ namespace VistaAerolinea {
 			this.Close();
 		}
 		private void btn_iniciarSesion_Click(object sender,EventArgs e) {
-			Usuario usuarioParaVerificar=new Usuario(txt_usuario.Text.Trim(),txt_contraseña.Text.Trim(),"","","","","");
+			Usuario? usuarioIngresado;
 			if(ControlVista.ValidarTextBox(this)) {
-				if(Sistema.ValidarDatosUsuarioExistente(usuarioParaVerificar)) {
-				frmPantallaPrincipal pantallaPrincipal=new frmPantallaPrincipal(usuarioParaVerificar);
-				pantallaPrincipal.Show();
-				this.Hide();
+				usuarioIngresado=Sistema.ValidarDatosUsuarioExistente(txt_usuario.Text.Trim(),txt_contraseña.Text.Trim());
+				if(usuarioIngresado is not null) {
+					frmPantallaPrincipal pantallaPrincipal=new frmPantallaPrincipal(usuarioIngresado);
+					pantallaPrincipal.Show();
+					this.Hide();
 				}
 				else {
-					MessageBox.Show("Usuario o clave incorrecto");
+					MessageBox.Show("No se encontró el usuario");
 				}
 			}
 			else {
-				MessageBox.Show("Debe ingresar usuario y contraseña para poder iniciar sesión");
+				MessageBox.Show("Debe ingresar nombre de usuario y contraseña");
 			}
 		}
 		private void btn_autocompletar_Click(object sender,EventArgs e) {
@@ -40,12 +41,12 @@ namespace VistaAerolinea {
 			this.txt_contraseña.Text="pepe1";
 		}
 		private void btn_nuevoUsuario_Click(object sender,EventArgs e) {
-			frmNuevoUsuario frmNuevoUsuario=new frmNuevoUsuario();
+			frmNuevoUsuario nuevoUsuario=new frmNuevoUsuario();
 			this.Hide();
-			frmNuevoUsuario.ShowDialog();
-			if(frmNuevoUsuario.DialogResult==DialogResult.OK) {
+			nuevoUsuario.ShowDialog();
+			if(nuevoUsuario.DialogResult==DialogResult.OK) {
 				this.Show();
-				frmNuevoUsuario.Close();
+				nuevoUsuario.Close();
 			}
 		}
 	}
