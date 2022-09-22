@@ -32,6 +32,12 @@ namespace VistaAerolinea {
             else{
                 Application.Exit();
             }
+			//while(frm!=null) {
+			//	frm.Close();
+			//	frm = frm.ActiveMdiChild;
+			//}
+
+			//probar con un while
         }
 	}
 }

@@ -19,6 +19,5 @@ namespace Entidades {
 			this.pesoMaximo=pesoMaximo;
 			this.estaEnVuelo=estaEnVuelo;
 		}
-
 	}
 }

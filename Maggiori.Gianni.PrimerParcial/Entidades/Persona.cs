@@ -42,7 +42,6 @@ namespace Entidades {
 				return this.dni;
 			}
 		}
-
 		public string NumeroTelefono {
 			get {
 				return this.numeroTelefono;

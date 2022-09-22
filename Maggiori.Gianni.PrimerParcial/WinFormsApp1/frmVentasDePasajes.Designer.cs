@@ -29,23 +29,25 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(274, 237);
+			this.label1.Location = new System.Drawing.Point(391, 284);
+			this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(88, 15);
+			this.label1.Size = new System.Drawing.Size(134, 18);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "estoy en ventas";
 			// 
 			// frmVentasDePasajes
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(730, 541);
+			this.ClientSize = new System.Drawing.Size(855, 410);
 			this.Controls.Add(this.label1);
+			this.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.MaximizeBox = false;
-			this.MaximumSize = new System.Drawing.Size(730, 541);
-			this.MinimumSize = new System.Drawing.Size(730, 541);
 			this.Name = "frmVentasDePasajes";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "frmVentasDePasajes";
 			this.ResumeLayout(false);
 			this.PerformLayout();

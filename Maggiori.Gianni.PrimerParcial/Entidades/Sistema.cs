@@ -10,17 +10,30 @@ namespace Entidades {
 		private static List<Usuario> listaUsuarios;
 		private static List<Pasajero> listaPasajeros;
 		private static List<Avion> listaDeAviones;
+		private static Dictionary<int, Cliente> listaClientes;
 		static Sistema() {
 			listaUsuarios = new List<Usuario>();
 			listaPasajeros = new List<Pasajero>();
 			listaDeAviones= new List<Avion>();
+			listaClientes= new Dictionary<int, Cliente>();
 		}
 		public static List<Usuario> ListaUsuarios {
 			get {
 				return listaUsuarios;
 			}
 		}
+		public static void PrecargarClientes() {
 
+		}
+		public static void PrecargarAviones() {
+			Sistema.listaDeAviones.Add(new Avion("XT231JG", 400, 16, 50000, false));
+			Sistema.listaDeAviones.Add(new Avion("GH981AW", 200, 8, 15000, false));
+			Sistema.listaDeAviones.Add(new Avion("KJ765BN", 150, 5, 25000, false));
+			Sistema.listaDeAviones.Add(new Avion("MQ101HG", 180, 8, 35000, false));
+			Sistema.listaDeAviones.Add(new Avion("ZD438PO", 300, 12, 25000, false));
+			Sistema.listaDeAviones.Add(new Avion("SM754UG", 200, 8, 10000, false));
+			Sistema.listaDeAviones.Add(new Avion("LQ892NN", 370, 10, 40000, false));
+		}
 		public static void PrecargarUsuario() {
 			Sistema.listaUsuarios.Add(new Usuario("PepePeposo","pepe1","Lucas","Rodriguez","34","ejemplo@gmail.com","00.000.000","00-0000-0000"));
 			Sistema.listaUsuarios.Add(new Usuario("Tanito","maggiori2d","Gianni","Maggiori","30","taniitoo@gmail.com","94.270.046","11-5220-6650"));

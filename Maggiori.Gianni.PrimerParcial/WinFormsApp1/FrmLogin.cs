@@ -24,7 +24,7 @@ namespace VistaAerolinea {
 			if(ControlVista.ValidarTextBox(this)) {
 				usuarioIngresado=Sistema.ValidarDatosUsuarioExistente(txt_usuario.Text.Trim(),txt_contraseña.Text.Trim());
 				if(usuarioIngresado is not null) {
-					frmPantallaPrincipal pantallaPrincipal=new frmPantallaPrincipal(usuarioIngresado);
+					FrmPantallaPrincipal pantallaPrincipal=new FrmPantallaPrincipal(usuarioIngresado);
 					pantallaPrincipal.Show();
 					this.Hide();
 				}
