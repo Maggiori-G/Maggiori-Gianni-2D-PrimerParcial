@@ -7,11 +7,54 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Entidades;
 namespace VistaAerolinea {
 	public partial class FrmInformesClientes:Form {
 		public FrmInformesClientes() {
 			InitializeComponent();
+		}
+		private void FrmInformesClientes_Load(object sender,EventArgs e) {
+			Limpiar();
+		}
+		private void btn_limpiar_Click(object sender,EventArgs e) {
+			Limpiar();
+
+		}
+		private void Limpiar() {
+			txt_buscar.Text=string.Empty;
+			dgw1_dataClientes.DataSource=null;
+			dgw1_dataClientes.DataSource=Sistema.ListaClientes;
+		}
+		private void btn_nuevoCliente_Click(object sender,EventArgs e) {
+			FrmNuevoCliente frmNuevoCliente = new FrmNuevoCliente();
+			frmNuevoCliente.ShowDialog();
+			if(frmNuevoCliente.DialogResult==DialogResult.OK) {
+				if(frmNuevoCliente.NuevoCliente is not null) {
+					Sistema.ListaClientes.Add(frmNuevoCliente.NuevoCliente);
+					Limpiar();
+				}
+			}
+		}
+		private void btn_modificar_Click(object sender,EventArgs e) {
+			
+			FrmNuevoCliente frmNuevoCliente=new FrmNuevoCliente((Cliente)dgw1_dataClientes.CurrentRow.DataBoundItem);
+			frmNuevoCliente.ShowDialog();
+			if( frmNuevoCliente.DialogResult==DialogResult.OK) {
+				if(frmNuevoCliente.NuevoCliente is not null) {
+					int index=Sistema.ObtenerIndiceClientePorDni(frmNuevoCliente.NuevoCliente.Dni);
+					Sistema.ListaClientes[index]=frmNuevoCliente.NuevoCliente;
+					Limpiar();
+				}
+			}
+		}
+		private void txt_buscar_TextChanged(object sender,EventArgs e) {
+			List<Cliente> auxListaClientes = new List<Cliente>();
+			foreach(Cliente cliente in Sistema.ListaClientes) {
+				if(cliente.Dni.StartsWith(txt_buscar.Text)) {
+					auxListaClientes.Add(cliente);
+				}
+			}
+			dgw1_dataClientes.DataSource=auxListaClientes;
 		}
 	}
 }

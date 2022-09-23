@@ -15,6 +15,10 @@ namespace VistaAerolinea {
 			InitializeComponent();
 			this.IsMdiContainer=true;
 		}
+		private void FrmPantallaPrincipal_Load(object sender,EventArgs e) {
+			Sistema.PrecargarAviones();
+			Sistema.PrecargarClientes();
+		}
 
 		private void modificarUsuarioToolStripMenuItem_Click(object sender,EventArgs e) {
 			ControlVista.AbrirForm(this, new FrmModificarUsuario());
@@ -55,5 +59,6 @@ namespace VistaAerolinea {
 		private void salirToolStripMenuItem_Click(object sender,EventArgs e) {
 			ControlVista.Salir(this);
 		}
+
 	}
 }

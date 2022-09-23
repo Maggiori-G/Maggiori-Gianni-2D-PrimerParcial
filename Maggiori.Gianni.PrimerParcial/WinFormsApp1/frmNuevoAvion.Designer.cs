@@ -32,7 +32,7 @@
 			// button1
 			// 
 			this.button1.Location = new System.Drawing.Point(17, 14);
-			this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.button1.Margin = new System.Windows.Forms.Padding(4);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(107, 28);
 			this.button1.TabIndex = 1;
@@ -42,7 +42,7 @@
 			// button2
 			// 
 			this.button2.Location = new System.Drawing.Point(17, 607);
-			this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.button2.Margin = new System.Windows.Forms.Padding(4);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(107, 28);
 			this.button2.TabIndex = 2;
@@ -52,7 +52,7 @@
 			// button3
 			// 
 			this.button3.Location = new System.Drawing.Point(919, 14);
-			this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.button3.Margin = new System.Windows.Forms.Padding(4);
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(107, 28);
 			this.button3.TabIndex = 3;
@@ -62,7 +62,7 @@
 			// button4
 			// 
 			this.button4.Location = new System.Drawing.Point(919, 607);
-			this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.button4.Margin = new System.Windows.Forms.Padding(4);
 			this.button4.Name = "button4";
 			this.button4.Size = new System.Drawing.Size(107, 28);
 			this.button4.TabIndex = 4;
@@ -73,14 +73,14 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(855, 410);
+			this.ClientSize = new System.Drawing.Size(980, 525);
 			this.Controls.Add(this.button4);
 			this.Controls.Add(this.button3);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.button1);
 			this.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.Margin = new System.Windows.Forms.Padding(4);
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "frmNuevoAvion";
