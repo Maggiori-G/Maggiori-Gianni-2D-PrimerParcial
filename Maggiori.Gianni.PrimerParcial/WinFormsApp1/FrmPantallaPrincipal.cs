@@ -14,6 +14,8 @@ namespace VistaAerolinea {
 		public FrmPantallaPrincipal(Usuario usuario) {
 			InitializeComponent();
 			this.IsMdiContainer=true;
+			lbl_usuarioIngresado.Text=usuario.NombreDeUsuario;
+			lbl_fechaActual.Text=DateTime.Now.ToShortDateString();
 		}
 		private void FrmPantallaPrincipal_Load(object sender,EventArgs e) {
 			Sistema.PrecargarAviones();

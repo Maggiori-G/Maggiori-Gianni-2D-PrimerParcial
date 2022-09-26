@@ -41,13 +41,9 @@ namespace VistaAerolinea {
 			this.txt_contraseña.Text="pepe1";
 		}
 		private void btn_nuevoUsuario_Click(object sender,EventArgs e) {
-			frmNuevoUsuario nuevoUsuario=new frmNuevoUsuario();
 			this.Hide();
-			nuevoUsuario.ShowDialog();
-			if(nuevoUsuario.DialogResult==DialogResult.OK) {
-				this.Show();
-				nuevoUsuario.Close();
-			}
+			new frmNuevoUsuario().ShowDialog();
+			this.Show();
 		}
 	}
 }

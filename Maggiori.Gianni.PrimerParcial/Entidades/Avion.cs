@@ -7,17 +7,50 @@ using System.Threading.Tasks;
 namespace Entidades {
 	public class Avion {
 		private string patente;
-		private int capacidadDeAsientos;
+		private int capacidadMaximaDeAsientos;
 		private int cantidadDeBaños;
 		private double pesoMaximo;
 		private bool estaEnVuelo;
 
-		public Avion(string patente,int capacidadDeAsientos,int cantidadDeBaños,double pesoMaximo,bool estaEnVuelo) {
+		public Avion(string patente,int capacidadMaximaDeAsientos,int cantidadDeBaños,double pesoMaximo,bool estaEnVuelo) {
 			this.patente=patente;
-			this.capacidadDeAsientos=capacidadDeAsientos;
+			this.capacidadMaximaDeAsientos=capacidadMaximaDeAsientos;
 			this.cantidadDeBaños=cantidadDeBaños;
 			this.pesoMaximo=pesoMaximo;
 			this.estaEnVuelo=estaEnVuelo;
+		}
+
+		public string Patente {
+			get {
+				return patente;
+			}
+		}
+
+		public int CapacidadDeAsientos {
+			get {
+				return capacidadMaximaDeAsientos;
+			}
+		}
+
+		public int CantidadDeBaños {
+			get {
+				return cantidadDeBaños;
+			}
+		}
+
+		public double PesoMaximo {
+			get{
+				return pesoMaximo;
+			}
+		}
+
+		public string EstaEnVuelo {
+			get {
+				if(this.estaEnVuelo) {
+					return "Volando";
+				}
+				return "Aún no despegó";
+			}
 		}
 	}
 }

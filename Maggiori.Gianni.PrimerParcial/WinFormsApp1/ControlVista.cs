@@ -26,18 +26,13 @@ namespace VistaAerolinea {
 		}
 		internal static void Salir(Form formPadre) {
             Form frm = formPadre.ActiveMdiChild;
-            if (frm != null){
+			if (frm is not null){
                 frm.Close();
             }
             else{
                 Application.Exit();
             }
-			//while(frm!=null) {
-			//	frm.Close();
-			//	frm = frm.ActiveMdiChild;
-			//}
-
-			//probar con un while
+			
         }
 	}
 }

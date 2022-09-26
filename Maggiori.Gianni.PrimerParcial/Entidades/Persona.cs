@@ -26,30 +26,60 @@ namespace Entidades {
 			get {
 				return this.nombre;
 			}
+			set {
+				if(!string.IsNullOrEmpty(value)) {
+					this.nombre = value;
+				}
+			}
 		}
 		public string Apellido {
 			get {
 				return this.apellido;
+			}
+			set {
+				if(!string.IsNullOrEmpty(value)) {
+					this.apellido = value;
+				}
 			}
 		}
 		public string Email {
 			get {
 				return this.email;
 			}
+			set {
+				if(!string.IsNullOrEmpty(value)) {
+					this.email=value;
+				}
+			}
 		}
 		public string Dni {
 			get {
 				return this.dni;
+			}
+			set {
+				if(!string.IsNullOrEmpty(value)) {
+					this.dni=value;
+				}
 			}
 		}
 		public string NumeroTelefono {
 			get {
 				return this.numeroTelefono;
 			}
+			set {
+				if(!string.IsNullOrEmpty(value)) {
+					this.numeroTelefono=value;
+				}
+			}
 		}
 		public string Edad {
 			get {
 				return this.edad;
+			}
+			set {
+				if(!string.IsNullOrEmpty(value)) {
+					this.edad=value;
+				}
 			}
 		}
 	}

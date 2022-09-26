@@ -29,6 +29,12 @@ namespace Entidades {
 			}
 		}
 
+		public static List<Avion> ListaDeAviones {
+			get {
+				return listaDeAviones;
+			}
+		}
+
 		public static void PrecargarClientes() {
 			listaClientes.Add(new Cliente("Brana","Fayers","49","bfayers0@columbia.edu","10.019.212","04-5115-6916"));
 			listaClientes.Add(new Cliente("Abel","Goodridge","88","agoodridge1@meetup.com","93.306.584","82-6598-8509"));
@@ -1033,11 +1039,11 @@ namespace Entidades {
 		}
 		public static void PrecargarAviones() {
 			Sistema.listaDeAviones.Add(new Avion("XT2315JG", 400, 16, 50000, false));
-			Sistema.listaDeAviones.Add(new Avion("GH9812AW", 200, 8, 15000, false));
+			Sistema.listaDeAviones.Add(new Avion("GH9812AW", 200, 8, 15000, true));
 			Sistema.listaDeAviones.Add(new Avion("KJ7658BN", 150, 5, 25000, false));
-			Sistema.listaDeAviones.Add(new Avion("MQ1011HG", 180, 8, 35000, false));
+			Sistema.listaDeAviones.Add(new Avion("MQ1011HG", 180, 8, 35000, true));
 			Sistema.listaDeAviones.Add(new Avion("ZD4389PO", 300, 12, 25000, false));
-			Sistema.listaDeAviones.Add(new Avion("SM7543UG", 200, 8, 10000, false));
+			Sistema.listaDeAviones.Add(new Avion("SM7543UG", 200, 8, 10000, true));
 			Sistema.listaDeAviones.Add(new Avion("LQ8925NN", 370, 10, 40000, false));
 		}
 		public static void PrecargarUsuario() {
@@ -1071,6 +1077,14 @@ namespace Entidades {
 				}
 			}
 			return -1;
+		}
+		public static Avion? EncontrarAvionPorPatente(string patente) {
+			foreach(Avion item in Sistema.listaDeAviones) {
+				if(item.Patente ==patente) {
+					return item;
+				}
+			}
+			return null;
 		}
 	}	
 }

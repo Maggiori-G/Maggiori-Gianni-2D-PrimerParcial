@@ -56,5 +56,14 @@ namespace VistaAerolinea {
 			}
 			dgw1_dataClientes.DataSource=auxListaClientes;
 		}
+
+		private void btn_eliminarCliente_Click(object sender,EventArgs e) {
+			Cliente? auxCliente = dgw1_dataClientes.CurrentRow.DataBoundItem as Cliente;
+			if(auxCliente is not null) {
+				MessageBox.Show($"Se eliminó a {auxCliente.Nombre}, {auxCliente.Apellido} con DNI: {auxCliente.Dni}");
+				Sistema.ListaClientes.Remove(auxCliente);
+				Limpiar();
+			}
+		}
 	}
 }
