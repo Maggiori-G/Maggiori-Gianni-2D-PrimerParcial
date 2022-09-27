@@ -36,6 +36,5 @@ namespace VistaAerolinea {
 				lbl_mostrarCantidadBaños.Text=avionMostrar.CantidadDeBaños.ToString();
 			}
 		}
-
 	}
 }

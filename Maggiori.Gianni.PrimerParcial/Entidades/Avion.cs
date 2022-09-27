@@ -11,13 +11,15 @@ namespace Entidades {
 		private int cantidadDeBaños;
 		private double pesoMaximo;
 		private bool estaEnVuelo;
-
-		public Avion(string patente,int capacidadMaximaDeAsientos,int cantidadDeBaños,double pesoMaximo,bool estaEnVuelo) {
+		private int cantidadHorasDeVuelo;
+		
+		public Avion(string patente,int capacidadMaximaDeAsientos,int cantidadDeBaños,double pesoMaximo,bool estaEnVuelo, int cantidadHorasDeVuelo) {
 			this.patente=patente;
 			this.capacidadMaximaDeAsientos=capacidadMaximaDeAsientos;
 			this.cantidadDeBaños=cantidadDeBaños;
 			this.pesoMaximo=pesoMaximo;
 			this.estaEnVuelo=estaEnVuelo;
+			this.cantidadHorasDeVuelo=cantidadHorasDeVuelo;
 		}
 
 		public string Patente {

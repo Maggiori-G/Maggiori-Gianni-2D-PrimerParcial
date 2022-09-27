@@ -42,6 +42,7 @@
 			this.lbl_usuarioIngresado = new System.Windows.Forms.Label();
 			this.lbl_nombreUsuario = new System.Windows.Forms.Label();
 			this.lbl_fechaActual = new System.Windows.Forms.Label();
+			this.datosDeRecaudaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			menuStrip1 = new System.Windows.Forms.MenuStrip();
 			menuStrip1.SuspendLayout();
 			this.SuspendLayout();
@@ -80,7 +81,7 @@
 			this.informaciónVuelosToolStripMenuItem.Name = "informaciónVuelosToolStripMenuItem";
 			this.informaciónVuelosToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
 			this.informaciónVuelosToolStripMenuItem.Text = "Vuelos";
-			this.informaciónVuelosToolStripMenuItem.Click += new System.EventHandler(this.informaciónVuelosToolStripMenuItem_Click);
+			this.informaciónVuelosToolStripMenuItem.Click += new System.EventHandler(this.informaciónVuelosToolStripMenuItem_Click_1);
 			// 
 			// informaciónAvionesToolStripMenuItem
 			// 
@@ -124,23 +125,24 @@
 			// 
 			this.añadirAvionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevoAvionToolStripMenuItem,
-            this.modificarAvionToolStripMenuItem});
+            this.modificarAvionToolStripMenuItem,
+            this.datosDeRecaudaciónToolStripMenuItem});
 			this.añadirAvionToolStripMenuItem.ForeColor = System.Drawing.Color.MidnightBlue;
 			this.añadirAvionToolStripMenuItem.Name = "añadirAvionToolStripMenuItem";
-			this.añadirAvionToolStripMenuItem.Size = new System.Drawing.Size(84, 22);
-			this.añadirAvionToolStripMenuItem.Text = "Aviones";
+			this.añadirAvionToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
+			this.añadirAvionToolStripMenuItem.Text = "Aerolinea";
 			// 
 			// nuevoAvionToolStripMenuItem
 			// 
 			this.nuevoAvionToolStripMenuItem.Name = "nuevoAvionToolStripMenuItem";
-			this.nuevoAvionToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+			this.nuevoAvionToolStripMenuItem.Size = new System.Drawing.Size(255, 22);
 			this.nuevoAvionToolStripMenuItem.Text = "Nuevo Avion";
 			this.nuevoAvionToolStripMenuItem.Click += new System.EventHandler(this.nuevoAvionToolStripMenuItem_Click);
 			// 
 			// modificarAvionToolStripMenuItem
 			// 
 			this.modificarAvionToolStripMenuItem.Name = "modificarAvionToolStripMenuItem";
-			this.modificarAvionToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+			this.modificarAvionToolStripMenuItem.Size = new System.Drawing.Size(255, 22);
 			this.modificarAvionToolStripMenuItem.Text = "Modificar Avion";
 			this.modificarAvionToolStripMenuItem.Click += new System.EventHandler(this.modificarAvionToolStripMenuItem_Click);
 			// 
@@ -213,6 +215,12 @@
 			this.lbl_fechaActual.TabIndex = 4;
 			this.lbl_fechaActual.Text = "label1";
 			// 
+			// datosDeRecaudaciónToolStripMenuItem
+			// 
+			this.datosDeRecaudaciónToolStripMenuItem.Name = "datosDeRecaudaciónToolStripMenuItem";
+			this.datosDeRecaudaciónToolStripMenuItem.Size = new System.Drawing.Size(255, 22);
+			this.datosDeRecaudaciónToolStripMenuItem.Text = "Datos de Recaudación";
+			// 
 			// FrmPantallaPrincipal
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
@@ -260,5 +268,6 @@
 		private Label lbl_usuarioIngresado;
 		private Label lbl_nombreUsuario;
 		private Label lbl_fechaActual;
+		private ToolStripMenuItem datosDeRecaudaciónToolStripMenuItem;
 	}
 }

@@ -1,25 +1,5 @@
 ﻿namespace Entidades {
-	public enum Destinos {
-		Santa_Rosa,
-		Bariloche,
-		Corrientes,
-		Córdoba,
-		Jujuy,
-		Mendoza,
-		Neuquén,
-		Posadas,
-		Iguazú,
-		Salta,
-		Santiago_Del_Estero,
-		Trelew,
-		Tucumán,
-		Puerto_Madryn,
-		Ushuaia,
-		Recife,
-		Roma,
-		Acapulco,
-		Miami
-	}
+	
 	public class Pasajero:Cliente {
 		
 		private string codigoTicket;

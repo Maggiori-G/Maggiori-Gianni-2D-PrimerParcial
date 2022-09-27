@@ -30,7 +30,8 @@ namespace VistaAerolinea {
 
 		}
 
-		private void informaciónVuelosToolStripMenuItem_Click(object sender,EventArgs e) {
+		
+		private void informaciónVuelosToolStripMenuItem_Click_1(object sender,EventArgs e) {
 			ControlVista.AbrirForm(this, new FrmInformesVuelo());
 		}
 

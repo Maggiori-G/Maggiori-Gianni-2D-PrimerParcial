@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Runtime.Intrinsics.X86;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,10 +13,15 @@ namespace Entidades {
 		private static List<Usuario> listaUsuarios;
 		private static List<Avion> listaDeAviones;
 		private static List<Cliente> listaClientes;
+		private static List<Vuelo> listaVuelos;
+		private static List<string> listaDestinos;
+		//private static Dictionary<Avion, List<Vuelo>> listaDeVuelos;
 		static Sistema() {
 			listaUsuarios = new List<Usuario>();
 			listaDeAviones= new List<Avion>();
 			listaClientes= new List<Cliente>();
+			listaVuelos= new List<Vuelo>();
+			listaDestinos= CargarDestinos();
 		}
 		public static List<Usuario> ListaUsuarios {
 			get {
@@ -35,6 +41,16 @@ namespace Entidades {
 			}
 		}
 
+		public static List<Vuelo> ListaDeVuelos {
+			get {
+				return ListaDeVuelos;
+			}
+		}
+		public static List<string> CargarDestinos() {
+			return new List<string>(){
+				"Santa Rosa","Bariloche","Corrientes","Córdoba","Jujuy","Mendoza","Neuquén","Posadas","Iguazú","Salta","Santiago del Estero","Trelew","Tucumán","Puerto Madryn","Ushuaia" 
+				};
+		}
 		public static void PrecargarClientes() {
 			listaClientes.Add(new Cliente("Brana","Fayers","49","bfayers0@columbia.edu","10.019.212","04-5115-6916"));
 			listaClientes.Add(new Cliente("Abel","Goodridge","88","agoodridge1@meetup.com","93.306.584","82-6598-8509"));
@@ -1038,13 +1054,13 @@ namespace Entidades {
 			listaClientes.Add(new Cliente("Carri","Rotherham","60","crotherhamrr@redcross.org","16.471.588","63-3782-4247"));
 		}
 		public static void PrecargarAviones() {
-			Sistema.listaDeAviones.Add(new Avion("XT2315JG", 400, 16, 50000, false));
-			Sistema.listaDeAviones.Add(new Avion("GH9812AW", 200, 8, 15000, true));
-			Sistema.listaDeAviones.Add(new Avion("KJ7658BN", 150, 5, 25000, false));
-			Sistema.listaDeAviones.Add(new Avion("MQ1011HG", 180, 8, 35000, true));
-			Sistema.listaDeAviones.Add(new Avion("ZD4389PO", 300, 12, 25000, false));
-			Sistema.listaDeAviones.Add(new Avion("SM7543UG", 200, 8, 10000, true));
-			Sistema.listaDeAviones.Add(new Avion("LQ8925NN", 370, 10, 40000, false));
+			Sistema.listaDeAviones.Add(new Avion("XT2315JG", 400, 16, 50000, false, 14000));
+			Sistema.listaDeAviones.Add(new Avion("GH9812AW", 200, 8, 15000, true, 24000));
+			Sistema.listaDeAviones.Add(new Avion("KJ7658BN", 150, 5, 25000, false, 20000));
+			Sistema.listaDeAviones.Add(new Avion("MQ1011HG", 180, 8, 35000, true, 16000));
+			Sistema.listaDeAviones.Add(new Avion("ZD4389PO", 300, 12, 25000, false, 62000));
+			Sistema.listaDeAviones.Add(new Avion("SM7543UG", 200, 8, 10000, true, 51000));
+			Sistema.listaDeAviones.Add(new Avion("LQ8925NN", 370, 10, 40000, false, 63000));
 		}
 		public static void PrecargarUsuario() {
 			Sistema.listaUsuarios.Add(new Usuario("PepePeposo","pepe1","Lucas","Rodriguez","34","ejemplo@gmail.com","00.000.000","00-0000-0000"));
