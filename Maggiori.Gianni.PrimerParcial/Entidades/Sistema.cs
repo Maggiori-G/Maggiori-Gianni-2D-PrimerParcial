@@ -14,42 +14,76 @@ namespace Entidades {
 		private static List<Avion> listaDeAviones;
 		private static List<Cliente> listaClientes;
 		private static List<Vuelo> listaVuelos;
-		private static List<string> listaDestinos;
-		//private static Dictionary<Avion, List<Vuelo>> listaDeVuelos;
+		private static Dictionary<string, bool> diccionarioDestinos;
+		
 		static Sistema() {
 			listaUsuarios = new List<Usuario>();
 			listaDeAviones= new List<Avion>();
 			listaClientes= new List<Cliente>();
 			listaVuelos= new List<Vuelo>();
-			listaDestinos= CargarDestinos();
+			diccionarioDestinos=CargarDiccionarioDeDestinos(CargarTodosLosDestinos());
 		}
 		public static List<Usuario> ListaUsuarios {
 			get {
 				return listaUsuarios;
 			}
 		}
-
 		public static List<Cliente> ListaClientes {
 			get {
 				return listaClientes;
 			}
 		}
-
 		public static List<Avion> ListaDeAviones {
 			get {
 				return listaDeAviones;
 			}
 		}
-
 		public static List<Vuelo> ListaDeVuelos {
 			get {
 				return ListaDeVuelos;
 			}
 		}
-		public static List<string> CargarDestinos() {
-			return new List<string>(){
-				"Santa Rosa","Bariloche","Corrientes","Córdoba","Jujuy","Mendoza","Neuquén","Posadas","Iguazú","Salta","Santiago del Estero","Trelew","Tucumán","Puerto Madryn","Ushuaia" 
-				};
+
+		public static Dictionary<string,bool> DiccionarioDestinos {
+			get {
+				return diccionarioDestinos;
+			}
+		}
+
+		public static void PrecargarPasajeros() {
+
+
+
+
+
+
+
+
+
+		}
+		public static List<Destino> CargarTodosLosDestinos() {
+			return new List<Destino>(){
+				new Destino("Recife (Brasil)",true),
+				new Destino("Roma (Italia)",true),
+				new Destino("Acapulco (México)",true),
+				new Destino("Miami (EEUU)",true),
+				new Destino("Buenos Aires", false),
+				new Destino("Santa Rosa", false),
+				new Destino("Bariloche", false),
+				new Destino("Corrientes", false),
+				new Destino("Córdoba", false),
+				new Destino("Jujuy", false),
+				new Destino("Mendoza", false),
+				new Destino("Neuquén", false),
+				new Destino("Posadas", false),
+				new Destino("Iguazú", false),
+				new Destino("Salta", false),
+				new Destino("Santiago del Estero", false),
+				new Destino("Trelew", false),
+				new Destino("Tucumán", false),
+				new Destino("Puerto Madryn", false),
+				new Destino("Ushuaia", false)
+			};	
 		}
 		public static void PrecargarClientes() {
 			listaClientes.Add(new Cliente("Brana","Fayers","49","bfayers0@columbia.edu","10.019.212","04-5115-6916"));
@@ -1057,10 +1091,10 @@ namespace Entidades {
 			Sistema.listaDeAviones.Add(new Avion("XT2315JG", 400, 16, 50000, false, 14000));
 			Sistema.listaDeAviones.Add(new Avion("GH9812AW", 200, 8, 15000, true, 24000));
 			Sistema.listaDeAviones.Add(new Avion("KJ7658BN", 150, 5, 25000, false, 20000));
-			Sistema.listaDeAviones.Add(new Avion("MQ1011HG", 180, 8, 35000, true, 16000));
+			Sistema.listaDeAviones.Add(new Avion("MQ1011HG", 200, 8, 35000, true, 16000));
 			Sistema.listaDeAviones.Add(new Avion("ZD4389PO", 300, 12, 25000, false, 62000));
 			Sistema.listaDeAviones.Add(new Avion("SM7543UG", 200, 8, 10000, true, 51000));
-			Sistema.listaDeAviones.Add(new Avion("LQ8925NN", 370, 10, 40000, false, 63000));
+			Sistema.listaDeAviones.Add(new Avion("LQ8925NN", 400, 10, 40000, false, 63000));
 		}
 		public static void PrecargarUsuario() {
 			Sistema.listaUsuarios.Add(new Usuario("PepePeposo","pepe1","Lucas","Rodriguez","34","ejemplo@gmail.com","00.000.000","00-0000-0000"));
@@ -1101,6 +1135,41 @@ namespace Entidades {
 				}
 			}
 			return null;
+		}
+		public static Dictionary<string, bool> CargarDiccionarioDeDestinos(List<Destino> listaDestino) {
+			Dictionary<string, bool> dic = new Dictionary<string, bool>();
+			foreach(Destino item in listaDestino) {
+				dic.Add(item.Ciudad,item.EsInternacional);
+			}
+			return dic;
+		}
+		public static bool EsInternacional(string destino) {
+			foreach(KeyValuePair<string,bool> item in diccionarioDestinos) {
+				if(item.Key==destino) {
+					return item.Value;
+				}
+			}
+			return false;
+		}
+		public static List<Vuelo> BuscarVuelo(string origen, string destino, int cantidadTickets, bool primeraClase) {
+			List<Vuelo> lista = new List<Vuelo>();
+			if(origen is not null && destino is not null && cantidadTickets>0) {
+				foreach(Vuelo item in Sistema.listaVuelos) {
+					if(item.DestinoDeSalida==origen && item.DestinoDeLlegada==destino) {
+						if(primeraClase) {
+							if(item.Avion.AsientosPrimerClase>=cantidadTickets) {
+								lista.Add(item);
+							}
+						}
+						else {
+							if(item.Avion.AsientosComercial>=cantidadTickets) {
+								lista.Add(item);
+							}
+						}
+					}
+				}
+			}
+			return lista;
 		}
 	}	
 }

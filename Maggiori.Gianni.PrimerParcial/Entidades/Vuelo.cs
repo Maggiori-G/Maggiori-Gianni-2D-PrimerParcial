@@ -5,29 +5,52 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Entidades {
+	public enum Comida {
+		Refrigerio,
+		Vegana,
+		Sin_TACC,
+		Pollo,
+		Carne
+	}
 	public class Vuelo {
 		private Avion avion;
 		private List<Pasajero> pasajerosAbordo;
-		private List<string> destino;
-		private DateTime horaDeSalida;
-		private DateTime horaDeLlegada;
-		private decimal precioVuelo;
-		private bool tieneWifi;
-		private bool tieneComida;
+		private string destinoDeSalida;
+		private string destinoDeLlegada;
+		private double precioVuelo;
 
-		public Vuelo(Avion avion,List<Pasajero> pasajerosAbordo,List<string> destino,DateTime horaDeSalida,DateTime horaDeLlegada, decimal precioVuelo) {
+		public Vuelo(Avion avion,List<Pasajero> pasajerosAbordo,string destinoDeSalida,string destinoDeLlegada) {
 			this.avion=avion;
 			this.pasajerosAbordo=pasajerosAbordo;
-			this.destino=destino;
-			this.horaDeSalida=horaDeSalida;
-			this.horaDeLlegada=horaDeLlegada;
-			this.precioVuelo=precioVuelo;
+			this.destinoDeSalida=destinoDeSalida;
+			this.destinoDeLlegada=destinoDeLlegada;
+			//aca va calcular precio;
 		}
-		public Vuelo(Avion avion,List<Pasajero> pasajerosAbordo,List<string> destino,DateTime horaDeSalida,DateTime horaDeLlegada, decimal precioVuelo, bool comida, bool tieneWifi)
-			:this (avion,pasajerosAbordo,destino,horaDeSalida,horaDeLlegada,precioVuelo){
-			this.tieneComida=comida;
-			this.tieneWifi=tieneWifi;
+
+		public Avion Avion {
+			get {
+				return avion;
+			}
 		}
-		
+		public List<Pasajero> PasajerosAbordo {
+			get {
+				return pasajerosAbordo;
+			}
+		}
+		public string DestinoDeSalida {
+			get {
+				return destinoDeSalida;
+			}
+		}
+		public string DestinoDeLlegada {
+			get {
+				return destinoDeLlegada;
+			}
+		}
+		public double PrecioVuelo {
+			get {
+				return precioVuelo;
+			}
+		}
 	}
 }
