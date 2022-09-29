@@ -14,42 +14,57 @@ namespace Entidades {
 	}
 	public class Vuelo {
 		private Avion avion;
-		private List<Pasajero> pasajerosAbordo;
-		private string destinoDeSalida;
-		private string destinoDeLlegada;
+		private List<Pasajero>? pasajerosAbordo;
+		private string? destinoDeSalida;
+		private string? destinoDeLlegada;
 		private double precioVuelo;
+		private DateTime fechaSalida;
 
-		public Vuelo(Avion avion,List<Pasajero> pasajerosAbordo,string destinoDeSalida,string destinoDeLlegada) {
+		private Vuelo() {
+			this.pasajerosAbordo = new List<Pasajero>();
+		}
+		public Vuelo(Avion avion,string destinoDeSalida,string destinoDeLlegada, DateTime fechaSalida):this() {
 			this.avion=avion;
-			this.pasajerosAbordo=pasajerosAbordo;
 			this.destinoDeSalida=destinoDeSalida;
 			this.destinoDeLlegada=destinoDeLlegada;
+			this.fechaSalida=fechaSalida;
 			//aca va calcular precio;
 		}
 
 		public Avion Avion {
 			get {
-				return avion;
+				return this.avion;
+			}
+		}
+		public string PatenteAvion {
+			get {
+				return this.avion.Patente;
 			}
 		}
 		public List<Pasajero> PasajerosAbordo {
 			get {
-				return pasajerosAbordo;
+				return this.pasajerosAbordo;
 			}
 		}
 		public string DestinoDeSalida {
 			get {
-				return destinoDeSalida;
+				return this.destinoDeSalida;
 			}
 		}
 		public string DestinoDeLlegada {
 			get {
-				return destinoDeLlegada;
+				return this.destinoDeLlegada;
 			}
 		}
 		public double PrecioVuelo {
 			get {
 				return precioVuelo;
+			}
+		}
+
+		public DateTime FechaSalida {
+			get {
+				return fechaSalida;
 			}
 		}
 	}

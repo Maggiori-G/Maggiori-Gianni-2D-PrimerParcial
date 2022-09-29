@@ -14,8 +14,7 @@ namespace VistaAerolinea {
 			InitializeComponent();
 		}
 		private void frmVentasDePasajes_Load(object sender,EventArgs e) {
-			CargarCMB(cmb_origen,Sistema.DiccionarioDestinos, true);
-			cmb_comidas.Visible=false;
+			CargarCMB(cmb_origen,Sistema.DiccionarioDestinos, true);	
 		}
 		private void cmb_origen_SelectedIndexChanged(object sender,EventArgs e) {
 			if(cmb_origen.SelectedItem.ToString()=="Buenos Aires") {
@@ -51,24 +50,19 @@ namespace VistaAerolinea {
 		private void btn_buscarVuelo_Click(object sender,EventArgs e) {
 			if(Sistema.BuscarVuelo(cmb_origen.Text,cmb_destino.Text,(int)nud_asientos.Value,rdb_ejecutiva.Checked).Count>0) {
 				dgw_vuelosDisponibles.DataSource=Sistema.BuscarVuelo(cmb_origen.Text,cmb_destino.Text,(int)nud_asientos.Value,rdb_ejecutiva.Checked);
+				dgw_vuelosDisponibles.Columns["Avion"].Visible=false;
 			}
-			else {
-				MessageBox.Show("Puto");
-			}
+			
 		}
 
-		private void chk_comida_CheckedChanged(object sender,EventArgs e) {
-			if(chk_comida.Checked) {
-				cmb_comidas.Visible=true;
-				cmb_comidas.DataSource = Enum.GetValues(typeof(Comida));
-				//levanta el contenido del combo box -> Enum.TryParse<Comida>(cmb_comidas.SelectedValue.ToString(), out Comida comidaSeleccionada);
-			}
-			else {
-				cmb_comidas.Visible=false;
-			}
-		}
+		
 		private void dgw_vuelosDisponibles_CellContentClick(object sender,DataGridViewCellEventArgs e) {
-			//disparar el form para seleccionar el/los clientes asociados al vuelo
+			int cantidadMaximaTickets=(int)nud_asientos.Value;
+			Vuelo vuelo=(Vuelo)dgw_vuelosDisponibles.CurrentRow.DataBoundItem;
+			bool esPremium=rdb_ejecutiva.Checked;
+			DateTime fecha= dtp_fechaSalida.Value;
+			new FrmSeleccionarClientePasajero(vuelo, cantidadMaximaTickets, esPremium, fecha ).ShowDialog();
+			
 		}
 	}
 }

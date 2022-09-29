@@ -22,6 +22,9 @@ namespace Entidades {
 			listaClientes= new List<Cliente>();
 			listaVuelos= new List<Vuelo>();
 			diccionarioDestinos=CargarDiccionarioDeDestinos(CargarTodosLosDestinos());
+			Sistema.PrecargarAviones();
+			Sistema.PrecargarVuelos();
+			PrecargarClientes();
 		}
 		public static List<Usuario> ListaUsuarios {
 			get {
@@ -40,26 +43,13 @@ namespace Entidades {
 		}
 		public static List<Vuelo> ListaDeVuelos {
 			get {
-				return ListaDeVuelos;
+				return listaVuelos;
 			}
 		}
-
 		public static Dictionary<string,bool> DiccionarioDestinos {
 			get {
 				return diccionarioDestinos;
 			}
-		}
-
-		public static void PrecargarPasajeros() {
-
-
-
-
-
-
-
-
-
 		}
 		public static List<Destino> CargarTodosLosDestinos() {
 			return new List<Destino>(){
@@ -1103,6 +1093,17 @@ namespace Entidades {
 			Sistema.listaUsuarios.Add(new Usuario("May","magia2008","Mayra","Maestu","28","mayra@estonoesunmail.com","37.788.155","11-3139-8410"));
 			Sistema.listaUsuarios.Add(new Usuario("ezetabo","123contraseñajaja","Ezequiel","Taboada","42","estemailtampocoesreal@nomail.com","34.159.159","11-5555-9455"));
 		}
+		public static void PrecargarVuelos() {
+			Random numeroRandom = new Random();
+			int numeroMaximoLista=listaDeAviones.Count;
+			int numeroRandomPosicion=numeroRandom.Next(0, numeroMaximoLista);
+			DateTime fechaSalida= DateTime.Now;
+			//List<KeyValuePair<string,bool>> destinos=diccionarioDestinos.ToList();
+			//int maximoDiccionarioDestinos=destinos.Count;
+			//int indiceDestinosRandom= numeroRandom.Next(0,maximoDiccionarioDestinos);
+			listaVuelos.Add(new Vuelo(listaDeAviones[numeroRandomPosicion],"Buenos Aires", "Recife (Brasil)", fechaSalida));
+			listaVuelos.Add(new Vuelo(listaDeAviones[numeroRandomPosicion],"Buenos Aires", "Roma (Italia)", fechaSalida));
+		}
 		public static Usuario? ValidarDatosUsuarioExistente(string nombreDeUsuario, string contraseña) {
 			if(nombreDeUsuario is not null && contraseña is not null) {
 				foreach(Usuario item in listaUsuarios) {
@@ -1170,6 +1171,59 @@ namespace Entidades {
 				}
 			}
 			return lista;
+		}
+
+		public static bool BuscarClienteEnPasajeros(Cliente cliente, List<Pasajero> listaCliente) {
+			if(cliente is not null && listaCliente is not null) {
+				foreach(Pasajero item in listaCliente) {
+					if(item.Dni==cliente.Dni) {
+						return true;
+					}
+				}
+			}
+			return false;
+		}
+		public static string GenerarCodigoTicket() {
+			string caracteresPermitidos = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            Char[] ticket = new char[8];
+            Random random = new Random();
+            for (int i = 0; i < ticket.Length; i++){
+                ticket[i] = caracteresPermitidos[random.Next(caracteresPermitidos.Length)];
+            }
+            string resultString = new String(ticket);
+			return resultString;
+		}
+
+		public static void CargarPasajeroAlVuelo(Vuelo vuelo, Pasajero pasajero) {
+			if (pasajero is not null && vuelo is not null) {
+				vuelo.PasajerosAbordo.Add(pasajero);
+			}
+		}
+
+		public static double CalcularPesoValijas(bool esPremium) {
+			Random random = new Random();
+			double peso;
+			if(esPremium) {
+				return peso=random.Next(1,42);
+			}
+			else {
+				return peso=random.Next(1,25);
+			}
+		}
+		public static string MostrarDatosEquipajeReportado(bool tieneBolsoDeMano, bool esPrimeraClase, double pesoValijas) {
+			StringBuilder sb= new StringBuilder();
+			
+			if(tieneBolsoDeMano && esPrimeraClase) {
+				sb.AppendLine($"Tiene bolso de mano,");
+				sb.AppendLine($"y reportó {pesoValijas} Kg's");
+				sb.AppendLine($"de equipaje");
+			}
+			else {
+				sb.AppendLine($"No tiene bolso de mano,");
+				sb.AppendLine($"y reportó {pesoValijas} Kg's");
+				sb.AppendLine($"de equipaje");
+			}
+			return sb.ToString();
 		}
 	}	
 }

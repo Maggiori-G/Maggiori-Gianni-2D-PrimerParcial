@@ -31,6 +31,7 @@
 			this.btn_nuevoCliente = new System.Windows.Forms.Button();
 			this.btn_eliminarCliente = new System.Windows.Forms.Button();
 			this.btn_modificar = new System.Windows.Forms.Button();
+			this.btn_seleccionarCliente = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dgw1_dataClientes)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -117,12 +118,23 @@
 			this.btn_modificar.UseVisualStyleBackColor = false;
 			this.btn_modificar.Click += new System.EventHandler(this.btn_modificar_Click);
 			// 
+			// btn_seleccionarCliente
+			// 
+			this.btn_seleccionarCliente.Location = new System.Drawing.Point(817, 41);
+			this.btn_seleccionarCliente.Name = "btn_seleccionarCliente";
+			this.btn_seleccionarCliente.Size = new System.Drawing.Size(147, 29);
+			this.btn_seleccionarCliente.TabIndex = 8;
+			this.btn_seleccionarCliente.Text = "Seleccionar";
+			this.btn_seleccionarCliente.UseVisualStyleBackColor = true;
+			this.btn_seleccionarCliente.Click += new System.EventHandler(this.btn_seleccionarCliente_Click);
+			// 
 			// FrmInformesClientes
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.LightSkyBlue;
 			this.ClientSize = new System.Drawing.Size(980, 525);
+			this.Controls.Add(this.btn_seleccionarCliente);
 			this.Controls.Add(this.btn_modificar);
 			this.Controls.Add(this.btn_eliminarCliente);
 			this.Controls.Add(this.btn_nuevoCliente);
@@ -154,5 +166,6 @@
 		private Button btn_nuevoCliente;
 		private Button btn_eliminarCliente;
 		private Button btn_modificar;
+		private Button btn_seleccionarCliente;
 	}
 }

@@ -10,11 +10,24 @@ using System.Windows.Forms;
 using Entidades;
 namespace VistaAerolinea {
 	public partial class FrmInformesClientes:Form {
+		private List<Cliente> listaClienteSeleccionado;
+		private int cantidadDeSelecciones;
+		public List<Cliente> ClienteSeleccionado {
+			get {
+				return listaClienteSeleccionado;
+			}
+		}
 		public FrmInformesClientes() {
 			InitializeComponent();
+			btn_seleccionarCliente.Visible=false;
+		}
+		public FrmInformesClientes(int cantidad):this() {
+			listaClienteSeleccionado = new List<Cliente>();
+			btn_seleccionarCliente.Visible=true;
+			cantidadDeSelecciones=cantidad;
 		}
 		private void FrmInformesClientes_Load(object sender,EventArgs e) {
-			Limpiar();
+			dgw1_dataClientes.DataSource=Sistema.ListaClientes;
 		}
 		private void btn_limpiar_Click(object sender,EventArgs e) {
 			Limpiar();
@@ -63,6 +76,13 @@ namespace VistaAerolinea {
 				MessageBox.Show($"Se eliminó a {auxCliente.Nombre}, {auxCliente.Apellido} con DNI: {auxCliente.Dni}");
 				Sistema.ListaClientes.Remove(auxCliente);
 				Limpiar();
+			}
+		}
+
+		private void btn_seleccionarCliente_Click(object sender,EventArgs e) {
+			listaClienteSeleccionado.Add((Cliente)dgw1_dataClientes.CurrentRow.DataBoundItem);
+			if(listaClienteSeleccionado.Count==cantidadDeSelecciones) {
+				this.DialogResult=DialogResult.OK;
 			}
 		}
 	}
