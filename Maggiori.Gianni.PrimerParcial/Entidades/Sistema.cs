@@ -15,7 +15,7 @@ namespace Entidades {
 		private static List<Cliente> listaClientes;
 		private static List<Vuelo> listaVuelos;
 		private static Dictionary<string, bool> diccionarioDestinos;
-		
+		private static double recaudacionTotal;
 		static Sistema() {
 			listaUsuarios = new List<Usuario>();
 			listaDeAviones= new List<Avion>();
@@ -1090,7 +1090,7 @@ namespace Entidades {
 			Sistema.listaUsuarios.Add(new Usuario("PepePeposo","pepe1","Lucas","Rodriguez","34","ejemplo@gmail.com","00.000.000","00-0000-0000"));
 			Sistema.listaUsuarios.Add(new Usuario("Tanito","maggiori2d","Gianni","Maggiori","30","taniitoo@gmail.com","94.270.046","11-5220-6650"));
 			Sistema.listaUsuarios.Add(new Usuario("Hoop","gatito11","Gatito Hooper","Felino","21","gatitoNaranjoso@gmail.com","54.158.199","11-5731-9086"));
-			Sistema.listaUsuarios.Add(new Usuario("May","magia2008","Mayra","Maestu","28","mayra@estonoesunmail.com","37.788.155","11-3139-8410"));
+			Sistema.listaUsuarios.Add(new Usuario("May","magia2008","Mayra","Maestu","28","mayra@estonoesunmail.com","37.788.155","11-3184-3365"));
 			Sistema.listaUsuarios.Add(new Usuario("ezetabo","123contraseñajaja","Ezequiel","Taboada","42","estemailtampocoesreal@nomail.com","34.159.159","11-5555-9455"));
 		}
 		public static void PrecargarVuelos() {
@@ -1098,11 +1098,11 @@ namespace Entidades {
 			int numeroMaximoLista=listaDeAviones.Count;
 			int numeroRandomPosicion=numeroRandom.Next(0, numeroMaximoLista);
 			DateTime fechaSalida= DateTime.Now;
-			//List<KeyValuePair<string,bool>> destinos=diccionarioDestinos.ToList();
-			//int maximoDiccionarioDestinos=destinos.Count;
-			//int indiceDestinosRandom= numeroRandom.Next(0,maximoDiccionarioDestinos);
+			
 			listaVuelos.Add(new Vuelo(listaDeAviones[numeroRandomPosicion],"Buenos Aires", "Recife (Brasil)", fechaSalida));
 			listaVuelos.Add(new Vuelo(listaDeAviones[numeroRandomPosicion],"Buenos Aires", "Roma (Italia)", fechaSalida));
+			listaVuelos.Add(new Vuelo(listaDeAviones[1],"Buenos Aires", "Jujuy", fechaSalida));
+			listaVuelos.Add(new Vuelo(listaDeAviones[2],"Salta", "Jujuy", fechaSalida));
 		}
 		public static Usuario? ValidarDatosUsuarioExistente(string nombreDeUsuario, string contraseña) {
 			if(nombreDeUsuario is not null && contraseña is not null) {
@@ -1156,7 +1156,7 @@ namespace Entidades {
 			List<Vuelo> lista = new List<Vuelo>();
 			if(origen is not null && destino is not null && cantidadTickets>0) {
 				foreach(Vuelo item in Sistema.listaVuelos) {
-					if(item.DestinoDeSalida==origen && item.DestinoDeLlegada==destino) {
+					if(item.Origen==origen && item.Destino==destino) {
 						if(primeraClase) {
 							if(item.Avion.AsientosPrimerClase>=cantidadTickets) {
 								lista.Add(item);
@@ -1204,15 +1204,14 @@ namespace Entidades {
 			Random random = new Random();
 			double peso;
 			if(esPremium) {
-				return peso=random.Next(1,42);
+				return peso=random.Next(12,42);
 			}
 			else {
-				return peso=random.Next(1,25);
+				return peso=random.Next(8,25);
 			}
 		}
 		public static string MostrarDatosEquipajeReportado(bool tieneBolsoDeMano, bool esPrimeraClase, double pesoValijas) {
 			StringBuilder sb= new StringBuilder();
-			
 			if(tieneBolsoDeMano && esPrimeraClase) {
 				sb.AppendLine($"Tiene bolso de mano,");
 				sb.AppendLine($"y reportó {pesoValijas} Kg's");
@@ -1224,6 +1223,49 @@ namespace Entidades {
 				sb.AppendLine($"de equipaje");
 			}
 			return sb.ToString();
+		}
+		public static List<Vuelo>? ListarHistorialDeVuelos(Avion avion) {
+			if(avion is not null) {
+				List<Vuelo> lista = new List<Vuelo>();
+				foreach(Vuelo item in Sistema.listaVuelos) {
+					if(item.Avion.Patente==avion.Patente) {
+						lista.Add(item);
+					}
+				}
+				return lista;
+			}
+			return null;
+		}
+		public static double CalcularPrecioDeVuelo(bool esInternacional, int duracionVuelo) {
+			double precioDelVuelo=0;
+			int conversionPesoDolar=310;
+
+			if(esInternacional) {
+				precioDelVuelo=duracionVuelo*100;
+			}
+			else {
+				precioDelVuelo=duracionVuelo*50;
+			}
+			return precioDelVuelo*conversionPesoDolar;
+		}
+		public static void CalcularPrecioPasaje(double precioVuelo, Pasajero pasajero) {
+			double precioAditivo=0;
+			if(pasajero is not null) {
+				if(pasajero.ContratoPeliculas) {
+					precioAditivo+=precioVuelo*5/100;
+				}
+				if(pasajero.ContratoWifi) {
+					precioAditivo+=precioVuelo*3/100;
+				}
+				if(pasajero.TipoComida.ToString()=="Carne" || pasajero.TipoComida.ToString()=="Pollo" || pasajero.TipoComida.ToString()=="Sin_TACC" ||pasajero.TipoComida.ToString()=="Vegana") {
+					precioAditivo+=precioVuelo*8/100;
+				}
+				precioAditivo+=precioVuelo;
+				if(pasajero.PrimeraClase) {
+					precioAditivo=precioAditivo+(precioAditivo*15/100);
+				}
+				pasajero.Precio=precioAditivo*1.21;
+			}
 		}
 	}	
 }

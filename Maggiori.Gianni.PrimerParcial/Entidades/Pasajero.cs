@@ -12,9 +12,13 @@ namespace Entidades {
 		private bool primeraClase;
 		private bool contratoPeliculas;
 		private bool tieneBolsoDeMano;
+		private double precioPasaje;
 
 		public Pasajero(double pesoValijas,int cantidadMaximaTickets,bool contratoWifi,bool primeraClase,bool contratoPeliculas, string nombre, string apellido, string edad, string dni, string email, string numeroTelefono,Comida tipoComida, bool tieneBolsoDeMano)
-			:base(nombre, apellido, edad, email, dni, numeroTelefono){
+			:this(pesoValijas,cantidadMaximaTickets,contratoWifi,tipoComida,primeraClase,contratoPeliculas, new Cliente(nombre,apellido,edad,email,dni,numeroTelefono),tieneBolsoDeMano){
+		}
+		public Pasajero(double pesoValijas,int cantidadMaximaTickets,bool contratoWifi,Comida tipoComida,bool primeraClase,bool contratoPeliculas, Cliente cliente, bool tieneBolsoDeMano)
+			:base(cliente.Nombre, cliente.Apellido, cliente.Edad, cliente.Email, cliente.Dni, cliente.NumeroTelefono){
 			this.codigoTicket=Sistema.GenerarCodigoTicket();
 			this.pesoValijas=pesoValijas;
 			this.cantidadMaximaTickets=cantidadMaximaTickets;
@@ -24,9 +28,67 @@ namespace Entidades {
 			this.contratoPeliculas=contratoPeliculas;
 			this.tieneBolsoDeMano=tieneBolsoDeMano;
 		}
-		public Pasajero(double pesoValijas,int cantidadMaximaTickets,bool contratoWifi,Comida tipoComida,bool primeraClase,bool contratoPeliculas, Cliente cliente, bool tieneBolsoDeMano)
-			:this(pesoValijas, cantidadMaximaTickets, contratoWifi, primeraClase, contratoPeliculas, cliente.Nombre, cliente.Apellido, cliente.Edad, cliente.Email, cliente.Dni, cliente.NumeroTelefono,tipoComida, tieneBolsoDeMano){		
+		public string CodigoTicket {
+			get {
+				return codigoTicket;
+			}
 		}
-		
+		public double PesoValijas {
+			get {
+				return pesoValijas;
+			}
+		}
+		public int CantidadMaximaTickets {
+			get {
+				return cantidadMaximaTickets;
+			}
+		}
+		public bool ContratoWifi {
+			get {
+				return contratoWifi;
+			}
+		}
+		public Comida TipoComida {
+			get {
+				return tipoComida;
+			}
+		}
+		public bool PrimeraClase {
+			get {
+				return primeraClase;
+			}
+		}
+		public bool ContratoPeliculas {
+			get {
+				return tieneBolsoDeMano;
+			}
+		}
+		public bool TieneBolsoDeMano {
+			get {
+				return tieneBolsoDeMano;
+			}
+		}
+
+		public double Precio {
+			set {
+				if(this.PesoValijas>0) {
+					this.precioPasaje=value;
+				}
+			}
+			get {
+				return this.precioPasaje;
+			}
+		}
+		public override string MostrarDatos() {
+			StringBuilder sb=new StringBuilder();
+			sb.AppendLine($"Código de Ticket: {this.CodigoTicket}");
+			sb.AppendLine($"Precio a pagar: {this.Precio}");
+			sb.AppendLine(base.MostrarDatos());
+			sb.AppendLine("**************************");
+			return sb.ToString();
+		}
+		public override string ToString() {
+			return this.MostrarDatos();
+		}
 	}
 }

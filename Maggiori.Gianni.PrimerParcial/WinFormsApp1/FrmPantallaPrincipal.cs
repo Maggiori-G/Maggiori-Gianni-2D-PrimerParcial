@@ -17,10 +17,6 @@ namespace VistaAerolinea {
 			lbl_usuarioIngresado.Text=usuario.NombreDeUsuario;
 			lbl_fechaActual.Text=DateTime.Now.ToShortDateString();
 		}
-		private void FrmPantallaPrincipal_Load(object sender,EventArgs e) {
-			Sistema.PrecargarAviones();
-			Sistema.PrecargarClientes();
-		}
 
 		private void modificarUsuarioToolStripMenuItem_Click(object sender,EventArgs e) {
 			ControlVista.AbrirForm(this, new FrmModificarUsuario());

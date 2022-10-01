@@ -26,8 +26,10 @@
 			this.btn_seleccionarCliente = new System.Windows.Forms.Button();
 			this.btn_cancelar = new System.Windows.Forms.Button();
 			this.btn_venderVuelo = new System.Windows.Forms.Button();
-			this.dtg_mostrarClientes = new System.Windows.Forms.DataGridView();
+			this.dgw_mostrarClientes = new System.Windows.Forms.DataGridView();
 			this.grp_datosDelVuelo = new System.Windows.Forms.GroupBox();
+			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.lbl_esInternacional = new System.Windows.Forms.Label();
 			this.grp_equipaje = new System.Windows.Forms.GroupBox();
 			this.rdb_tieneBolsoDeMano = new System.Windows.Forms.RadioButton();
 			this.lbl_mostrarPeso = new System.Windows.Forms.Label();
@@ -44,22 +46,25 @@
 			this.chk_wifi = new System.Windows.Forms.CheckBox();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.btn_confirmarPasajero = new System.Windows.Forms.Button();
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
-			((System.ComponentModel.ISupportInitialize)(this.dtg_mostrarClientes)).BeginInit();
+			this.dgw_pasajerosVuelo = new System.Windows.Forms.DataGridView();
+			this.lbl_mostrarFacturacionDelPasajero = new System.Windows.Forms.Label();
+			((System.ComponentModel.ISupportInitialize)(this.dgw_mostrarClientes)).BeginInit();
 			this.grp_datosDelVuelo.SuspendLayout();
+			this.groupBox2.SuspendLayout();
 			this.grp_equipaje.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nud_cantidadValijas)).BeginInit();
 			this.grp_servicioPeliculas.SuspendLayout();
 			this.grp_comida.SuspendLayout();
 			this.gb_wifi.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			this.groupBox1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dgw_pasajerosVuelo)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// btn_seleccionarCliente
 			// 
 			this.btn_seleccionarCliente.Location = new System.Drawing.Point(12, 12);
 			this.btn_seleccionarCliente.Name = "btn_seleccionarCliente";
-			this.btn_seleccionarCliente.Size = new System.Drawing.Size(173, 64);
+			this.btn_seleccionarCliente.Size = new System.Drawing.Size(173, 33);
 			this.btn_seleccionarCliente.TabIndex = 0;
 			this.btn_seleccionarCliente.Text = "Seleccionar Cliente";
 			this.btn_seleccionarCliente.UseVisualStyleBackColor = true;
@@ -67,7 +72,7 @@
 			// 
 			// btn_cancelar
 			// 
-			this.btn_cancelar.Location = new System.Drawing.Point(972, 717);
+			this.btn_cancelar.Location = new System.Drawing.Point(972, 493);
 			this.btn_cancelar.Name = "btn_cancelar";
 			this.btn_cancelar.Size = new System.Drawing.Size(146, 34);
 			this.btn_cancelar.TabIndex = 1;
@@ -77,7 +82,7 @@
 			// 
 			// btn_venderVuelo
 			// 
-			this.btn_venderVuelo.Location = new System.Drawing.Point(820, 717);
+			this.btn_venderVuelo.Location = new System.Drawing.Point(972, 453);
 			this.btn_venderVuelo.Name = "btn_venderVuelo";
 			this.btn_venderVuelo.Size = new System.Drawing.Size(146, 34);
 			this.btn_venderVuelo.TabIndex = 2;
@@ -85,31 +90,50 @@
 			this.btn_venderVuelo.UseVisualStyleBackColor = true;
 			this.btn_venderVuelo.Click += new System.EventHandler(this.btn_venderVuelo_Click);
 			// 
-			// dtg_mostrarClientes
+			// dgw_mostrarClientes
 			// 
-			this.dtg_mostrarClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.dtg_mostrarClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.dtg_mostrarClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dtg_mostrarClientes.Location = new System.Drawing.Point(12, 82);
-			this.dtg_mostrarClientes.Name = "dtg_mostrarClientes";
-			this.dtg_mostrarClientes.RowHeadersVisible = false;
-			this.dtg_mostrarClientes.RowTemplate.Height = 25;
-			this.dtg_mostrarClientes.Size = new System.Drawing.Size(1106, 152);
-			this.dtg_mostrarClientes.TabIndex = 3;
-			this.dtg_mostrarClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_mostrarClientes_CellContentClick);
+			this.dgw_mostrarClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.dgw_mostrarClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.dgw_mostrarClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgw_mostrarClientes.Location = new System.Drawing.Point(12, 51);
+			this.dgw_mostrarClientes.Name = "dgw_mostrarClientes";
+			this.dgw_mostrarClientes.RowHeadersVisible = false;
+			this.dgw_mostrarClientes.RowTemplate.Height = 25;
+			this.dgw_mostrarClientes.Size = new System.Drawing.Size(1106, 152);
+			this.dgw_mostrarClientes.TabIndex = 3;
 			// 
 			// grp_datosDelVuelo
 			// 
+			this.grp_datosDelVuelo.Controls.Add(this.groupBox2);
 			this.grp_datosDelVuelo.Controls.Add(this.grp_equipaje);
 			this.grp_datosDelVuelo.Controls.Add(this.grp_servicioPeliculas);
 			this.grp_datosDelVuelo.Controls.Add(this.grp_comida);
 			this.grp_datosDelVuelo.Controls.Add(this.gb_wifi);
-			this.grp_datosDelVuelo.Location = new System.Drawing.Point(12, 240);
+			this.grp_datosDelVuelo.Location = new System.Drawing.Point(12, 365);
 			this.grp_datosDelVuelo.Name = "grp_datosDelVuelo";
-			this.grp_datosDelVuelo.Size = new System.Drawing.Size(419, 287);
+			this.grp_datosDelVuelo.Size = new System.Drawing.Size(654, 198);
 			this.grp_datosDelVuelo.TabIndex = 4;
 			this.grp_datosDelVuelo.TabStop = false;
 			this.grp_datosDelVuelo.Text = "Informacion del Pasajero";
+			// 
+			// groupBox2
+			// 
+			this.groupBox2.Controls.Add(this.lbl_esInternacional);
+			this.groupBox2.Location = new System.Drawing.Point(419, 25);
+			this.groupBox2.Name = "groupBox2";
+			this.groupBox2.Size = new System.Drawing.Size(197, 66);
+			this.groupBox2.TabIndex = 22;
+			this.groupBox2.TabStop = false;
+			this.groupBox2.Text = "Tipo de Destino";
+			// 
+			// lbl_esInternacional
+			// 
+			this.lbl_esInternacional.AutoSize = true;
+			this.lbl_esInternacional.Location = new System.Drawing.Point(38, 33);
+			this.lbl_esInternacional.Name = "lbl_esInternacional";
+			this.lbl_esInternacional.Size = new System.Drawing.Size(13, 18);
+			this.lbl_esInternacional.TabIndex = 0;
+			this.lbl_esInternacional.Text = ".";
 			// 
 			// grp_equipaje
 			// 
@@ -118,9 +142,9 @@
 			this.grp_equipaje.Controls.Add(this.btn_repotarPeso);
 			this.grp_equipaje.Controls.Add(this.lbl_cantidadValijas);
 			this.grp_equipaje.Controls.Add(this.nud_cantidadValijas);
-			this.grp_equipaje.Location = new System.Drawing.Point(6, 114);
+			this.grp_equipaje.Location = new System.Drawing.Point(6, 97);
 			this.grp_equipaje.Name = "grp_equipaje";
-			this.grp_equipaje.Size = new System.Drawing.Size(204, 168);
+			this.grp_equipaje.Size = new System.Drawing.Size(407, 92);
 			this.grp_equipaje.TabIndex = 20;
 			this.grp_equipaje.TabStop = false;
 			this.grp_equipaje.Text = "Datos Del Equipaje";
@@ -129,7 +153,7 @@
 			// 
 			this.rdb_tieneBolsoDeMano.AutoSize = true;
 			this.rdb_tieneBolsoDeMano.Checked = true;
-			this.rdb_tieneBolsoDeMano.Location = new System.Drawing.Point(15, 63);
+			this.rdb_tieneBolsoDeMano.Location = new System.Drawing.Point(15, 68);
 			this.rdb_tieneBolsoDeMano.Name = "rdb_tieneBolsoDeMano";
 			this.rdb_tieneBolsoDeMano.Size = new System.Drawing.Size(143, 22);
 			this.rdb_tieneBolsoDeMano.TabIndex = 6;
@@ -140,21 +164,21 @@
 			// lbl_mostrarPeso
 			// 
 			this.lbl_mostrarPeso.AutoSize = true;
-			this.lbl_mostrarPeso.Location = new System.Drawing.Point(15, 91);
+			this.lbl_mostrarPeso.Location = new System.Drawing.Point(216, 33);
 			this.lbl_mostrarPeso.Name = "lbl_mostrarPeso";
-			this.lbl_mostrarPeso.Size = new System.Drawing.Size(56, 18);
+			this.lbl_mostrarPeso.Size = new System.Drawing.Size(13, 18);
 			this.lbl_mostrarPeso.TabIndex = 5;
-			this.lbl_mostrarPeso.Text = "label1";
+			this.lbl_mostrarPeso.Text = ".";
 			// 
 			// btn_repotarPeso
 			// 
-			this.btn_repotarPeso.Location = new System.Drawing.Point(38, 91);
+			this.btn_repotarPeso.Location = new System.Drawing.Point(216, 19);
 			this.btn_repotarPeso.Name = "btn_repotarPeso";
 			this.btn_repotarPeso.Size = new System.Drawing.Size(129, 46);
 			this.btn_repotarPeso.TabIndex = 4;
 			this.btn_repotarPeso.Text = "Reportar Peso de Valijas";
 			this.btn_repotarPeso.UseVisualStyleBackColor = true;
-			this.btn_repotarPeso.Click += new System.EventHandler(this.button1_Click);
+			this.btn_repotarPeso.Click += new System.EventHandler(this.btn_repotarPeso_Click);
 			// 
 			// lbl_cantidadValijas
 			// 
@@ -177,7 +201,7 @@
 			// 
 			this.grp_servicioPeliculas.Controls.Add(this.rdb_noPeliculas);
 			this.grp_servicioPeliculas.Controls.Add(this.rdb_siPeliculas);
-			this.grp_servicioPeliculas.Location = new System.Drawing.Point(216, 114);
+			this.grp_servicioPeliculas.Location = new System.Drawing.Point(419, 97);
 			this.grp_servicioPeliculas.Name = "grp_servicioPeliculas";
 			this.grp_servicioPeliculas.Size = new System.Drawing.Size(197, 77);
 			this.grp_servicioPeliculas.TabIndex = 19;
@@ -210,7 +234,7 @@
 			// 
 			this.grp_comida.Controls.Add(this.chk_comida);
 			this.grp_comida.Controls.Add(this.cmb_comidas);
-			this.grp_comida.Location = new System.Drawing.Point(6, 42);
+			this.grp_comida.Location = new System.Drawing.Point(6, 25);
 			this.grp_comida.Name = "grp_comida";
 			this.grp_comida.Size = new System.Drawing.Size(204, 66);
 			this.grp_comida.TabIndex = 17;
@@ -239,7 +263,7 @@
 			// gb_wifi
 			// 
 			this.gb_wifi.Controls.Add(this.chk_wifi);
-			this.gb_wifi.Location = new System.Drawing.Point(216, 42);
+			this.gb_wifi.Location = new System.Drawing.Point(216, 25);
 			this.gb_wifi.Name = "gb_wifi";
 			this.gb_wifi.Size = new System.Drawing.Size(197, 66);
 			this.gb_wifi.TabIndex = 16;
@@ -258,16 +282,17 @@
 			// 
 			// groupBox1
 			// 
-			this.groupBox1.Location = new System.Drawing.Point(12, 533);
+			this.groupBox1.Controls.Add(this.lbl_mostrarFacturacionDelPasajero);
+			this.groupBox1.Location = new System.Drawing.Point(672, 365);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(419, 218);
+			this.groupBox1.Size = new System.Drawing.Size(294, 198);
 			this.groupBox1.TabIndex = 5;
 			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "Datos de la Facturación Individual";
+			this.groupBox1.Text = "Datos de la Facturación";
 			// 
 			// btn_confirmarPasajero
 			// 
-			this.btn_confirmarPasajero.Location = new System.Drawing.Point(820, 667);
+			this.btn_confirmarPasajero.Location = new System.Drawing.Point(972, 403);
 			this.btn_confirmarPasajero.Name = "btn_confirmarPasajero";
 			this.btn_confirmarPasajero.Size = new System.Drawing.Size(146, 44);
 			this.btn_confirmarPasajero.TabIndex = 6;
@@ -275,26 +300,39 @@
 			this.btn_confirmarPasajero.UseVisualStyleBackColor = true;
 			this.btn_confirmarPasajero.Click += new System.EventHandler(this.btn_confirmarPasajero_Click);
 			// 
-			// dataGridView1
+			// dgw_pasajerosVuelo
 			// 
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Location = new System.Drawing.Point(437, 240);
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.RowTemplate.Height = 25;
-			this.dataGridView1.Size = new System.Drawing.Size(681, 150);
-			this.dataGridView1.TabIndex = 7;
+			this.dgw_pasajerosVuelo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.dgw_pasajerosVuelo.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+			this.dgw_pasajerosVuelo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.dgw_pasajerosVuelo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgw_pasajerosVuelo.Location = new System.Drawing.Point(12, 209);
+			this.dgw_pasajerosVuelo.Name = "dgw_pasajerosVuelo";
+			this.dgw_pasajerosVuelo.RowHeadersVisible = false;
+			this.dgw_pasajerosVuelo.RowTemplate.Height = 25;
+			this.dgw_pasajerosVuelo.Size = new System.Drawing.Size(1106, 150);
+			this.dgw_pasajerosVuelo.TabIndex = 7;
+			// 
+			// lbl_mostrarFacturacionDelPasajero
+			// 
+			this.lbl_mostrarFacturacionDelPasajero.AutoSize = true;
+			this.lbl_mostrarFacturacionDelPasajero.Location = new System.Drawing.Point(6, 25);
+			this.lbl_mostrarFacturacionDelPasajero.Name = "lbl_mostrarFacturacionDelPasajero";
+			this.lbl_mostrarFacturacionDelPasajero.Size = new System.Drawing.Size(56, 18);
+			this.lbl_mostrarFacturacionDelPasajero.TabIndex = 0;
+			this.lbl_mostrarFacturacionDelPasajero.Text = "label1";
 			// 
 			// FrmSeleccionarClientePasajero
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.ClientSize = new System.Drawing.Size(1130, 763);
-			this.Controls.Add(this.dataGridView1);
+			this.ClientSize = new System.Drawing.Size(1127, 572);
+			this.Controls.Add(this.dgw_pasajerosVuelo);
 			this.Controls.Add(this.btn_confirmarPasajero);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.grp_datosDelVuelo);
-			this.Controls.Add(this.dtg_mostrarClientes);
+			this.Controls.Add(this.dgw_mostrarClientes);
 			this.Controls.Add(this.btn_venderVuelo);
 			this.Controls.Add(this.btn_cancelar);
 			this.Controls.Add(this.btn_seleccionarCliente);
@@ -305,8 +343,10 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "FrmSeleccionarClientePasajero";
 			this.Load += new System.EventHandler(this.FrmSeleccionarClientePasajero_Load);
-			((System.ComponentModel.ISupportInitialize)(this.dtg_mostrarClientes)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgw_mostrarClientes)).EndInit();
 			this.grp_datosDelVuelo.ResumeLayout(false);
+			this.groupBox2.ResumeLayout(false);
+			this.groupBox2.PerformLayout();
 			this.grp_equipaje.ResumeLayout(false);
 			this.grp_equipaje.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.nud_cantidadValijas)).EndInit();
@@ -316,7 +356,9 @@
 			this.grp_comida.PerformLayout();
 			this.gb_wifi.ResumeLayout(false);
 			this.gb_wifi.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			this.groupBox1.ResumeLayout(false);
+			this.groupBox1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.dgw_pasajerosVuelo)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -326,7 +368,7 @@
 		private Button btn_seleccionarCliente;
 		private Button btn_cancelar;
 		private Button btn_venderVuelo;
-		private DataGridView dtg_mostrarClientes;
+		private DataGridView dgw_mostrarClientes;
 		private GroupBox grp_datosDelVuelo;
 		private GroupBox grp_servicioPeliculas;
 		private RadioButton rdb_noPeliculas;
@@ -339,11 +381,14 @@
 		private GroupBox grp_equipaje;
 		private GroupBox groupBox1;
 		private Button btn_confirmarPasajero;
-		private DataGridView dataGridView1;
+		private DataGridView dgw_pasajerosVuelo;
 		private Label lbl_cantidadValijas;
 		private NumericUpDown nud_cantidadValijas;
 		private Button btn_repotarPeso;
 		private Label lbl_mostrarPeso;
 		private RadioButton rdb_tieneBolsoDeMano;
+		private GroupBox groupBox2;
+		private Label lbl_esInternacional;
+		private Label lbl_mostrarFacturacionDelPasajero;
 	}
 }

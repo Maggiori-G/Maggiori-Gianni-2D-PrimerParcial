@@ -44,7 +44,7 @@
 			// 
 			// dgw_vuelosDisponibles
 			// 
-			this.dgw_vuelosDisponibles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+			this.dgw_vuelosDisponibles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dgw_vuelosDisponibles.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dgw_vuelosDisponibles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgw_vuelosDisponibles.Location = new System.Drawing.Point(12, 190);
@@ -168,9 +168,9 @@
 			// 
 			// dtp_fechaSalida
 			// 
-			this.dtp_fechaSalida.Location = new System.Drawing.Point(228, 84);
+			this.dtp_fechaSalida.Location = new System.Drawing.Point(234, 122);
 			this.dtp_fechaSalida.Name = "dtp_fechaSalida";
-			this.dtp_fechaSalida.Size = new System.Drawing.Size(210, 26);
+			this.dtp_fechaSalida.Size = new System.Drawing.Size(248, 26);
 			this.dtp_fechaSalida.TabIndex = 21;
 			// 
 			// frmVentasDePasajes

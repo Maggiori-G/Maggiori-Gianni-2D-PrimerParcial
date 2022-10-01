@@ -10,22 +10,24 @@ using System.Windows.Forms;
 using Entidades;
 namespace VistaAerolinea {
 	public partial class FrmInformesAviones:Form {
-		private List<string> patentesParaMostrar;
+		private List<Vuelo>? vuelosParaMostrar;
 		private Avion? avionMostrar;
+
 		public FrmInformesAviones() {
 			InitializeComponent();
-			patentesParaMostrar=new List<string>();
+			vuelosParaMostrar=new List<Vuelo>();
 		}
 		private void FrmInformesAviones_Load(object sender,EventArgs e) {
-			CargarLaListaDePatentesParaMostrarEnComboBox();
-			cb_seleccionarAvion.DataSource=patentesParaMostrar;
+			cb_seleccionarAvion.DataSource=Sistema.ListaDeAviones;
+			GenerarHistorialVuelos();
 		}
-		
-		private void CargarLaListaDePatentesParaMostrarEnComboBox() {
-			foreach(Avion item in Sistema.ListaDeAviones) {
-				patentesParaMostrar.Add(item.Patente);
-			}
+
+		private void GenerarHistorialVuelos() {
+			vuelosParaMostrar=Sistema.ListarHistorialDeVuelos((Avion)cb_seleccionarAvion.SelectedItem);
+			dgw_listaPasajerosDeUnVuelo.DataSource=null;
+			dgw_listaPasajerosDeUnVuelo.DataSource=vuelosParaMostrar;
 		}
+
 		private void cb_seleccionarAvion_SelectedIndexChanged(object sender,EventArgs e) {
 			avionMostrar=Sistema.EncontrarAvionPorPatente(cb_seleccionarAvion.Text);
 			if(avionMostrar is not null) {
@@ -34,6 +36,7 @@ namespace VistaAerolinea {
 				lbl_mostrarCapacidadMaximaDeAsientos.Text=avionMostrar.CapacidadDeAsientos.ToString();
 				lbl_mostrarPesoMaximoBodega.Text=avionMostrar.PesoMaximo.ToString()+" Kg";
 				lbl_mostrarCantidadBaños.Text=avionMostrar.CantidadDeBaños.ToString();
+				GenerarHistorialVuelos();
 			}
 		}
 	}

@@ -240,7 +240,6 @@
 			this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.Name = "FrmPantallaPrincipal";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Load += new System.EventHandler(this.FrmPantallaPrincipal_Load);
 			menuStrip1.ResumeLayout(false);
 			menuStrip1.PerformLayout();
 			this.ResumeLayout(false);

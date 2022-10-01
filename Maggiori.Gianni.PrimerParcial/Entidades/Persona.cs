@@ -82,5 +82,16 @@ namespace Entidades {
 				}
 			}
 		}
+		public virtual string MostrarDatos() {
+			StringBuilder sb = new StringBuilder();
+			sb.Append("**************************");
+			sb.AppendLine($"Nombre: {this.Nombre}");
+			sb.AppendLine($"Apellido: {this.Apellido}");
+			sb.AppendLine($"Edad: {this.Edad} - D.N.I: {this.Dni}");
+			sb.AppendLine($"Email: {this.Email}");
+			sb.AppendLine($"Telefono: {this.NumeroTelefono}");
+
+			return sb.ToString();
+		}
 	}
 }

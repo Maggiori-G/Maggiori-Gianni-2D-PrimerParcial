@@ -14,9 +14,7 @@ namespace Entidades {
 		private double pesoMaximo;
 		private bool estaEnVuelo;
 		private int cantidadHorasDeVuelo;
-		
-		
-		
+
 		public Avion(string patente,int capacidadMaximaDeAsientos,int cantidadDeBaños,double pesoMaximo,bool estaEnVuelo, int cantidadHorasDeVuelo) {
 			this.patente=patente;
 			this.capacidadMaximaDeAsientos=capacidadMaximaDeAsientos;
@@ -27,31 +25,26 @@ namespace Entidades {
 			CalcularAsientosPrimeraClase();
 			CalcularAsientosComercial();
 		}
-
 		public string Patente {
 			get {
 				return patente;
 			}
 		}
-
 		public int CapacidadDeAsientos {
 			get {
 				return capacidadMaximaDeAsientos;
 			}
 		}
-
 		public int CantidadDeBaños {
 			get {
 				return cantidadDeBaños;
 			}
 		}
-
 		public double PesoMaximo {
 			get{
 				return pesoMaximo;
 			}
 		}
-
 		public string EstaEnVuelo {
 			get {
 				if(this.estaEnVuelo) {
@@ -60,29 +53,39 @@ namespace Entidades {
 				return "Aún no despegó";
 			}
 		}
-
 		public int AsientosComercial {
+			set {
+				if(value>0 && value<=this.asientosComercial) {
+					this.asientosComercial-=value;
+				}
+			}
 			get {
 				return this.asientosComercial;
 			}
 		}
 		public int AsientosPrimerClase {
+			set {
+				if(value>0 && value<=this.asientosPrimerClase) {
+					this.asientosPrimerClase-=value;
+				}
+			}
 			get {
 				return this.asientosPrimerClase;
 			}
 		}
-
 		public int CantidadHorasDeVuelo {
 			get {
 				return this.cantidadHorasDeVuelo;
 			}
 		}
-
 		private void CalcularAsientosPrimeraClase() {
 			this.asientosPrimerClase=(int)(this.capacidadMaximaDeAsientos*0.8);
 		}
 		private void CalcularAsientosComercial() {
 			this.asientosComercial=this.capacidadMaximaDeAsientos-this.asientosPrimerClase;
+		}
+		public override string ToString() {
+			return this.patente;
 		}
 	}
 }

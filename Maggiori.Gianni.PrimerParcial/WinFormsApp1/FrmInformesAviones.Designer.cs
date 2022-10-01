@@ -37,10 +37,10 @@
 			this.cb_seleccionarAvion = new System.Windows.Forms.ComboBox();
 			this.lbl_seleccionAvion = new System.Windows.Forms.Label();
 			this.dgw_listaPasajerosDeUnVuelo = new System.Windows.Forms.DataGridView();
-			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.gb_historialVuelos = new System.Windows.Forms.GroupBox();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgw_listaPasajerosDeUnVuelo)).BeginInit();
-			this.groupBox2.SuspendLayout();
+			this.gb_historialVuelos.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// groupBox1
@@ -178,24 +178,27 @@
 			// 
 			// dgw_listaPasajerosDeUnVuelo
 			// 
+			this.dgw_listaPasajerosDeUnVuelo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dgw_listaPasajerosDeUnVuelo.BackgroundColor = System.Drawing.Color.LightSkyBlue;
+			this.dgw_listaPasajerosDeUnVuelo.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dgw_listaPasajerosDeUnVuelo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgw_listaPasajerosDeUnVuelo.Location = new System.Drawing.Point(6, 25);
 			this.dgw_listaPasajerosDeUnVuelo.Name = "dgw_listaPasajerosDeUnVuelo";
+			this.dgw_listaPasajerosDeUnVuelo.RowHeadersVisible = false;
 			this.dgw_listaPasajerosDeUnVuelo.RowTemplate.Height = 25;
 			this.dgw_listaPasajerosDeUnVuelo.Size = new System.Drawing.Size(944, 317);
 			this.dgw_listaPasajerosDeUnVuelo.TabIndex = 4;
 			// 
-			// groupBox2
+			// gb_historialVuelos
 			// 
-			this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-			this.groupBox2.Controls.Add(this.dgw_listaPasajerosDeUnVuelo);
-			this.groupBox2.Location = new System.Drawing.Point(12, 158);
-			this.groupBox2.Name = "groupBox2";
-			this.groupBox2.Size = new System.Drawing.Size(956, 355);
-			this.groupBox2.TabIndex = 5;
-			this.groupBox2.TabStop = false;
-			this.groupBox2.Text = "Lista de Pasajeros";
+			this.gb_historialVuelos.BackColor = System.Drawing.Color.Transparent;
+			this.gb_historialVuelos.Controls.Add(this.dgw_listaPasajerosDeUnVuelo);
+			this.gb_historialVuelos.Location = new System.Drawing.Point(12, 158);
+			this.gb_historialVuelos.Name = "gb_historialVuelos";
+			this.gb_historialVuelos.Size = new System.Drawing.Size(956, 355);
+			this.gb_historialVuelos.TabIndex = 5;
+			this.gb_historialVuelos.TabStop = false;
+			this.gb_historialVuelos.Text = "Historial de Vuelos";
 			// 
 			// FrmInformesAviones
 			// 
@@ -203,7 +206,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.LightSkyBlue;
 			this.ClientSize = new System.Drawing.Size(980, 525);
-			this.Controls.Add(this.groupBox2);
+			this.Controls.Add(this.gb_historialVuelos);
 			this.Controls.Add(this.lbl_seleccionAvion);
 			this.Controls.Add(this.cb_seleccionarAvion);
 			this.Controls.Add(this.groupBox1);
@@ -217,7 +220,7 @@
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgw_listaPasajerosDeUnVuelo)).EndInit();
-			this.groupBox2.ResumeLayout(false);
+			this.gb_historialVuelos.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -238,6 +241,6 @@
 		private Label lbl_mostrarEstadoAvion;
 		private Label lbl_estadoVuelo;
 		private DataGridView dgw_listaPasajerosDeUnVuelo;
-		private GroupBox groupBox2;
+		private GroupBox gb_historialVuelos;
 	}
 }
