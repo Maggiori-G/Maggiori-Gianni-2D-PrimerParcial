@@ -45,6 +45,7 @@
 			// dgw_vuelosDisponibles
 			// 
 			this.dgw_vuelosDisponibles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.dgw_vuelosDisponibles.BackgroundColor = System.Drawing.Color.LightSkyBlue;
 			this.dgw_vuelosDisponibles.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dgw_vuelosDisponibles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgw_vuelosDisponibles.Location = new System.Drawing.Point(12, 190);
@@ -125,12 +126,15 @@
 			// 
 			// btn_buscarVuelo
 			// 
+			this.btn_buscarVuelo.BackColor = System.Drawing.Color.Salmon;
+			this.btn_buscarVuelo.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btn_buscarVuelo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.btn_buscarVuelo.Location = new System.Drawing.Point(764, 25);
 			this.btn_buscarVuelo.Name = "btn_buscarVuelo";
 			this.btn_buscarVuelo.Size = new System.Drawing.Size(182, 38);
 			this.btn_buscarVuelo.TabIndex = 13;
 			this.btn_buscarVuelo.Text = "Buscar Vuelo";
-			this.btn_buscarVuelo.UseVisualStyleBackColor = true;
+			this.btn_buscarVuelo.UseVisualStyleBackColor = false;
 			this.btn_buscarVuelo.Click += new System.EventHandler(this.btn_buscarVuelo_Click);
 			// 
 			// grp_categoriaPasajero
@@ -177,6 +181,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.Color.LightSkyBlue;
 			this.ClientSize = new System.Drawing.Size(980, 525);
 			this.Controls.Add(this.dtp_fechaSalida);
 			this.Controls.Add(this.grp_categoriaPasajero);

@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using System.Text;
 
 namespace VistaAerolinea {
 	public partial class FrmSeleccionarClientePasajero:Form {
@@ -7,9 +8,10 @@ namespace VistaAerolinea {
 		private Vuelo vuelo;
 		private int cantidadDeTickets;
 		private bool esPremium;
-		//private DateTime fechaDePartida;
+		private DateTime fechaDePartida;
 		private double pesoValijas;
-		private List<Cliente> listaClientes;
+		Pasajero? nuevoPasajero;
+		private List<Cliente>? listaClientes;
 		private List<Pasajero> listaPasajeros;
 
 		public List<Pasajero> Pasajeros {
@@ -23,7 +25,7 @@ namespace VistaAerolinea {
 			this.vuelo=vuelo;
 			this.cantidadDeTickets=cantidadMaximaTickets;
 			this.esPremium=esPremium;
-			//this.fechaDePartida=fechaDePartida;
+			this.fechaDePartida=fechaDePartida;
 			listaPasajeros=new List<Pasajero>();
 		}
 		private void FrmSeleccionarClientePasajero_Load(object sender,EventArgs e) {
@@ -71,11 +73,12 @@ namespace VistaAerolinea {
 			lbl_mostrarPeso.Visible=false;
 			cliente=(Cliente)dgw_mostrarClientes.CurrentRow.DataBoundItem;
 			ConfirmarPasajero();
+			rtb_datosPaquete.Text=this.ImprimirDatosDelPaquete(listaPasajeros);
 		}
 
 		private void ConfirmarPasajero() {
 			if(cliente is not null) {
-				Pasajero nuevoPasajero = new Pasajero(pesoValijas,cantidadDeTickets,chk_wifi.Checked,(Comida)cmb_comidas.SelectedItem,esPremium,rdb_siPeliculas.Checked,this.cliente,rdb_tieneBolsoDeMano.Checked);
+				nuevoPasajero = new Pasajero(pesoValijas,cantidadDeTickets,chk_wifi.Checked,(Comida)cmb_comidas.SelectedItem,esPremium,rdb_siPeliculas.Checked,this.cliente,rdb_tieneBolsoDeMano.Checked);
 				Sistema.CalcularPrecioPasaje(vuelo.Precio,nuevoPasajero);
 				CargarNuevoPasajero(nuevoPasajero);
 				ActualizarDataGridClientes();
@@ -90,7 +93,7 @@ namespace VistaAerolinea {
 
 		private void ActualizarDataGridClientes() {
 			dgw_mostrarClientes.DataSource=null;
-			listaClientes.Remove(this.cliente);
+			listaClientes!.Remove(this.cliente!);
 			dgw_mostrarClientes.DataSource=listaClientes;
 		}
 
@@ -139,6 +142,16 @@ namespace VistaAerolinea {
 			btn_repotarPeso.Visible=false;
 			lbl_mostrarPeso.Visible=true;
 			lbl_mostrarPeso.Text=Sistema.MostrarDatosEquipajeReportado(rdb_tieneBolsoDeMano.Checked,esPremium,pesoValijas);
+		}
+		private string ImprimirDatosDelPaquete(List<Pasajero> pasajeros) {
+			StringBuilder sb=new StringBuilder();
+			double acumuladorDePrecioPaquete=Sistema.CalcularPrecioPasajes(pasajeros);
+			if(pasajeros is not null) {
+				foreach(Pasajero item in pasajeros) {
+					sb.AppendLine(item.ToString());
+				}
+			}
+			return sb.ToString();
 		}
 	}
 }

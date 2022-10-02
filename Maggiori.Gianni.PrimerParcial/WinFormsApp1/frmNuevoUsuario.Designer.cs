@@ -194,11 +194,11 @@
 			this.lbl_titulo.BackColor = System.Drawing.Color.Transparent;
 			this.lbl_titulo.Font = new System.Drawing.Font("Lucida Fax", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
 			this.lbl_titulo.ForeColor = System.Drawing.SystemColors.Window;
-			this.lbl_titulo.Location = new System.Drawing.Point(5, 9);
+			this.lbl_titulo.Location = new System.Drawing.Point(103, 9);
 			this.lbl_titulo.Name = "lbl_titulo";
-			this.lbl_titulo.Size = new System.Drawing.Size(419, 32);
+			this.lbl_titulo.Size = new System.Drawing.Size(226, 32);
 			this.lbl_titulo.TabIndex = 14;
-			this.lbl_titulo.Text = "Ingrese los siguientes datos";
+			this.lbl_titulo.Text = "Nuevo Usuario";
 			// 
 			// txt_numeroTelefono
 			// 

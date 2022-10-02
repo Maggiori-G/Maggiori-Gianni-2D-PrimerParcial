@@ -49,23 +49,20 @@ namespace VistaAerolinea {
 			}
 		}
 		private void btn_buscarVuelo_Click(object sender,EventArgs e) {
-			if(Sistema.BuscarVuelo(cmb_origen.Text,cmb_destino.Text,(int)nud_asientos.Value,rdb_ejecutiva.Checked).Count>0) {
-				dgw_vuelosDisponibles.DataSource=Sistema.BuscarVuelo(cmb_origen.Text,cmb_destino.Text,(int)nud_asientos.Value,rdb_ejecutiva.Checked);
+			if(Sistema.BuscarVueloDisponible(cmb_origen.Text,cmb_destino.Text,(int)nud_asientos.Value,rdb_ejecutiva.Checked).Count>0) {
+				dgw_vuelosDisponibles.DataSource=Sistema.BuscarVueloDisponible(cmb_origen.Text,cmb_destino.Text,(int)nud_asientos.Value,rdb_ejecutiva.Checked);
 				dgw_vuelosDisponibles.Columns["Avion"].Visible=false;
 				dgw_vuelosDisponibles.Columns["Recaudacion"].Visible=false;
 				dgw_vuelosDisponibles.Columns["EsInternacional"].Visible=false;
 
 			}
 		}
-
-		
 		private void dgw_vuelosDisponibles_CellContentClick(object sender,DataGridViewCellEventArgs e) {
 			int cantidadMaximaTickets=(int)nud_asientos.Value;
 			Vuelo vuelo=(Vuelo)dgw_vuelosDisponibles.CurrentRow.DataBoundItem;
 			bool esPremium=rdb_ejecutiva.Checked;
 			DateTime fecha= dtp_fechaSalida.Value;
 			new FrmSeleccionarClientePasajero(vuelo, cantidadMaximaTickets, esPremium, fecha ).ShowDialog();
-			
 		}
 	}
 }

@@ -19,7 +19,7 @@ namespace Entidades {
 		}
 		public Pasajero(double pesoValijas,int cantidadMaximaTickets,bool contratoWifi,Comida tipoComida,bool primeraClase,bool contratoPeliculas, Cliente cliente, bool tieneBolsoDeMano)
 			:base(cliente.Nombre, cliente.Apellido, cliente.Edad, cliente.Email, cliente.Dni, cliente.NumeroTelefono){
-			this.codigoTicket=Sistema.GenerarCodigoTicket();
+			this.codigoTicket=Sistema.GenerarCodigoAlfanumericoRandom();
 			this.pesoValijas=pesoValijas;
 			this.cantidadMaximaTickets=cantidadMaximaTickets;
 			this.contratoWifi=contratoWifi;
@@ -79,12 +79,12 @@ namespace Entidades {
 				return this.precioPasaje;
 			}
 		}
-		public override string MostrarDatos() {
+		protected override string MostrarDatos() {
 			StringBuilder sb=new StringBuilder();
-			sb.AppendLine($"Código de Ticket: {this.CodigoTicket}");
-			sb.AppendLine($"Precio a pagar: {this.Precio}");
 			sb.AppendLine(base.MostrarDatos());
-			sb.AppendLine("**************************");
+			sb.AppendLine($"Código de Ticket: {this.CodigoTicket}");
+			sb.AppendLine($"Precio a pagar: {this.Precio.ToString("0.00")}");
+			sb.AppendLine("***************************************");
 			return sb.ToString();
 		}
 		public override string ToString() {

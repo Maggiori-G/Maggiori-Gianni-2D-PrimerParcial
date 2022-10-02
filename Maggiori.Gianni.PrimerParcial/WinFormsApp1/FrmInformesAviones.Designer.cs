@@ -38,6 +38,7 @@
 			this.lbl_seleccionAvion = new System.Windows.Forms.Label();
 			this.dgw_listaPasajerosDeUnVuelo = new System.Windows.Forms.DataGridView();
 			this.gb_historialVuelos = new System.Windows.Forms.GroupBox();
+			this.lbl_mensaje = new System.Windows.Forms.Label();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgw_listaPasajerosDeUnVuelo)).BeginInit();
 			this.gb_historialVuelos.SuspendLayout();
@@ -57,7 +58,7 @@
 			this.groupBox1.Controls.Add(this.lbl_patente);
 			this.groupBox1.Location = new System.Drawing.Point(12, 38);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(875, 114);
+			this.groupBox1.Size = new System.Drawing.Size(956, 114);
 			this.groupBox1.TabIndex = 1;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Información del Avion";
@@ -192,6 +193,7 @@
 			// gb_historialVuelos
 			// 
 			this.gb_historialVuelos.BackColor = System.Drawing.Color.Transparent;
+			this.gb_historialVuelos.Controls.Add(this.lbl_mensaje);
 			this.gb_historialVuelos.Controls.Add(this.dgw_listaPasajerosDeUnVuelo);
 			this.gb_historialVuelos.Location = new System.Drawing.Point(12, 158);
 			this.gb_historialVuelos.Name = "gb_historialVuelos";
@@ -199,6 +201,16 @@
 			this.gb_historialVuelos.TabIndex = 5;
 			this.gb_historialVuelos.TabStop = false;
 			this.gb_historialVuelos.Text = "Historial de Vuelos";
+			// 
+			// lbl_mensaje
+			// 
+			this.lbl_mensaje.AutoSize = true;
+			this.lbl_mensaje.Font = new System.Drawing.Font("Lucida Fax", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.lbl_mensaje.Location = new System.Drawing.Point(258, 107);
+			this.lbl_mensaje.Name = "lbl_mensaje";
+			this.lbl_mensaje.Size = new System.Drawing.Size(379, 32);
+			this.lbl_mensaje.TabIndex = 5;
+			this.lbl_mensaje.Text = "No hay datos para mostrar";
 			// 
 			// FrmInformesAviones
 			// 
@@ -221,6 +233,7 @@
 			this.groupBox1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgw_listaPasajerosDeUnVuelo)).EndInit();
 			this.gb_historialVuelos.ResumeLayout(false);
+			this.gb_historialVuelos.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -242,5 +255,6 @@
 		private Label lbl_estadoVuelo;
 		private DataGridView dgw_listaPasajerosDeUnVuelo;
 		private GroupBox gb_historialVuelos;
+		private Label lbl_mensaje;
 	}
 }

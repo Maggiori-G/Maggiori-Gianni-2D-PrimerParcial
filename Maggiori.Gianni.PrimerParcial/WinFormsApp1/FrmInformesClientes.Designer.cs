@@ -39,6 +39,7 @@
 			// 
 			this.dgw1_dataClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.dgw1_dataClientes.BackgroundColor = System.Drawing.Color.LightSkyBlue;
+			this.dgw1_dataClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dgw1_dataClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgw1_dataClientes.Location = new System.Drawing.Point(12, 77);
 			this.dgw1_dataClientes.Name = "dgw1_dataClientes";
@@ -76,7 +77,9 @@
 			// 
 			// btn_limpiar
 			// 
-			this.btn_limpiar.BackColor = System.Drawing.Color.Transparent;
+			this.btn_limpiar.BackColor = System.Drawing.Color.Salmon;
+			this.btn_limpiar.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btn_limpiar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.btn_limpiar.Location = new System.Drawing.Point(266, 42);
 			this.btn_limpiar.Name = "btn_limpiar";
 			this.btn_limpiar.Size = new System.Drawing.Size(89, 29);
@@ -87,7 +90,9 @@
 			// 
 			// btn_nuevoCliente
 			// 
-			this.btn_nuevoCliente.BackColor = System.Drawing.Color.Transparent;
+			this.btn_nuevoCliente.BackColor = System.Drawing.Color.Salmon;
+			this.btn_nuevoCliente.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btn_nuevoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.btn_nuevoCliente.Location = new System.Drawing.Point(361, 42);
 			this.btn_nuevoCliente.Name = "btn_nuevoCliente";
 			this.btn_nuevoCliente.Size = new System.Drawing.Size(134, 29);
@@ -98,7 +103,9 @@
 			// 
 			// btn_eliminarCliente
 			// 
-			this.btn_eliminarCliente.BackColor = System.Drawing.Color.Transparent;
+			this.btn_eliminarCliente.BackColor = System.Drawing.Color.Salmon;
+			this.btn_eliminarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btn_eliminarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.btn_eliminarCliente.Location = new System.Drawing.Point(664, 42);
 			this.btn_eliminarCliente.Name = "btn_eliminarCliente";
 			this.btn_eliminarCliente.Size = new System.Drawing.Size(147, 29);
@@ -109,7 +116,9 @@
 			// 
 			// btn_modificar
 			// 
-			this.btn_modificar.BackColor = System.Drawing.Color.Transparent;
+			this.btn_modificar.BackColor = System.Drawing.Color.Salmon;
+			this.btn_modificar.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btn_modificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.btn_modificar.Location = new System.Drawing.Point(501, 42);
 			this.btn_modificar.Name = "btn_modificar";
 			this.btn_modificar.Size = new System.Drawing.Size(157, 29);
@@ -120,12 +129,15 @@
 			// 
 			// btn_seleccionarCliente
 			// 
+			this.btn_seleccionarCliente.BackColor = System.Drawing.Color.Salmon;
+			this.btn_seleccionarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btn_seleccionarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.btn_seleccionarCliente.Location = new System.Drawing.Point(817, 41);
 			this.btn_seleccionarCliente.Name = "btn_seleccionarCliente";
 			this.btn_seleccionarCliente.Size = new System.Drawing.Size(147, 29);
 			this.btn_seleccionarCliente.TabIndex = 8;
 			this.btn_seleccionarCliente.Text = "Seleccionar";
-			this.btn_seleccionarCliente.UseVisualStyleBackColor = true;
+			this.btn_seleccionarCliente.UseVisualStyleBackColor = false;
 			this.btn_seleccionarCliente.Click += new System.EventHandler(this.btn_seleccionarCliente_Click);
 			// 
 			// FrmInformesClientes

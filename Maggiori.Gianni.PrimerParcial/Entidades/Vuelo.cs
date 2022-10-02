@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Entidades {
 	
 	public class Vuelo {
-		private Avion avion;
+		private Avion? avion;
 		private List<Pasajero>? pasajerosAbordo;
 		private string? destinoDeSalida;
 		private string? destinoDeLlegada;
@@ -28,30 +28,29 @@ namespace Entidades {
 			CalcularElTiempoDeVuelo();
 			this.precioVuelo=Sistema.CalcularPrecioDeVuelo(this.EsInternacional,this.Duracion);
 		}
-
 		public Avion Avion {
 			get {
-				return this.avion;
+				return this.avion!;
 			}
 		}
 		public string Patente {
 			get {
-				return this.avion.Patente;
+				return this.avion!.Patente;
 			}
 		}
 		public List<Pasajero> PasajerosAbordo {
 			get {
-				return this.pasajerosAbordo;
+				return this.pasajerosAbordo!;
 			}
 		}
 		public string Origen {
 			get {
-				return this.destinoDeSalida;
+				return this.destinoDeSalida!;
 			}
 		}
 		public string Destino {
 			get {
-				return this.destinoDeLlegada;
+				return this.destinoDeLlegada!;
 			}
 		}
 		public double Precio {
@@ -66,13 +65,11 @@ namespace Entidades {
 				return precioVuelo;
 			}
 		}
-
 		public DateTime Fecha {
 			get {
 				return fechaSalida;
 			}
 		}
-
 		public string Tipo {
 			get {
 				if(this.esInternacional) {
@@ -83,13 +80,11 @@ namespace Entidades {
 				}
 			}
 		}
-
 		public int Duracion {
 			get {
 				return duracionVuelo;
 			}
 		}
-
 		public double Recaudacion {
 			set {
 				if(this.PasajerosAbordo is not null) {
@@ -102,13 +97,16 @@ namespace Entidades {
 				return this.recaudacion;
 			}
 		}
-
 		public bool EsInternacional {
 			get {
 				return esInternacional;
 			}
 		}
-
+		public int Disponibilidad {
+			get {
+				return this.avion!.CapacidadDeAsientos-this.PasajerosAbordo.Count!;
+			}
+		}
 		private void CalcularElTiempoDeVuelo() {
 			Random random=new Random();
 			if(this.esInternacional) {
@@ -118,7 +116,6 @@ namespace Entidades {
 				this.duracionVuelo=random.Next(2,4);
 			}
 		}
-		
 		public bool VerificarSiEsInternacional() {
 			if(this.destinoDeLlegada is not null) {
 				if(this.destinoDeLlegada=="Buenos Aires" ||Sistema.EsInternacional(this.destinoDeLlegada)) {
@@ -127,14 +124,8 @@ namespace Entidades {
 			}
 			return false;
 		}
-		private void CalcularRecaudacion() {
-			if(this.pasajerosAbordo is not null) {
-				if(pasajerosAbordo.Count>0) {
-					this.recaudacion=pasajerosAbordo.Count*precioVuelo;
-				}
-			}
-		}
 		public override string ToString() {
+			StringBuilder sb =new StringBuilder();
 			return "";
 		}
 	}

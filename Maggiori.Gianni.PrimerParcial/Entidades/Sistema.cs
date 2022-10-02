@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.NetworkInformation;
@@ -9,7 +10,6 @@ using System.Threading.Tasks;
 
 namespace Entidades {
 	public static class Sistema {
-		
 		private static List<Usuario> listaUsuarios;
 		private static List<Avion> listaDeAviones;
 		private static List<Cliente> listaClientes;
@@ -1078,13 +1078,10 @@ namespace Entidades {
 			listaClientes.Add(new Cliente("Carri","Rotherham","60","crotherhamrr@redcross.org","16.471.588","63-3782-4247"));
 		}
 		public static void PrecargarAviones() {
-			Sistema.listaDeAviones.Add(new Avion("XT2315JG", 400, 16, 50000, false, 14000));
-			Sistema.listaDeAviones.Add(new Avion("GH9812AW", 200, 8, 15000, true, 24000));
-			Sistema.listaDeAviones.Add(new Avion("KJ7658BN", 150, 5, 25000, false, 20000));
-			Sistema.listaDeAviones.Add(new Avion("MQ1011HG", 200, 8, 35000, true, 16000));
-			Sistema.listaDeAviones.Add(new Avion("ZD4389PO", 300, 12, 25000, false, 62000));
-			Sistema.listaDeAviones.Add(new Avion("SM7543UG", 200, 8, 10000, true, 51000));
-			Sistema.listaDeAviones.Add(new Avion("LQ8925NN", 400, 10, 40000, false, 63000));
+			for(int i = 0;i<100;i++) {
+				Sistema.listaDeAviones.Add(new Avion(Sistema.GenerarCodigoAlfanumericoRandom(), Sistema.GenerarNumeroRandom(200,500), Sistema.GenerarNumeroRandom(8,15), Sistema.GenerarNumeroRandom(15000,20000), Sistema.GenerarRandomBool(), Sistema.GenerarNumeroRandom(15000,21000)));
+			}
+			
 		}
 		public static void PrecargarUsuario() {
 			Sistema.listaUsuarios.Add(new Usuario("PepePeposo","pepe1","Lucas","Rodriguez","34","ejemplo@gmail.com","00.000.000","00-0000-0000"));
@@ -1094,15 +1091,11 @@ namespace Entidades {
 			Sistema.listaUsuarios.Add(new Usuario("ezetabo","123contraseñajaja","Ezequiel","Taboada","42","estemailtampocoesreal@nomail.com","34.159.159","11-5555-9455"));
 		}
 		public static void PrecargarVuelos() {
-			Random numeroRandom = new Random();
-			int numeroMaximoLista=listaDeAviones.Count;
-			int numeroRandomPosicion=numeroRandom.Next(0, numeroMaximoLista);
 			DateTime fechaSalida= DateTime.Now;
-			
-			listaVuelos.Add(new Vuelo(listaDeAviones[numeroRandomPosicion],"Buenos Aires", "Recife (Brasil)", fechaSalida));
-			listaVuelos.Add(new Vuelo(listaDeAviones[numeroRandomPosicion],"Buenos Aires", "Roma (Italia)", fechaSalida));
-			listaVuelos.Add(new Vuelo(listaDeAviones[1],"Buenos Aires", "Jujuy", fechaSalida));
-			listaVuelos.Add(new Vuelo(listaDeAviones[2],"Salta", "Jujuy", fechaSalida));
+			Sistema.listaVuelos.Add(new Vuelo(listaDeAviones[Sistema.GenerarNumeroRandom(0,Sistema.listaDeAviones.Count)],"Buenos Aires", "Recife (Brasil)", fechaSalida));
+			Sistema.listaVuelos.Add(new Vuelo(listaDeAviones[Sistema.GenerarNumeroRandom(0,Sistema.listaDeAviones.Count)],"Buenos Aires", "Roma (Italia)", fechaSalida));
+			Sistema.listaVuelos.Add(new Vuelo(listaDeAviones[Sistema.GenerarNumeroRandom(0,Sistema.listaDeAviones.Count)],"Buenos Aires", "Jujuy", fechaSalida));
+			Sistema.listaVuelos.Add(new Vuelo(listaDeAviones[Sistema.GenerarNumeroRandom(0,Sistema.listaDeAviones.Count)],"Salta", "Jujuy", fechaSalida));
 		}
 		public static Usuario? ValidarDatosUsuarioExistente(string nombreDeUsuario, string contraseña) {
 			if(nombreDeUsuario is not null && contraseña is not null) {
@@ -1152,19 +1145,21 @@ namespace Entidades {
 			}
 			return false;
 		}
-		public static List<Vuelo> BuscarVuelo(string origen, string destino, int cantidadTickets, bool primeraClase) {
+		public static List<Vuelo> BuscarVueloDisponible(string origen, string destino, int cantidadTickets, bool primeraClase) {
 			List<Vuelo> lista = new List<Vuelo>();
 			if(origen is not null && destino is not null && cantidadTickets>0) {
 				foreach(Vuelo item in Sistema.listaVuelos) {
-					if(item.Origen==origen && item.Destino==destino) {
-						if(primeraClase) {
-							if(item.Avion.AsientosPrimerClase>=cantidadTickets) {
-								lista.Add(item);
+					if(item.Avion.EstaEnVuelo=="Aún no despegó") {
+						if(item.Origen==origen && item.Destino==destino) {
+							if(primeraClase) {
+								if(item.Avion.AsientosPrimerClase>=cantidadTickets) {
+									lista.Add(item);
+								}
 							}
-						}
-						else {
-							if(item.Avion.AsientosComercial>=cantidadTickets) {
-								lista.Add(item);
+							else {
+								if(item.Avion.AsientosComercial>=cantidadTickets) {
+									lista.Add(item);
+								}
 							}
 						}
 					}
@@ -1172,7 +1167,6 @@ namespace Entidades {
 			}
 			return lista;
 		}
-
 		public static bool BuscarClienteEnPasajeros(Cliente cliente, List<Pasajero> listaCliente) {
 			if(cliente is not null && listaCliente is not null) {
 				foreach(Pasajero item in listaCliente) {
@@ -1183,23 +1177,11 @@ namespace Entidades {
 			}
 			return false;
 		}
-		public static string GenerarCodigoTicket() {
-			string caracteresPermitidos = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            Char[] ticket = new char[8];
-            Random random = new Random();
-            for (int i = 0; i < ticket.Length; i++){
-                ticket[i] = caracteresPermitidos[random.Next(caracteresPermitidos.Length)];
-            }
-            string resultString = new String(ticket);
-			return resultString;
-		}
-
 		public static void CargarPasajeroAlVuelo(Vuelo vuelo, Pasajero pasajero) {
 			if (pasajero is not null && vuelo is not null) {
 				vuelo.PasajerosAbordo.Add(pasajero);
 			}
 		}
-
 		public static double CalcularPesoValijas(bool esPremium) {
 			Random random = new Random();
 			double peso;
@@ -1224,17 +1206,16 @@ namespace Entidades {
 			}
 			return sb.ToString();
 		}
-		public static List<Vuelo>? ListarHistorialDeVuelos(Avion avion) {
-			if(avion is not null) {
-				List<Vuelo> lista = new List<Vuelo>();
-				foreach(Vuelo item in Sistema.listaVuelos) {
-					if(item.Avion.Patente==avion.Patente) {
+		public static List<Vuelo>? GenerarHistorialDeVuelos(string patente, List<Vuelo> listaBuscar) {
+			List<Vuelo> lista = new List<Vuelo>();
+			if(patente is not null) {
+				foreach(Vuelo item in listaBuscar) {
+					if(item.Avion.Patente==patente) {
 						lista.Add(item);
 					}
 				}
-				return lista;
 			}
-			return null;
+			return lista;
 		}
 		public static double CalcularPrecioDeVuelo(bool esInternacional, int duracionVuelo) {
 			double precioDelVuelo=0;
@@ -1252,13 +1233,13 @@ namespace Entidades {
 			double precioAditivo=0;
 			if(pasajero is not null) {
 				if(pasajero.ContratoPeliculas) {
-					precioAditivo+=precioVuelo*5/100;
+					precioAditivo+=precioVuelo*1.05;
 				}
 				if(pasajero.ContratoWifi) {
-					precioAditivo+=precioVuelo*3/100;
+					precioAditivo+=precioVuelo*1.03;
 				}
 				if(pasajero.TipoComida.ToString()=="Carne" || pasajero.TipoComida.ToString()=="Pollo" || pasajero.TipoComida.ToString()=="Sin_TACC" ||pasajero.TipoComida.ToString()=="Vegana") {
-					precioAditivo+=precioVuelo*8/100;
+					precioAditivo+=precioVuelo*1.08;
 				}
 				precioAditivo+=precioVuelo;
 				if(pasajero.PrimeraClase) {
@@ -1266,6 +1247,44 @@ namespace Entidades {
 				}
 				pasajero.Precio=precioAditivo*1.21;
 			}
+		}
+		public static double CalcularPrecioPasajes(List<Pasajero> pasajeros) {
+			double recaudacionDeLaVenta=0;
+			if(pasajeros is not null) {
+				foreach(Pasajero item in pasajeros) {
+					recaudacionDeLaVenta+=item.Precio;
+				}
+			}
+			return recaudacionDeLaVenta;
+		}
+		public static void CalcularRecaudacionVuelo(Vuelo vuelo) {
+			if(vuelo.PasajerosAbordo is not null) {
+				if(vuelo.PasajerosAbordo.Count>0) {
+					vuelo.Recaudacion=vuelo.PasajerosAbordo.Count*vuelo.Precio;
+				}
+			}
+		}
+		public static bool GenerarRandomBool() {
+			Random random=new Random();
+			int numeroRandom=random.Next(1, 100);
+			if(numeroRandom%2==0) {
+				return true;
+			}
+			return false;
+		}
+		public static int GenerarNumeroRandom(int numeroMinimo, int numeroMaximo) {
+			Random random = new Random();
+			return random.Next(numeroMinimo, numeroMaximo);
+		}
+		public static string GenerarCodigoAlfanumericoRandom() {
+			string caracteresPermitidos = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            Char[] ticket = new char[8];
+            Random random = new Random();
+            for (int i = 0; i < ticket.Length; i++){
+                ticket[i] = caracteresPermitidos[random.Next(caracteresPermitidos.Length)];
+            }
+            string stringRetorno = new String(ticket);
+			return stringRetorno;
 		}
 	}	
 }

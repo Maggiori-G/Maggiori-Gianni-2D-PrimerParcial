@@ -65,9 +65,9 @@
 			// btn_iniciarSesion
 			// 
 			this.btn_iniciarSesion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.btn_iniciarSesion.BackColor = System.Drawing.Color.Gray;
+			this.btn_iniciarSesion.BackColor = System.Drawing.Color.Salmon;
 			this.btn_iniciarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btn_iniciarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btn_iniciarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.btn_iniciarSesion.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
 			this.btn_iniciarSesion.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
 			this.btn_iniciarSesion.Location = new System.Drawing.Point(10, 350);
@@ -81,9 +81,9 @@
 			// btn_nuevoUsuario
 			// 
 			this.btn_nuevoUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btn_nuevoUsuario.BackColor = System.Drawing.Color.Gray;
+			this.btn_nuevoUsuario.BackColor = System.Drawing.Color.Salmon;
 			this.btn_nuevoUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btn_nuevoUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btn_nuevoUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.btn_nuevoUsuario.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
 			this.btn_nuevoUsuario.Location = new System.Drawing.Point(371, 532);
 			this.btn_nuevoUsuario.Name = "btn_nuevoUsuario";
@@ -157,9 +157,9 @@
 			// 
 			// btn_salir
 			// 
-			this.btn_salir.BackColor = System.Drawing.Color.Gray;
+			this.btn_salir.BackColor = System.Drawing.Color.Salmon;
 			this.btn_salir.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btn_salir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btn_salir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.btn_salir.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
 			this.btn_salir.Location = new System.Drawing.Point(793, 625);
 			this.btn_salir.Name = "btn_salir";
@@ -171,8 +171,9 @@
 			// 
 			// btn_autocompletar
 			// 
-			this.btn_autocompletar.BackColor = System.Drawing.Color.Gray;
-			this.btn_autocompletar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btn_autocompletar.BackColor = System.Drawing.Color.Salmon;
+			this.btn_autocompletar.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btn_autocompletar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
 			this.btn_autocompletar.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
 			this.btn_autocompletar.Location = new System.Drawing.Point(10, 390);
 			this.btn_autocompletar.Name = "btn_autocompletar";
