@@ -61,8 +61,7 @@ namespace VistaAerolinea {
 			int cantidadMaximaTickets=(int)nud_asientos.Value;
 			Vuelo vuelo=(Vuelo)dgw_vuelosDisponibles.CurrentRow.DataBoundItem;
 			bool esPremium=rdb_ejecutiva.Checked;
-			DateTime fecha= dtp_fechaSalida.Value;
-			new FrmSeleccionarClientePasajero(vuelo, cantidadMaximaTickets, esPremium, fecha ).ShowDialog();
+			new FrmSeleccionarClientePasajero(vuelo, cantidadMaximaTickets, esPremium).ShowDialog();
 		}
 	}
 }

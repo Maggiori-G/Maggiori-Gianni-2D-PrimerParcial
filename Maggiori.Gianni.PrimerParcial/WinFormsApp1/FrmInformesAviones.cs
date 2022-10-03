@@ -19,8 +19,7 @@ namespace VistaAerolinea {
 		}
 		private void FrmInformesAviones_Load(object sender,EventArgs e) {
 			vuelosParaMostrar=Sistema.ListaDeVuelos;
-			cb_seleccionarAvion.DataSource=Sistema.ListaDeAviones;	
-			dgw_listaPasajerosDeUnVuelo.DataSource=null;
+			cb_seleccionarAvion.DataSource=Sistema.ListaDeAviones;
 		}
 
 		private void GenerarHistorialVuelos(string patente) {
@@ -33,6 +32,7 @@ namespace VistaAerolinea {
 					if(dgw_listaPasajerosDeUnVuelo.Columns["Patente"] is not null) {
 						dgw_listaPasajerosDeUnVuelo.Columns["EsInternacional"].Visible=false;
 						dgw_listaPasajerosDeUnVuelo.Columns["Patente"].Visible=false;
+						dgw_listaPasajerosDeUnVuelo.Columns["Avion"].Visible=false;
 					}
 				}
 			}

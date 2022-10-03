@@ -34,7 +34,6 @@
 			this.grp_categoriaPasajero = new System.Windows.Forms.GroupBox();
 			this.rdb_ejecutiva = new System.Windows.Forms.RadioButton();
 			this.rdb_comercial = new System.Windows.Forms.RadioButton();
-			this.dtp_fechaSalida = new System.Windows.Forms.DateTimePicker();
 			((System.ComponentModel.ISupportInitialize)(this.dgw_vuelosDisponibles)).BeginInit();
 			this.gb_origen.SuspendLayout();
 			this.gb_destino.SuspendLayout();
@@ -48,11 +47,11 @@
 			this.dgw_vuelosDisponibles.BackgroundColor = System.Drawing.Color.LightSkyBlue;
 			this.dgw_vuelosDisponibles.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dgw_vuelosDisponibles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgw_vuelosDisponibles.Location = new System.Drawing.Point(12, 190);
+			this.dgw_vuelosDisponibles.Location = new System.Drawing.Point(12, 146);
 			this.dgw_vuelosDisponibles.Name = "dgw_vuelosDisponibles";
 			this.dgw_vuelosDisponibles.RowHeadersVisible = false;
 			this.dgw_vuelosDisponibles.RowTemplate.Height = 25;
-			this.dgw_vuelosDisponibles.Size = new System.Drawing.Size(956, 323);
+			this.dgw_vuelosDisponibles.Size = new System.Drawing.Size(956, 367);
 			this.dgw_vuelosDisponibles.TabIndex = 3;
 			this.dgw_vuelosDisponibles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgw_vuelosDisponibles_CellContentClick);
 			// 
@@ -143,7 +142,7 @@
 			this.grp_categoriaPasajero.Controls.Add(this.rdb_comercial);
 			this.grp_categoriaPasajero.Location = new System.Drawing.Point(12, 84);
 			this.grp_categoriaPasajero.Name = "grp_categoriaPasajero";
-			this.grp_categoriaPasajero.Size = new System.Drawing.Size(210, 100);
+			this.grp_categoriaPasajero.Size = new System.Drawing.Size(237, 56);
 			this.grp_categoriaPasajero.TabIndex = 19;
 			this.grp_categoriaPasajero.TabStop = false;
 			this.grp_categoriaPasajero.Text = "Categoria de Pasajero: ";
@@ -151,7 +150,7 @@
 			// rdb_ejecutiva
 			// 
 			this.rdb_ejecutiva.AutoSize = true;
-			this.rdb_ejecutiva.Location = new System.Drawing.Point(21, 53);
+			this.rdb_ejecutiva.Location = new System.Drawing.Point(134, 25);
 			this.rdb_ejecutiva.Name = "rdb_ejecutiva";
 			this.rdb_ejecutiva.Size = new System.Drawing.Size(100, 22);
 			this.rdb_ejecutiva.TabIndex = 1;
@@ -170,20 +169,12 @@
 			this.rdb_comercial.Text = "Comercial";
 			this.rdb_comercial.UseVisualStyleBackColor = true;
 			// 
-			// dtp_fechaSalida
-			// 
-			this.dtp_fechaSalida.Location = new System.Drawing.Point(234, 122);
-			this.dtp_fechaSalida.Name = "dtp_fechaSalida";
-			this.dtp_fechaSalida.Size = new System.Drawing.Size(248, 26);
-			this.dtp_fechaSalida.TabIndex = 21;
-			// 
 			// frmVentasDePasajes
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.LightSkyBlue;
 			this.ClientSize = new System.Drawing.Size(980, 525);
-			this.Controls.Add(this.dtp_fechaSalida);
 			this.Controls.Add(this.grp_categoriaPasajero);
 			this.Controls.Add(this.btn_buscarVuelo);
 			this.Controls.Add(this.label1);
@@ -222,6 +213,5 @@
 		private GroupBox grp_categoriaPasajero;
 		private RadioButton rdb_ejecutiva;
 		private RadioButton rdb_comercial;
-		private DateTimePicker dtp_fechaSalida;
 	}
 }

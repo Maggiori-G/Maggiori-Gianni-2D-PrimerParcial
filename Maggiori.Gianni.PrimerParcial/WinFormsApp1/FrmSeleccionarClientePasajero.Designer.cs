@@ -175,7 +175,7 @@
 			// lbl_mostrarPeso
 			// 
 			this.lbl_mostrarPeso.AutoSize = true;
-			this.lbl_mostrarPeso.Location = new System.Drawing.Point(173, 18);
+			this.lbl_mostrarPeso.Location = new System.Drawing.Point(180, 18);
 			this.lbl_mostrarPeso.Name = "lbl_mostrarPeso";
 			this.lbl_mostrarPeso.Size = new System.Drawing.Size(13, 18);
 			this.lbl_mostrarPeso.TabIndex = 5;
@@ -205,7 +205,7 @@
 			// 
 			// nud_cantidadValijas
 			// 
-			this.nud_cantidadValijas.Location = new System.Drawing.Point(129, 31);
+			this.nud_cantidadValijas.Location = new System.Drawing.Point(136, 31);
 			this.nud_cantidadValijas.Name = "nud_cantidadValijas";
 			this.nud_cantidadValijas.Size = new System.Drawing.Size(38, 26);
 			this.nud_cantidadValijas.TabIndex = 3;

@@ -28,6 +28,9 @@ namespace Entidades {
 			CalcularElTiempoDeVuelo();
 			this.precioVuelo=Sistema.CalcularPrecioDeVuelo(this.EsInternacional,this.Duracion);
 		}
+		public Vuelo(Avion avion,string destinoDeSalida,string destinoDeLlegada, DateTime fechaSalida, List<Pasajero> listaPasajeros):this(avion, destinoDeSalida, destinoDeLlegada, fechaSalida) {
+			this.pasajerosAbordo=listaPasajeros;
+		}
 		public Avion Avion {
 			get {
 				return this.avion!;
@@ -94,7 +97,7 @@ namespace Entidades {
 				}
 			}
 			get {
-				return this.recaudacion;
+				return Math.Round(this.recaudacion,2);
 			}
 		}
 		public bool EsInternacional {
@@ -118,7 +121,7 @@ namespace Entidades {
 		}
 		public bool VerificarSiEsInternacional() {
 			if(this.destinoDeLlegada is not null) {
-				if(this.destinoDeLlegada=="Buenos Aires" ||Sistema.EsInternacional(this.destinoDeLlegada)) {
+				if(this.destinoDeLlegada=="Buenos Aires" || Sistema.EsInternacional(this.destinoDeLlegada)) {
 					return true;
 				}
 			}
@@ -128,5 +131,6 @@ namespace Entidades {
 			StringBuilder sb =new StringBuilder();
 			return "";
 		}
+		
 	}
 }

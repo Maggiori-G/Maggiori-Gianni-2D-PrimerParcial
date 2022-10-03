@@ -16,6 +16,7 @@ namespace Entidades {
 		private static List<Vuelo> listaVuelos;
 		private static Dictionary<string, bool> diccionarioDestinos;
 		private static double recaudacionTotal;
+
 		static Sistema() {
 			listaUsuarios = new List<Usuario>();
 			listaDeAviones= new List<Avion>();
@@ -25,6 +26,7 @@ namespace Entidades {
 			Sistema.PrecargarAviones();
 			Sistema.PrecargarVuelos();
 			PrecargarClientes();
+			PrecargarVuelosConPasajeros();
 		}
 		public static List<Usuario> ListaUsuarios {
 			get {
@@ -53,10 +55,10 @@ namespace Entidades {
 		}
 		public static List<Destino> CargarTodosLosDestinos() {
 			return new List<Destino>(){
-				new Destino("Recife (Brasil)",true),
-				new Destino("Roma (Italia)",true),
-				new Destino("Acapulco (México)",true),
-				new Destino("Miami (EEUU)",true),
+				new Destino("Recife, Brasil",true),
+				new Destino("Roma, Italia",true),
+				new Destino("Acapulco, México",true),
+				new Destino("Miami, EEUU",true),
 				new Destino("Buenos Aires", false),
 				new Destino("Santa Rosa", false),
 				new Destino("Bariloche", false),
@@ -1081,7 +1083,6 @@ namespace Entidades {
 			for(int i = 0;i<100;i++) {
 				Sistema.listaDeAviones.Add(new Avion(Sistema.GenerarCodigoAlfanumericoRandom(), Sistema.GenerarNumeroRandom(200,500), Sistema.GenerarNumeroRandom(8,15), Sistema.GenerarNumeroRandom(15000,20000), Sistema.GenerarRandomBool(), Sistema.GenerarNumeroRandom(15000,21000)));
 			}
-			
 		}
 		public static void PrecargarUsuario() {
 			Sistema.listaUsuarios.Add(new Usuario("PepePeposo","pepe1","Lucas","Rodriguez","34","ejemplo@gmail.com","00.000.000","00-0000-0000"));
@@ -1091,11 +1092,239 @@ namespace Entidades {
 			Sistema.listaUsuarios.Add(new Usuario("ezetabo","123contraseñajaja","Ezequiel","Taboada","42","estemailtampocoesreal@nomail.com","34.159.159","11-5555-9455"));
 		}
 		public static void PrecargarVuelos() {
-			DateTime fechaSalida= DateTime.Now;
-			Sistema.listaVuelos.Add(new Vuelo(listaDeAviones[Sistema.GenerarNumeroRandom(0,Sistema.listaDeAviones.Count)],"Buenos Aires", "Recife (Brasil)", fechaSalida));
-			Sistema.listaVuelos.Add(new Vuelo(listaDeAviones[Sistema.GenerarNumeroRandom(0,Sistema.listaDeAviones.Count)],"Buenos Aires", "Roma (Italia)", fechaSalida));
-			Sistema.listaVuelos.Add(new Vuelo(listaDeAviones[Sistema.GenerarNumeroRandom(0,Sistema.listaDeAviones.Count)],"Buenos Aires", "Jujuy", fechaSalida));
-			Sistema.listaVuelos.Add(new Vuelo(listaDeAviones[Sistema.GenerarNumeroRandom(0,Sistema.listaDeAviones.Count)],"Salta", "Jujuy", fechaSalida));
+			Sistema.GenerarVuelo(50,"Buenos Aires","Recife, Brasil");
+			Sistema.GenerarVuelo(50,"Buenos Aires","Roma, Italia");
+			Sistema.GenerarVuelo(50,"Buenos Aires","Acapulco, México");
+			Sistema.GenerarVuelo(50,"Buenos Aires","Miami, EEUU");
+			Sistema.GenerarVuelo(50,"Recife, Brasil","Buenos Aires");
+			Sistema.GenerarVuelo(50,"Roma, Italia","Buenos Aires");
+			Sistema.GenerarVuelo(50,"Acapulco, Mexico","Buenos Aires");
+			Sistema.GenerarVuelo(50,"Miami, EEUU","Buenos Aires");
+			Sistema.GenerarVuelo(50,"Buenos Aires","Santa Rosa");
+			Sistema.GenerarVuelo(50,"Buenos Aires","Bariloche");
+			Sistema.GenerarVuelo(50,"Buenos Aires","Corrientes");
+			Sistema.GenerarVuelo(50,"Buenos Aires","Córdoba");
+			Sistema.GenerarVuelo(50,"Buenos Aires","Jujuy");
+			Sistema.GenerarVuelo(50,"Buenos Aires","Mendoza");
+			Sistema.GenerarVuelo(50,"Buenos Aires","Neuquén");
+			Sistema.GenerarVuelo(50,"Buenos Aires","Posadas");
+			Sistema.GenerarVuelo(50,"Buenos Aires","Iguazú");
+			Sistema.GenerarVuelo(50,"Buenos Aires","Salta");
+			Sistema.GenerarVuelo(50,"Buenos Aires","Santiago del Estero");
+			Sistema.GenerarVuelo(50,"Buenos Aires","Trelew");
+			Sistema.GenerarVuelo(50,"Buenos Aires","Tucumán");
+			Sistema.GenerarVuelo(50,"Buenos Aires","Puerto Madryn");
+			Sistema.GenerarVuelo(50,"Buenos Aires","Ushuaia");
+			Sistema.GenerarVuelo(50,"Santa Rosa","Buenos Aires");
+			Sistema.GenerarVuelo(50,"Santa Rosa","Bariloche");
+			Sistema.GenerarVuelo(50,"Santa Rosa","Corrientes");
+			Sistema.GenerarVuelo(50,"Santa Rosa","Córdoba");
+			Sistema.GenerarVuelo(50,"Santa Rosa","Jujuy");
+			Sistema.GenerarVuelo(50,"Santa Rosa","Mendoza");
+			Sistema.GenerarVuelo(50,"Santa Rosa","Neuquén");
+			Sistema.GenerarVuelo(50,"Santa Rosa","Posadas");
+			Sistema.GenerarVuelo(50,"Santa Rosa","Iguazú");
+			Sistema.GenerarVuelo(50,"Santa Rosa","Salta");
+			Sistema.GenerarVuelo(50,"Santa Rosa","Santiago del Estero");
+			Sistema.GenerarVuelo(50,"Santa Rosa","Trelew");
+			Sistema.GenerarVuelo(50,"Santa Rosa","Tucumán");
+			Sistema.GenerarVuelo(50,"Santa Rosa","Puerto Madryn");
+			Sistema.GenerarVuelo(50,"Santa Rosa","Ushuaia");
+			Sistema.GenerarVuelo(50,"Bariloche","Buenos Aires");
+			Sistema.GenerarVuelo(50,"Bariloche","Santa Rosa");
+			Sistema.GenerarVuelo(50,"Bariloche","Corrientes");
+			Sistema.GenerarVuelo(50,"Bariloche","Córdoba");
+			Sistema.GenerarVuelo(50,"Bariloche","Jujuy");
+			Sistema.GenerarVuelo(50,"Bariloche","Mendoza");
+			Sistema.GenerarVuelo(50,"Bariloche","Neuquén");
+			Sistema.GenerarVuelo(50,"Bariloche","Posadas");
+			Sistema.GenerarVuelo(50,"Bariloche","Iguazú");
+			Sistema.GenerarVuelo(50,"Bariloche","Salta");
+			Sistema.GenerarVuelo(50,"Bariloche","Santiago del Estero");
+			Sistema.GenerarVuelo(50,"Bariloche","Trelew");
+			Sistema.GenerarVuelo(50,"Bariloche","Tucumán");
+			Sistema.GenerarVuelo(50,"Bariloche","Puerto Madryn");
+			Sistema.GenerarVuelo(50,"Bariloche","Ushuaia");
+			Sistema.GenerarVuelo(50,"Corrientes","Buenos Aires");
+			Sistema.GenerarVuelo(50,"Corrientes","Santa Rosa");
+			Sistema.GenerarVuelo(50,"Corrientes","Bariloche");
+			Sistema.GenerarVuelo(50,"Corrientes","Córdoba");
+			Sistema.GenerarVuelo(50,"Corrientes","Jujuy");
+			Sistema.GenerarVuelo(50,"Corrientes","Mendoza");
+			Sistema.GenerarVuelo(50,"Corrientes","Neuquén");
+			Sistema.GenerarVuelo(50,"Corrientes","Posadas");
+			Sistema.GenerarVuelo(50,"Corrientes","Iguazú");
+			Sistema.GenerarVuelo(50,"Corrientes","Salta");
+			Sistema.GenerarVuelo(50,"Corrientes","Santiago del Estero");
+			Sistema.GenerarVuelo(50,"Corrientes","Trelew");
+			Sistema.GenerarVuelo(50,"Corrientes","Tucumán");
+			Sistema.GenerarVuelo(50,"Corrientes","Puerto Madryn");
+			Sistema.GenerarVuelo(50,"Corrientes","Ushuaia");
+			Sistema.GenerarVuelo(50,"Córdoba","Buenos Aires");
+			Sistema.GenerarVuelo(50,"Córdoba","Santa Rosa");
+			Sistema.GenerarVuelo(50,"Córdoba","Bariloche");
+			Sistema.GenerarVuelo(50,"Córdoba","Corrientes");
+			Sistema.GenerarVuelo(50,"Córdoba","Jujuy");
+			Sistema.GenerarVuelo(50,"Córdoba","Mendoza");
+			Sistema.GenerarVuelo(50,"Córdoba","Neuquén");
+			Sistema.GenerarVuelo(50,"Córdoba","Posadas");
+			Sistema.GenerarVuelo(50,"Córdoba","Iguazú");
+			Sistema.GenerarVuelo(50,"Córdoba","Salta");
+			Sistema.GenerarVuelo(50,"Córdoba","Santiago del Estero");
+			Sistema.GenerarVuelo(50,"Córdoba","Trelew");
+			Sistema.GenerarVuelo(50,"Córdoba","Tucumán");
+			Sistema.GenerarVuelo(50,"Córdoba","Puerto Madryn");
+			Sistema.GenerarVuelo(50,"Córdoba","Ushuaia");
+			Sistema.GenerarVuelo(50,"Jujuy","Buenos Aires");
+			Sistema.GenerarVuelo(50,"Jujuy","Santa Rosa");
+			Sistema.GenerarVuelo(50,"Jujuy","Bariloche");
+			Sistema.GenerarVuelo(50,"Jujuy","Corrientes");
+			Sistema.GenerarVuelo(50,"Jujuy","Córdoba");
+			Sistema.GenerarVuelo(50,"Jujuy","Mendoza");
+			Sistema.GenerarVuelo(50,"Jujuy","Neuquén");
+			Sistema.GenerarVuelo(50,"Jujuy","Posadas");
+			Sistema.GenerarVuelo(50,"Jujuy","Iguazú");
+			Sistema.GenerarVuelo(50,"Jujuy","Salta");
+			Sistema.GenerarVuelo(50,"Jujuy","Santiago del Estero");
+			Sistema.GenerarVuelo(50,"Jujuy","Trelew");
+			Sistema.GenerarVuelo(50,"Jujuy","Tucumán");
+			Sistema.GenerarVuelo(50,"Jujuy","Puerto Madryn");
+			Sistema.GenerarVuelo(50,"Jujuy","Ushuaia");
+			Sistema.GenerarVuelo(50,"Mendoza","Buenos Aires");
+			Sistema.GenerarVuelo(50,"Mendoza","Santa Rosa");
+			Sistema.GenerarVuelo(50,"Mendoza","Bariloche");
+			Sistema.GenerarVuelo(50,"Mendoza","Corrientes");
+			Sistema.GenerarVuelo(50,"Mendoza","Córdoba");
+			Sistema.GenerarVuelo(50,"Mendoza","Jujuy");
+			Sistema.GenerarVuelo(50,"Mendoza","Neuquén");
+			Sistema.GenerarVuelo(50,"Mendoza","Posadas");
+			Sistema.GenerarVuelo(50,"Mendoza","Iguazú");
+			Sistema.GenerarVuelo(50,"Mendoza","Salta");
+			Sistema.GenerarVuelo(50,"Mendoza","Santiago del Estero");
+			Sistema.GenerarVuelo(50,"Mendoza","Trelew");
+			Sistema.GenerarVuelo(50,"Mendoza","Tucumán");
+			Sistema.GenerarVuelo(50,"Mendoza","Puerto Madryn");
+			Sistema.GenerarVuelo(50,"Mendoza","Ushuaia");
+			Sistema.GenerarVuelo(50,"Neuquén","Buenos Aires");
+			Sistema.GenerarVuelo(50,"Neuquén","Santa Rosa");
+			Sistema.GenerarVuelo(50,"Neuquén","Bariloche");
+			Sistema.GenerarVuelo(50,"Neuquén","Corrientes");
+			Sistema.GenerarVuelo(50,"Neuquén","Córdoba");
+			Sistema.GenerarVuelo(50,"Neuquén","Jujuy");
+			Sistema.GenerarVuelo(50,"Neuquén","Mendoza");
+			Sistema.GenerarVuelo(50,"Neuquén","Posadas");
+			Sistema.GenerarVuelo(50,"Neuquén","Iguazú");
+			Sistema.GenerarVuelo(50,"Neuquén","Salta");
+			Sistema.GenerarVuelo(50,"Neuquén","Santiago del Estero");
+			Sistema.GenerarVuelo(50,"Neuquén","Trelew");
+			Sistema.GenerarVuelo(50,"Neuquén","Tucumán");
+			Sistema.GenerarVuelo(50,"Neuquén","Puerto Madryn");
+			Sistema.GenerarVuelo(50,"Neuquén","Ushuaia");
+			Sistema.GenerarVuelo(50,"Posadas","Buenos Aires");
+			Sistema.GenerarVuelo(50,"Posadas","Santa Rosa");
+			Sistema.GenerarVuelo(50,"Posadas","Bariloche");
+			Sistema.GenerarVuelo(50,"Posadas","Corrientes");
+			Sistema.GenerarVuelo(50,"Posadas","Córdoba");
+			Sistema.GenerarVuelo(50,"Posadas","Jujuy");
+			Sistema.GenerarVuelo(50,"Posadas","Mendoza");
+			Sistema.GenerarVuelo(50,"Posadas","Neuquén");
+			Sistema.GenerarVuelo(50,"Posadas","Iguazú");
+			Sistema.GenerarVuelo(50,"Posadas","Salta");
+			Sistema.GenerarVuelo(50,"Posadas","Santiago del Estero");
+			Sistema.GenerarVuelo(50,"Posadas","Trelew");
+			Sistema.GenerarVuelo(50,"Posadas","Tucumán");
+			Sistema.GenerarVuelo(50,"Posadas","Puerto Madryn");
+			Sistema.GenerarVuelo(50,"Posadas","Ushuaia");
+			Sistema.GenerarVuelo(50,"Iguazú","Buenos Aires");
+			Sistema.GenerarVuelo(50,"Iguazú","Santa Rosa");
+			Sistema.GenerarVuelo(50,"Iguazú","Bariloche");
+			Sistema.GenerarVuelo(50,"Iguazú","Corrientes");
+			Sistema.GenerarVuelo(50,"Iguazú","Córdoba");
+			Sistema.GenerarVuelo(50,"Iguazú","Jujuy");
+			Sistema.GenerarVuelo(50,"Iguazú","Mendoza");
+			Sistema.GenerarVuelo(50,"Iguazú","Neuquén");
+			Sistema.GenerarVuelo(50,"Iguazú","Posadas");
+			Sistema.GenerarVuelo(50,"Iguazú","Salta");
+			Sistema.GenerarVuelo(50,"Iguazú","Santiago del Estero");
+			Sistema.GenerarVuelo(50,"Iguazú","Trelew");
+			Sistema.GenerarVuelo(50,"Iguazú","Tucumán");
+			Sistema.GenerarVuelo(50,"Iguazú","Puerto Madryn");
+			Sistema.GenerarVuelo(50,"Iguazú","Ushuaia");
+			Sistema.GenerarVuelo(50,"Salta","Buenos Aires");
+			Sistema.GenerarVuelo(50,"Salta","Santa Rosa");
+			Sistema.GenerarVuelo(50,"Salta","Bariloche");
+			Sistema.GenerarVuelo(50,"Salta","Corrientes");
+			Sistema.GenerarVuelo(50,"Salta","Córdoba");
+			Sistema.GenerarVuelo(50,"Salta","Jujuy");
+			Sistema.GenerarVuelo(50,"Salta","Mendoza");
+			Sistema.GenerarVuelo(50,"Salta","Neuquén");
+			Sistema.GenerarVuelo(50,"Salta","Posadas");
+			Sistema.GenerarVuelo(50,"Salta","Iguazú");
+			Sistema.GenerarVuelo(50,"Salta","Santiago del Estero");
+			Sistema.GenerarVuelo(50,"Salta","Trelew");
+			Sistema.GenerarVuelo(50,"Salta","Tucumán");
+			Sistema.GenerarVuelo(50,"Salta","Puerto Madryn");
+			Sistema.GenerarVuelo(50,"Salta","Ushuaia");
+			Sistema.GenerarVuelo(50,"Santiago del Estero","Buenos Aires");
+			Sistema.GenerarVuelo(50,"Santiago del Estero","Santa Rosa");
+			Sistema.GenerarVuelo(50,"Santiago del Estero","Bariloche");
+			Sistema.GenerarVuelo(50,"Santiago del Estero","Corrientes");
+			Sistema.GenerarVuelo(50,"Santiago del Estero","Córdoba");
+			Sistema.GenerarVuelo(50,"Santiago del Estero","Jujuy");
+			Sistema.GenerarVuelo(50,"Santiago del Estero","Mendoza");
+			Sistema.GenerarVuelo(50,"Santiago del Estero","Neuquén");
+			Sistema.GenerarVuelo(50,"Santiago del Estero","Posadas");
+			Sistema.GenerarVuelo(50,"Santiago del Estero","Iguazú");
+			Sistema.GenerarVuelo(50,"Santiago del Estero","Salta");
+			Sistema.GenerarVuelo(50,"Santiago del Estero","Trelew");
+			Sistema.GenerarVuelo(50,"Santiago del Estero","Tucumán");
+			Sistema.GenerarVuelo(50,"Santiago del Estero","Puerto Madryn");
+			Sistema.GenerarVuelo(50,"Santiago del Estero","Ushuaia");
+			Sistema.GenerarVuelo(50,"Trelew","Buenos Aires");
+			Sistema.GenerarVuelo(50,"Trelew","Santa Rosa");
+			Sistema.GenerarVuelo(50,"Trelew","Bariloche");
+			Sistema.GenerarVuelo(50,"Trelew","Corrientes");
+			Sistema.GenerarVuelo(50,"Trelew","Córdoba");
+			Sistema.GenerarVuelo(50,"Trelew","Jujuy");
+			Sistema.GenerarVuelo(50,"Trelew","Mendoza");
+			Sistema.GenerarVuelo(50,"Trelew","Neuquén");
+			Sistema.GenerarVuelo(50,"Trelew","Posadas");
+			Sistema.GenerarVuelo(50,"Trelew","Iguazú");
+			Sistema.GenerarVuelo(50,"Trelew","Salta");
+			Sistema.GenerarVuelo(50,"Trelew","Santiago del Estero");
+			Sistema.GenerarVuelo(50,"Trelew","Tucumán");
+			Sistema.GenerarVuelo(50,"Trelew","Puerto Madryn");
+			Sistema.GenerarVuelo(50,"Trelew","Ushuaia");
+			Sistema.GenerarVuelo(50,"Puerto Madryn","Buenos Aires");
+			Sistema.GenerarVuelo(50,"Puerto Madryn","Santa Rosa");
+			Sistema.GenerarVuelo(50,"Puerto Madryn","Bariloche");
+			Sistema.GenerarVuelo(50,"Puerto Madryn","Corrientes");
+			Sistema.GenerarVuelo(50,"Puerto Madryn","Córdoba");
+			Sistema.GenerarVuelo(50,"Puerto Madryn","Jujuy");
+			Sistema.GenerarVuelo(50,"Puerto Madryn","Mendoza");
+			Sistema.GenerarVuelo(50,"Puerto Madryn","Neuquén");
+			Sistema.GenerarVuelo(50,"Puerto Madryn","Posadas");
+			Sistema.GenerarVuelo(50,"Puerto Madryn","Iguazú");
+			Sistema.GenerarVuelo(50,"Puerto Madryn","Salta");
+			Sistema.GenerarVuelo(50,"Puerto Madryn","Santiago del Estero");
+			Sistema.GenerarVuelo(50,"Puerto Madryn","Trelew");
+			Sistema.GenerarVuelo(50,"Puerto Madryn","Tucumán");
+			Sistema.GenerarVuelo(50,"Puerto Madryn","Ushuaia");
+			Sistema.GenerarVuelo(50,"Ushuaia","Buenos Aires");
+			Sistema.GenerarVuelo(50,"Ushuaia","Santa Rosa");
+			Sistema.GenerarVuelo(50,"Ushuaia","Bariloche");
+			Sistema.GenerarVuelo(50,"Ushuaia","Corrientes");
+			Sistema.GenerarVuelo(50,"Ushuaia","Córdoba");
+			Sistema.GenerarVuelo(50,"Ushuaia","Jujuy");
+			Sistema.GenerarVuelo(50,"Ushuaia","Mendoza");
+			Sistema.GenerarVuelo(50,"Ushuaia","Neuquén");
+			Sistema.GenerarVuelo(50,"Ushuaia","Posadas");
+			Sistema.GenerarVuelo(50,"Ushuaia","Iguazú");
+			Sistema.GenerarVuelo(50,"Ushuaia","Salta");
+			Sistema.GenerarVuelo(50,"Ushuaia","Santiago del Estero");
+			Sistema.GenerarVuelo(50,"Ushuaia","Trelew");
+			Sistema.GenerarVuelo(50,"Ushuaia","Tucumán");
+			Sistema.GenerarVuelo(50,"Ushuaia","Puerto Madryn");
 		}
 		public static Usuario? ValidarDatosUsuarioExistente(string nombreDeUsuario, string contraseña) {
 			if(nombreDeUsuario is not null && contraseña is not null) {
@@ -1150,7 +1379,7 @@ namespace Entidades {
 			if(origen is not null && destino is not null && cantidadTickets>0) {
 				foreach(Vuelo item in Sistema.listaVuelos) {
 					if(item.Avion.EstaEnVuelo=="Aún no despegó") {
-						if(item.Origen==origen && item.Destino==destino) {
+						if(item.Origen==origen && item.Destino==destino && item.Fecha>=DateTime.Now) {
 							if(primeraClase) {
 								if(item.Avion.AsientosPrimerClase>=cantidadTickets) {
 									lista.Add(item);
@@ -1167,6 +1396,15 @@ namespace Entidades {
 			}
 			return lista;
 		}
+		public static List<Vuelo> BuscarVuelosPorFecha(bool esViejo) {
+			List<Vuelo> lista = new List<Vuelo>();
+			foreach(Vuelo item in Sistema.listaVuelos) {
+				if((esViejo && item.Fecha<DateTime.Now) || (!esViejo && item.Fecha>=DateTime.Now)) {
+					lista.Add(item);
+				}
+			}
+			return lista;
+		}
 		public static bool BuscarClienteEnPasajeros(Cliente cliente, List<Pasajero> listaCliente) {
 			if(cliente is not null && listaCliente is not null) {
 				foreach(Pasajero item in listaCliente) {
@@ -1177,19 +1415,18 @@ namespace Entidades {
 			}
 			return false;
 		}
-		public static void CargarPasajeroAlVuelo(Vuelo vuelo, Pasajero pasajero) {
-			if (pasajero is not null && vuelo is not null) {
-				vuelo.PasajerosAbordo.Add(pasajero);
+		public static void CargarVuelo(Vuelo vuelo, List<Pasajero> pasajeros) {
+			if (pasajeros is not null && pasajeros.Count>0 && vuelo is not null && vuelo.Disponibilidad>0) {
+				vuelo.PasajerosAbordo.AddRange(pasajeros);
 			}
 		}
 		public static double CalcularPesoValijas(bool esPremium) {
 			Random random = new Random();
-			double peso;
 			if(esPremium) {
-				return peso=random.Next(12,42);
+				return random.Next(12,42);
 			}
 			else {
-				return peso=random.Next(8,25);
+				return random.Next(8,25);
 			}
 		}
 		public static string MostrarDatosEquipajeReportado(bool tieneBolsoDeMano, bool esPrimeraClase, double pesoValijas) {
@@ -1218,8 +1455,8 @@ namespace Entidades {
 			return lista;
 		}
 		public static double CalcularPrecioDeVuelo(bool esInternacional, int duracionVuelo) {
-			double precioDelVuelo=0;
-			int conversionPesoDolar=310;
+			double precioDelVuelo;
+			//int conversionPesoDolar=310;
 
 			if(esInternacional) {
 				precioDelVuelo=duracionVuelo*100;
@@ -1227,7 +1464,7 @@ namespace Entidades {
 			else {
 				precioDelVuelo=duracionVuelo*50;
 			}
-			return precioDelVuelo*conversionPesoDolar;
+			return precioDelVuelo;
 		}
 		public static void CalcularPrecioPasaje(double precioVuelo, Pasajero pasajero) {
 			double precioAditivo=0;
@@ -1243,7 +1480,7 @@ namespace Entidades {
 				}
 				precioAditivo+=precioVuelo;
 				if(pasajero.PrimeraClase) {
-					precioAditivo=precioAditivo+(precioAditivo*15/100);
+					precioAditivo+=(precioAditivo*15/100);
 				}
 				pasajero.Precio=precioAditivo*1.21;
 			}
@@ -1258,11 +1495,11 @@ namespace Entidades {
 			return recaudacionDeLaVenta;
 		}
 		public static void CalcularRecaudacionVuelo(Vuelo vuelo) {
-			if(vuelo.PasajerosAbordo is not null) {
-				if(vuelo.PasajerosAbordo.Count>0) {
-					vuelo.Recaudacion=vuelo.PasajerosAbordo.Count*vuelo.Precio;
-				}
+			double acumuladorPrecio=0;
+			foreach(Pasajero item in vuelo.PasajerosAbordo) {
+				acumuladorPrecio+=item.Precio;
 			}
+			vuelo.Recaudacion=acumuladorPrecio;
 		}
 		public static bool GenerarRandomBool() {
 			Random random=new Random();
@@ -1286,5 +1523,68 @@ namespace Entidades {
             string stringRetorno = new String(ticket);
 			return stringRetorno;
 		}
-	}	
+		public static DateTime GenerarFechaRandom(bool esFechaDelPasado) {
+			Random random= new Random();
+			DateTime dateTime = DateTime.Now;
+			DateTime fechaRetorno;
+			if(esFechaDelPasado) {
+				do {
+					fechaRetorno=new DateTime(random.Next(2015,2022), random.Next(1,12), random.Next(1,28));
+				}while(fechaRetorno>=dateTime);
+			}
+			else {
+				return new DateTime(random.Next(2023, 2030),random.Next(1,12),random.Next(1,28));
+			}
+			return fechaRetorno;
+		}
+		public static void GenerarVuelo(int cantidad, string origen, string destino) {
+			for(int i = 0; i < cantidad;i++) {
+				Sistema.listaVuelos.Add(new Vuelo(listaDeAviones[Sistema.GenerarNumeroRandom(0,Sistema.listaDeAviones.Count)],origen, destino, Sistema.GenerarFechaRandom(Sistema.GenerarRandomBool())));
+			}
+		}
+		public static int CalcularCantidadDeAsientosPrimeraClaseDisponibles(Vuelo vuelo) {
+			int contadorPasajerosPrimeraClase=0;
+			if(vuelo is not null) {
+				foreach(Pasajero item in vuelo.PasajerosAbordo) {
+					if(item.PrimeraClase) {
+						contadorPasajerosPrimeraClase++;
+					}
+				}
+			}
+			return vuelo!.Avion.AsientosPrimerClase-contadorPasajerosPrimeraClase;
+		}
+		public static int CalcularCantidadDeAsientosComercialDisponibles(Vuelo vuelo) {
+			int contadorPasajerosComercialClase=0;
+			if(vuelo is not null) {
+				foreach(Pasajero item in vuelo.PasajerosAbordo) {
+					if(!item.PrimeraClase) {
+						contadorPasajerosComercialClase++;
+					}
+				}
+			}
+			return vuelo!.Avion.AsientosComercial-contadorPasajerosComercialClase;
+		}
+		public static void PrecargarVuelosConPasajeros() {
+			Random random = new Random();
+			foreach(Vuelo item in Sistema.listaVuelos) {
+				for(int i = 0;i<random.Next(150, item.Avion.CapacidadDeAsientos);i++) {
+
+					if(GenerarRandomBool() && Sistema.CalcularCantidadDeAsientosPrimeraClaseDisponibles(item)>0) {
+						
+						item.PasajerosAbordo.Add(new Pasajero(Sistema.CalcularPesoValijas(true), Sistema.GenerarNumeroRandom(1,5), Sistema.GenerarRandomBool(),Comida.Refrigerio, true, Sistema.GenerarRandomBool(),Sistema.listaClientes[random.Next(0,listaClientes.Count)],Sistema.GenerarRandomBool()));
+					}
+					else if(Sistema.CalcularCantidadDeAsientosComercialDisponibles(item)>0) {
+						item.PasajerosAbordo.Add(new (Sistema.CalcularPesoValijas(false), Sistema.GenerarNumeroRandom(1,5), Sistema.GenerarRandomBool(),Comida.Refrigerio, false, Sistema.GenerarRandomBool(),Sistema.listaClientes[random.Next(0,listaClientes.Count)],Sistema.GenerarRandomBool()));
+					}
+				}
+				Sistema.CalcularPrecioPasajerosHardcodeados(item);
+				Sistema.CalcularRecaudacionVuelo(item);
+			}
+		}
+		private static void CalcularPrecioPasajerosHardcodeados(Vuelo vuelo) {
+			foreach(Pasajero item in vuelo.PasajerosAbordo) {
+				Sistema.CalcularPrecioPasaje(vuelo.Precio, item);
+			}
+		}
+	}
 }

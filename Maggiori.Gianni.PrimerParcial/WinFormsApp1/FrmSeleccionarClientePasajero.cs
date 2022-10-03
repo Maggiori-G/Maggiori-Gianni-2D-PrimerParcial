@@ -8,7 +8,6 @@ namespace VistaAerolinea {
 		private Vuelo vuelo;
 		private int cantidadDeTickets;
 		private bool esPremium;
-		private DateTime fechaDePartida;
 		private double pesoValijas;
 		Pasajero? nuevoPasajero;
 		private List<Cliente>? listaClientes;
@@ -19,13 +18,11 @@ namespace VistaAerolinea {
 				return listaPasajeros;
 			}
 		}
-
-		public FrmSeleccionarClientePasajero(Vuelo vuelo,int cantidadMaximaTickets,bool esPremium,DateTime fechaDePartida) {
+		public FrmSeleccionarClientePasajero(Vuelo vuelo,int cantidadMaximaTickets,bool esPremium) {
 			InitializeComponent();
 			this.vuelo=vuelo;
 			this.cantidadDeTickets=cantidadMaximaTickets;
 			this.esPremium=esPremium;
-			this.fechaDePartida=fechaDePartida;
 			listaPasajeros=new List<Pasajero>();
 		}
 		private void FrmSeleccionarClientePasajero_Load(object sender,EventArgs e) {
@@ -42,13 +39,11 @@ namespace VistaAerolinea {
 				dgw_mostrarClientes.DataSource=listaClientes;
 			}
 		}
-
 		private void btn_cancelar_Click(object sender,EventArgs e) {
 			this.DialogResult=DialogResult.Cancel;
 		}
-
 		private void btn_venderVuelo_Click(object sender,EventArgs e) {
-			vuelo.PasajerosAbordo.AddRange(listaPasajeros);
+			Sistema.CargarVuelo(vuelo, listaPasajeros);
 			if(esPremium) {
 				vuelo.Avion.AsientosPrimerClase=cantidadDeTickets;
 			}
@@ -57,7 +52,6 @@ namespace VistaAerolinea {
 			}
 			this.DialogResult=DialogResult.OK;
 		}
-
 		private void chk_comida_CheckedChanged(object sender,EventArgs e) {
 			if(chk_comida.Checked) {
 				cmb_comidas.Visible=true;
@@ -67,7 +61,6 @@ namespace VistaAerolinea {
 				cmb_comidas.Visible=false;
 			}
 		}
-
 		private void btn_confirmarPasajero_Click(object sender,EventArgs e) {
 			btn_repotarPeso.Visible=true;
 			lbl_mostrarPeso.Visible=false;
@@ -75,7 +68,6 @@ namespace VistaAerolinea {
 			ConfirmarPasajero();
 			rtb_datosPaquete.Text=this.ImprimirDatosDelPaquete(listaPasajeros);
 		}
-
 		private void ConfirmarPasajero() {
 			if(cliente is not null) {
 				nuevoPasajero = new Pasajero(pesoValijas,cantidadDeTickets,chk_wifi.Checked,(Comida)cmb_comidas.SelectedItem,esPremium,rdb_siPeliculas.Checked,this.cliente,rdb_tieneBolsoDeMano.Checked);
@@ -90,20 +82,17 @@ namespace VistaAerolinea {
 				MessageBox.Show("No se seleccionó ningun pasajero");
 			}
 		}
-
 		private void ActualizarDataGridClientes() {
 			dgw_mostrarClientes.DataSource=null;
 			listaClientes!.Remove(this.cliente!);
 			dgw_mostrarClientes.DataSource=listaClientes;
 		}
-
 		private void CargarNuevoPasajero(Pasajero nuevoPasajero) {
 			listaPasajeros.Add(nuevoPasajero);
 			dgw_pasajerosVuelo.DataSource=null;
 			dgw_pasajerosVuelo.DataSource=listaPasajeros;
 			OcultarColumnas();
 		}
-
 		private void ResetearControlesOpcionesDelCliente() {
 			foreach(Control item in this.Controls) {
 				if(item is CheckBox) {
@@ -117,7 +106,6 @@ namespace VistaAerolinea {
 				}
 			}
 		}
-
 		private void OcultarColumnas() {
 			dgw_pasajerosVuelo.Columns["CantidadMaximaTickets"].Visible=false;
 			dgw_pasajerosVuelo.Columns["ContratoWifi"].Visible=false;
@@ -127,7 +115,6 @@ namespace VistaAerolinea {
 			dgw_pasajerosVuelo.Columns["TipoComida"].Visible=false;
 			dgw_pasajerosVuelo.Columns["Id"].Visible=false;
 		}
-
 		private void nud_cantidadValijas_ValueChanged(object sender,EventArgs e) {
 			nud_cantidadValijas.Minimum=1;
 			if(esPremium) {
