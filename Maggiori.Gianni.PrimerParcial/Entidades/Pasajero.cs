@@ -60,7 +60,7 @@ namespace Entidades {
 		}
 		public bool ContratoPeliculas {
 			get {
-				return tieneBolsoDeMano;
+				return this.contratoPeliculas;
 			}
 		}
 		public bool TieneBolsoDeMano {

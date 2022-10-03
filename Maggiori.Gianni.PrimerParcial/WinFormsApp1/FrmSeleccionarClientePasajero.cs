@@ -12,7 +12,7 @@ namespace VistaAerolinea {
 		Pasajero? nuevoPasajero;
 		private List<Cliente>? listaClientes;
 		private List<Pasajero> listaPasajeros;
-
+		
 		public List<Pasajero> Pasajeros {
 			get {
 				return listaPasajeros;
@@ -24,6 +24,7 @@ namespace VistaAerolinea {
 			this.cantidadDeTickets=cantidadMaximaTickets;
 			this.esPremium=esPremium;
 			listaPasajeros=new List<Pasajero>();
+			cliente=null;
 		}
 		private void FrmSeleccionarClientePasajero_Load(object sender,EventArgs e) {
 			btn_repotarPeso.Visible=true;
@@ -64,9 +65,19 @@ namespace VistaAerolinea {
 		private void btn_confirmarPasajero_Click(object sender,EventArgs e) {
 			btn_repotarPeso.Visible=true;
 			lbl_mostrarPeso.Visible=false;
-			cliente=(Cliente)dgw_mostrarClientes.CurrentRow.DataBoundItem;
-			ConfirmarPasajero();
-			rtb_datosPaquete.Text=this.ImprimirDatosDelPaquete(listaPasajeros);
+			if(dgw_mostrarClientes is not null) {
+				cliente=(Cliente)dgw_mostrarClientes.CurrentRow.DataBoundItem;
+			}
+			else {
+				MessageBox.Show("No se selecciono ningún cliente");
+			}
+			if(cliente is null) {
+				MessageBox.Show("Error, seleccione los datos del cliente");
+			}
+			else {
+				ConfirmarPasajero();
+				rtb_datosPaquete.Text=this.ImprimirDatosDelPaquete(listaPasajeros);
+			}
 		}
 		private void ConfirmarPasajero() {
 			if(cliente is not null) {

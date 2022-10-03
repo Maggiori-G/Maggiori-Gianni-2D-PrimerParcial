@@ -140,7 +140,7 @@
 			// lbl_esInternacional
 			// 
 			this.lbl_esInternacional.AutoSize = true;
-			this.lbl_esInternacional.Location = new System.Drawing.Point(0, 25);
+			this.lbl_esInternacional.Location = new System.Drawing.Point(6, 25);
 			this.lbl_esInternacional.Name = "lbl_esInternacional";
 			this.lbl_esInternacional.Size = new System.Drawing.Size(13, 18);
 			this.lbl_esInternacional.TabIndex = 0;

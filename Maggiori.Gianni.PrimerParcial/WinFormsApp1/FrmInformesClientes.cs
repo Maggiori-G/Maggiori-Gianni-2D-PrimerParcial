@@ -10,11 +10,11 @@ using System.Windows.Forms;
 using Entidades;
 namespace VistaAerolinea {
 	public partial class FrmInformesClientes:Form {
-		private List<Cliente> listaClienteSeleccionado;
+		private List<Cliente>? listaClienteSeleccionado;
 		private int cantidadDeSelecciones;
 		public List<Cliente> ClienteSeleccionado {
 			get {
-				return listaClienteSeleccionado;
+				return listaClienteSeleccionado!;
 			}
 		}
 		public FrmInformesClientes() {
@@ -80,7 +80,7 @@ namespace VistaAerolinea {
 		}
 
 		private void btn_seleccionarCliente_Click(object sender,EventArgs e) {
-			listaClienteSeleccionado.Add((Cliente)dgw1_dataClientes.CurrentRow.DataBoundItem);
+			listaClienteSeleccionado!.Add((Cliente)dgw1_dataClientes.CurrentRow.DataBoundItem);
 			if(listaClienteSeleccionado.Count==cantidadDeSelecciones) {
 				this.DialogResult=DialogResult.OK;
 			}
