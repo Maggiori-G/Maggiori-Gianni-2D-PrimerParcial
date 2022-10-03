@@ -29,13 +29,12 @@
 			this.informaciónVuelosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.informaciónAvionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.informaciónClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.destinosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.venderPasajesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.venderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.añadirAvionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.nuevoAvionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.modificarAvionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.datosDeRecaudaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.configuraciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.modificarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,7 +69,8 @@
 			this.informaciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.informaciónVuelosToolStripMenuItem,
             this.informaciónAvionesToolStripMenuItem,
-            this.informaciónClientesToolStripMenuItem});
+            this.informaciónClientesToolStripMenuItem,
+            this.destinosToolStripMenuItem});
 			this.informaciónToolStripMenuItem.ForeColor = System.Drawing.Color.MidnightBlue;
 			this.informaciónToolStripMenuItem.Name = "informaciónToolStripMenuItem";
 			this.informaciónToolStripMenuItem.Size = new System.Drawing.Size(236, 22);
@@ -79,23 +79,29 @@
 			// informaciónVuelosToolStripMenuItem
 			// 
 			this.informaciónVuelosToolStripMenuItem.Name = "informaciónVuelosToolStripMenuItem";
-			this.informaciónVuelosToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+			this.informaciónVuelosToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
 			this.informaciónVuelosToolStripMenuItem.Text = "Vuelos";
 			this.informaciónVuelosToolStripMenuItem.Click += new System.EventHandler(this.informaciónVuelosToolStripMenuItem_Click_1);
 			// 
 			// informaciónAvionesToolStripMenuItem
 			// 
 			this.informaciónAvionesToolStripMenuItem.Name = "informaciónAvionesToolStripMenuItem";
-			this.informaciónAvionesToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+			this.informaciónAvionesToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
 			this.informaciónAvionesToolStripMenuItem.Text = "Aviones";
 			this.informaciónAvionesToolStripMenuItem.Click += new System.EventHandler(this.informaciónAvionesToolStripMenuItem_Click);
 			// 
 			// informaciónClientesToolStripMenuItem
 			// 
 			this.informaciónClientesToolStripMenuItem.Name = "informaciónClientesToolStripMenuItem";
-			this.informaciónClientesToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+			this.informaciónClientesToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
 			this.informaciónClientesToolStripMenuItem.Text = "Clientes";
 			this.informaciónClientesToolStripMenuItem.Click += new System.EventHandler(this.informaciónClientesToolStripMenuItem_Click);
+			// 
+			// destinosToolStripMenuItem
+			// 
+			this.destinosToolStripMenuItem.Name = "destinosToolStripMenuItem";
+			this.destinosToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+			this.destinosToolStripMenuItem.Text = "Destinos";
 			// 
 			// venderPasajesToolStripMenuItem
 			// 
@@ -123,9 +129,7 @@
 			// añadirAvionToolStripMenuItem
 			// 
 			this.añadirAvionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuevoAvionToolStripMenuItem,
-            this.modificarAvionToolStripMenuItem,
-            this.datosDeRecaudaciónToolStripMenuItem});
+            this.nuevoAvionToolStripMenuItem});
 			this.añadirAvionToolStripMenuItem.ForeColor = System.Drawing.Color.MidnightBlue;
 			this.añadirAvionToolStripMenuItem.Name = "añadirAvionToolStripMenuItem";
 			this.añadirAvionToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
@@ -134,22 +138,9 @@
 			// nuevoAvionToolStripMenuItem
 			// 
 			this.nuevoAvionToolStripMenuItem.Name = "nuevoAvionToolStripMenuItem";
-			this.nuevoAvionToolStripMenuItem.Size = new System.Drawing.Size(255, 22);
+			this.nuevoAvionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.nuevoAvionToolStripMenuItem.Text = "Nuevo Avion";
 			this.nuevoAvionToolStripMenuItem.Click += new System.EventHandler(this.nuevoAvionToolStripMenuItem_Click);
-			// 
-			// modificarAvionToolStripMenuItem
-			// 
-			this.modificarAvionToolStripMenuItem.Name = "modificarAvionToolStripMenuItem";
-			this.modificarAvionToolStripMenuItem.Size = new System.Drawing.Size(255, 22);
-			this.modificarAvionToolStripMenuItem.Text = "Modificar Avion";
-			this.modificarAvionToolStripMenuItem.Click += new System.EventHandler(this.modificarAvionToolStripMenuItem_Click);
-			// 
-			// datosDeRecaudaciónToolStripMenuItem
-			// 
-			this.datosDeRecaudaciónToolStripMenuItem.Name = "datosDeRecaudaciónToolStripMenuItem";
-			this.datosDeRecaudaciónToolStripMenuItem.Size = new System.Drawing.Size(255, 22);
-			this.datosDeRecaudaciónToolStripMenuItem.Text = "Datos de Recaudación";
 			// 
 			// configuraciónToolStripMenuItem
 			// 
@@ -259,11 +250,10 @@
 		private ToolStripMenuItem modificarToolStripMenuItem;
 		private ToolStripMenuItem añadirAvionToolStripMenuItem;
 		private ToolStripMenuItem nuevoAvionToolStripMenuItem;
-		private ToolStripMenuItem modificarAvionToolStripMenuItem;
-		private ToolStripMenuItem datosDeRecaudaciónToolStripMenuItem;
 		private ToolStripMenuItem configuraciónToolStripMenuItem;
 		private ToolStripMenuItem modificarUsuarioToolStripMenuItem;
 		private ToolStripMenuItem cerrarSesiónToolStripMenuItem;
 		private ToolStripMenuItem salirToolStripMenuItem;
+		private ToolStripMenuItem destinosToolStripMenuItem;
 	}
 }

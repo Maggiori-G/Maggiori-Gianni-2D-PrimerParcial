@@ -20,8 +20,6 @@ namespace VistaAerolinea {
 			lbl_fechaActual.Text=DateTime.Now.ToShortDateString();
 		}
 
-		
-
 		private void cerrarSesiónToolStripMenuItem_Click(object sender,EventArgs e) {
 			this.DialogResult=DialogResult.OK;
 		}
@@ -56,13 +54,8 @@ namespace VistaAerolinea {
 			ControlVista.AbrirForm(this, new frmNuevoAvion());
 		}
 
-		private void modificarAvionToolStripMenuItem_Click(object sender,EventArgs e) {
-			ControlVista.AbrirForm(this, new FrmModificarAvion());
-		}
-
 		private void salirToolStripMenuItem_Click(object sender,EventArgs e) {
 			ControlVista.Salir(this);
 		}
-
 	}
 }

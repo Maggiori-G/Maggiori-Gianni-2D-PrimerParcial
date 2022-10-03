@@ -44,14 +44,19 @@ namespace VistaAerolinea {
 			this.DialogResult=DialogResult.Cancel;
 		}
 		private void btn_venderVuelo_Click(object sender,EventArgs e) {
-			Sistema.CargarVuelo(vuelo, listaPasajeros);
-			if(esPremium) {
-				vuelo.Avion.AsientosPrimerClase=cantidadDeTickets;
+			if(cantidadDeTickets==listaPasajeros.Count) {
+				Sistema.CargarVuelo(vuelo, listaPasajeros);
+				if(esPremium) {
+					vuelo.Avion.AsientosPrimerClase=cantidadDeTickets;
+				}
+				else {
+					vuelo.Avion.AsientosComercial=cantidadDeTickets;
+				}
+				this.DialogResult=DialogResult.OK;
 			}
 			else {
-				vuelo.Avion.AsientosComercial=cantidadDeTickets;
+				MessageBox.Show("Faltan cargar pasajeros, finalice el proceso de preventa para poder confirmar");
 			}
-			this.DialogResult=DialogResult.OK;
 		}
 		private void chk_comida_CheckedChanged(object sender,EventArgs e) {
 			if(chk_comida.Checked) {
@@ -65,29 +70,29 @@ namespace VistaAerolinea {
 		private void btn_confirmarPasajero_Click(object sender,EventArgs e) {
 			btn_repotarPeso.Visible=true;
 			lbl_mostrarPeso.Visible=false;
-			if(dgw_mostrarClientes is not null) {
+			if(dgw_mostrarClientes.DataSource is not null) {
 				cliente=(Cliente)dgw_mostrarClientes.CurrentRow.DataBoundItem;
+				ConfirmarPasajero();
+				rtb_datosPaquete.Text=this.ImprimirDatosDelPaquete(listaPasajeros);
 			}
 			else {
 				MessageBox.Show("No se selecciono ningún cliente");
 			}
-			if(cliente is null) {
-				MessageBox.Show("Error, seleccione los datos del cliente");
-			}
-			else {
-				ConfirmarPasajero();
-				rtb_datosPaquete.Text=this.ImprimirDatosDelPaquete(listaPasajeros);
-			}
 		}
 		private void ConfirmarPasajero() {
 			if(cliente is not null) {
-				nuevoPasajero = new Pasajero(pesoValijas,cantidadDeTickets,chk_wifi.Checked,(Comida)cmb_comidas.SelectedItem,esPremium,rdb_siPeliculas.Checked,this.cliente,rdb_tieneBolsoDeMano.Checked);
-				Sistema.CalcularPrecioPasaje(vuelo.Precio,nuevoPasajero);
-				CargarNuevoPasajero(nuevoPasajero);
-				ActualizarDataGridClientes();
-				chk_comida.Checked=false;
-				chk_wifi.Checked=false;
-				ResetearControlesOpcionesDelCliente();
+				if(this.ValidarCheckBox(chk_comida) && this.ValidarCheckBox(chk_tieneBolsoDeMano) && this.ValidarCheckBox(chk_wifi)) {
+					nuevoPasajero = new Pasajero(pesoValijas,cantidadDeTickets,chk_wifi.Checked,(Comida)cmb_comidas.SelectedItem,esPremium,rdb_siPeliculas.Checked,this.cliente,chk_tieneBolsoDeMano.Checked);
+					Sistema.CalcularPrecioPasaje(vuelo.Precio,nuevoPasajero);
+					this.CargarNuevoPasajero(nuevoPasajero);
+					this.ActualizarDataGridClientes();
+					chk_comida.Checked=false;
+					chk_wifi.Checked=false;
+					this.ResetearControlesOpcionesDelCliente();
+				}
+				else {
+					MessageBox.Show("Algunas opciones no se han seleccionado");
+				}
 			}
 			else {
 				MessageBox.Show("No se seleccionó ningun pasajero");
@@ -139,7 +144,7 @@ namespace VistaAerolinea {
 			pesoValijas=Sistema.CalcularPesoValijas(this.esPremium);
 			btn_repotarPeso.Visible=false;
 			lbl_mostrarPeso.Visible=true;
-			lbl_mostrarPeso.Text=Sistema.MostrarDatosEquipajeReportado(rdb_tieneBolsoDeMano.Checked,esPremium,pesoValijas);
+			lbl_mostrarPeso.Text=Sistema.MostrarDatosEquipajeReportado(chk_tieneBolsoDeMano.Checked,esPremium,pesoValijas);
 		}
 		private string ImprimirDatosDelPaquete(List<Pasajero> pasajeros) {
 			StringBuilder sb=new StringBuilder();
@@ -150,6 +155,14 @@ namespace VistaAerolinea {
 				}
 			}
 			return sb.ToString();
+		}
+		private bool ValidarCheckBox(CheckBox checkBoxParaVerificar) {
+			if(checkBoxParaVerificar is not null) {
+				if(checkBoxParaVerificar.CheckState!=CheckState.Indeterminate) {
+					return true;
+				}
+			}
+			return false;
 		}
 	}
 }

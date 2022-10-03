@@ -31,7 +31,6 @@
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.lbl_esInternacional = new System.Windows.Forms.Label();
 			this.grp_equipaje = new System.Windows.Forms.GroupBox();
-			this.rdb_tieneBolsoDeMano = new System.Windows.Forms.RadioButton();
 			this.lbl_mostrarPeso = new System.Windows.Forms.Label();
 			this.btn_repotarPeso = new System.Windows.Forms.Button();
 			this.lbl_cantidadValijas = new System.Windows.Forms.Label();
@@ -48,6 +47,7 @@
 			this.rtb_datosPaquete = new System.Windows.Forms.RichTextBox();
 			this.btn_confirmarPasajero = new System.Windows.Forms.Button();
 			this.dgw_pasajerosVuelo = new System.Windows.Forms.DataGridView();
+			this.chk_tieneBolsoDeMano = new System.Windows.Forms.CheckBox();
 			((System.ComponentModel.ISupportInitialize)(this.dgw_mostrarClientes)).BeginInit();
 			this.grp_datosDelVuelo.SuspendLayout();
 			this.groupBox2.SuspendLayout();
@@ -148,7 +148,7 @@
 			// 
 			// grp_equipaje
 			// 
-			this.grp_equipaje.Controls.Add(this.rdb_tieneBolsoDeMano);
+			this.grp_equipaje.Controls.Add(this.chk_tieneBolsoDeMano);
 			this.grp_equipaje.Controls.Add(this.lbl_mostrarPeso);
 			this.grp_equipaje.Controls.Add(this.btn_repotarPeso);
 			this.grp_equipaje.Controls.Add(this.lbl_cantidadValijas);
@@ -159,18 +159,6 @@
 			this.grp_equipaje.TabIndex = 20;
 			this.grp_equipaje.TabStop = false;
 			this.grp_equipaje.Text = "Datos Del Equipaje";
-			// 
-			// rdb_tieneBolsoDeMano
-			// 
-			this.rdb_tieneBolsoDeMano.AutoSize = true;
-			this.rdb_tieneBolsoDeMano.Checked = true;
-			this.rdb_tieneBolsoDeMano.Location = new System.Drawing.Point(15, 68);
-			this.rdb_tieneBolsoDeMano.Name = "rdb_tieneBolsoDeMano";
-			this.rdb_tieneBolsoDeMano.Size = new System.Drawing.Size(143, 22);
-			this.rdb_tieneBolsoDeMano.TabIndex = 4;
-			this.rdb_tieneBolsoDeMano.TabStop = true;
-			this.rdb_tieneBolsoDeMano.Text = "Bolso de Mano";
-			this.rdb_tieneBolsoDeMano.UseVisualStyleBackColor = true;
 			// 
 			// lbl_mostrarPeso
 			// 
@@ -258,6 +246,8 @@
 			// chk_comida
 			// 
 			this.chk_comida.AutoSize = true;
+			this.chk_comida.Checked = true;
+			this.chk_comida.CheckState = System.Windows.Forms.CheckState.Indeterminate;
 			this.chk_comida.Location = new System.Drawing.Point(6, 25);
 			this.chk_comida.Name = "chk_comida";
 			this.chk_comida.Size = new System.Drawing.Size(41, 22);
@@ -287,6 +277,8 @@
 			// chk_wifi
 			// 
 			this.chk_wifi.AutoSize = true;
+			this.chk_wifi.Checked = true;
+			this.chk_wifi.CheckState = System.Windows.Forms.CheckState.Indeterminate;
 			this.chk_wifi.Location = new System.Drawing.Point(6, 25);
 			this.chk_wifi.Name = "chk_wifi";
 			this.chk_wifi.Size = new System.Drawing.Size(41, 22);
@@ -343,6 +335,18 @@
 			this.dgw_pasajerosVuelo.RowTemplate.Height = 25;
 			this.dgw_pasajerosVuelo.Size = new System.Drawing.Size(1106, 150);
 			this.dgw_pasajerosVuelo.TabIndex = 7;
+			// 
+			// chk_tieneBolsoDeMano
+			// 
+			this.chk_tieneBolsoDeMano.AutoSize = true;
+			this.chk_tieneBolsoDeMano.Checked = true;
+			this.chk_tieneBolsoDeMano.CheckState = System.Windows.Forms.CheckState.Indeterminate;
+			this.chk_tieneBolsoDeMano.Location = new System.Drawing.Point(15, 55);
+			this.chk_tieneBolsoDeMano.Name = "chk_tieneBolsoDeMano";
+			this.chk_tieneBolsoDeMano.Size = new System.Drawing.Size(146, 22);
+			this.chk_tieneBolsoDeMano.TabIndex = 6;
+			this.chk_tieneBolsoDeMano.Text = "Bolso de mano";
+			this.chk_tieneBolsoDeMano.UseVisualStyleBackColor = true;
 			// 
 			// FrmSeleccionarClientePasajero
 			// 
@@ -408,9 +412,9 @@
 		private NumericUpDown nud_cantidadValijas;
 		private Button btn_repotarPeso;
 		private Label lbl_mostrarPeso;
-		private RadioButton rdb_tieneBolsoDeMano;
 		private GroupBox groupBox2;
 		private Label lbl_esInternacional;
 		private RichTextBox rtb_datosPaquete;
+		private CheckBox chk_tieneBolsoDeMano;
 	}
 }
