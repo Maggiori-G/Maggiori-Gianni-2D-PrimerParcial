@@ -11,21 +11,20 @@ using Entidades;
 
 namespace VistaAerolinea {
 	public partial class FrmPantallaPrincipal:Form {
-		public FrmPantallaPrincipal(Usuario usuario) {
+		private Usuario? usuario;
+		public FrmPantallaPrincipal(Usuario usuarioRecibido) {
 			InitializeComponent();
 			this.IsMdiContainer=true;
+			this.usuario=usuarioRecibido;
 			lbl_usuarioIngresado.Text=usuario.NombreDeUsuario;
 			lbl_fechaActual.Text=DateTime.Now.ToShortDateString();
 		}
 
-		private void modificarUsuarioToolStripMenuItem_Click(object sender,EventArgs e) {
-			ControlVista.AbrirForm(this, new FrmModificarUsuario());
-		}
+		
 
 		private void cerrarSesiónToolStripMenuItem_Click(object sender,EventArgs e) {
-
+			this.DialogResult=DialogResult.OK;
 		}
-
 		
 		private void informaciónVuelosToolStripMenuItem_Click_1(object sender,EventArgs e) {
 			ControlVista.AbrirForm(this, new FrmInformesVuelo());
@@ -42,9 +41,15 @@ namespace VistaAerolinea {
 		private void venderToolStripMenuItem_Click(object sender,EventArgs e) {
 			ControlVista.AbrirForm(this, new frmVentasDePasajes());
 		}
-
-		private void modificarToolStripMenuItem_Click(object sender,EventArgs e) {
-			ControlVista.AbrirForm(this, new FrmModificarUsuario());
+		private void modificarUsuarioToolStripMenuItem_Click(object sender,EventArgs e) {
+			if(usuario is not null) {
+				frmNuevoUsuario usuarioParaModificar= new frmNuevoUsuario(usuario);
+				usuarioParaModificar.ShowDialog();
+				if(usuarioParaModificar.DialogResult==DialogResult.OK) {
+					usuario=usuarioParaModificar.UsuarioAuxiliar;
+					lbl_usuarioIngresado.Text=usuario.NombreDeUsuario;
+				}
+			}
 		}
 
 		private void nuevoAvionToolStripMenuItem_Click(object sender,EventArgs e) {

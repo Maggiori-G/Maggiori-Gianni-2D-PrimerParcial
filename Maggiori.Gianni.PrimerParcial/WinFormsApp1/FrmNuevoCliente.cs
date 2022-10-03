@@ -52,6 +52,5 @@ namespace VistaAerolinea {
 				this.DialogResult=DialogResult.OK;
 			}
 		}
-
 	}
 }

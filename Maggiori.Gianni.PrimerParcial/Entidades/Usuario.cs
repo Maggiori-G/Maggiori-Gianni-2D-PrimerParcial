@@ -21,12 +21,9 @@ namespace Entidades {
 				return this.nombreDeUsuario;	
 			}
 		}
-		internal string Contraseña {
+		public string Contraseña {
 			get {
 				return this.contraseña;
-			}
-			set{
-				this.contraseña=value;
 			}
 		}
 		public override bool Equals(object? obj) {

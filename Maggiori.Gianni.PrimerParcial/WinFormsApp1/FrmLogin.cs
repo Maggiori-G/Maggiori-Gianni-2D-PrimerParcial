@@ -12,7 +12,6 @@ namespace VistaAerolinea {
 			musicaLogin = new WindowsMediaPlayer();
 		}
 		private void login_Load(object sender,EventArgs e) {
-			Sistema.PrecargarUsuario();
 			musicaLogin.URL = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"All_Aboard.wav");
 			musicaLogin.controls.play();
 		}
@@ -25,8 +24,11 @@ namespace VistaAerolinea {
 				usuarioIngresado=Sistema.ValidarDatosUsuarioExistente(txt_usuario.Text.Trim(),txt_contraseña.Text.Trim());
 				if(usuarioIngresado is not null) {
 					FrmPantallaPrincipal pantallaPrincipal=new FrmPantallaPrincipal(usuarioIngresado);
-					pantallaPrincipal.Show();
 					this.Hide();
+					DialogResult resultado=pantallaPrincipal.ShowDialog();
+					if(resultado==DialogResult.OK) {
+						this.Show();
+					}
 				}
 				else {
 					MessageBox.Show("No se encontró el usuario");

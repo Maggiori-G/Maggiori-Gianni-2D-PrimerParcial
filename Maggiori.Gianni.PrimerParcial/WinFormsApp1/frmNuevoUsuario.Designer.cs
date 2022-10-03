@@ -43,6 +43,7 @@
 			this.lbl_numeroTelefono = new System.Windows.Forms.Label();
 			this.lbl_edad = new System.Windows.Forms.Label();
 			this.txt_edad = new System.Windows.Forms.TextBox();
+			this.btn_modificarUsuario = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// btn_confirmar
@@ -62,7 +63,7 @@
 			this.btn_cancelar.Location = new System.Drawing.Point(225, 449);
 			this.btn_cancelar.Name = "btn_cancelar";
 			this.btn_cancelar.Size = new System.Drawing.Size(119, 32);
-			this.btn_cancelar.TabIndex = 7;
+			this.btn_cancelar.TabIndex = 9;
 			this.btn_cancelar.Text = "Cancelar";
 			this.btn_cancelar.UseVisualStyleBackColor = true;
 			this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
@@ -194,11 +195,11 @@
 			this.lbl_titulo.BackColor = System.Drawing.Color.Transparent;
 			this.lbl_titulo.Font = new System.Drawing.Font("Lucida Fax", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
 			this.lbl_titulo.ForeColor = System.Drawing.SystemColors.Window;
-			this.lbl_titulo.Location = new System.Drawing.Point(103, 9);
+			this.lbl_titulo.Location = new System.Drawing.Point(87, 9);
 			this.lbl_titulo.Name = "lbl_titulo";
-			this.lbl_titulo.Size = new System.Drawing.Size(226, 32);
+			this.lbl_titulo.Size = new System.Drawing.Size(270, 32);
 			this.lbl_titulo.TabIndex = 14;
-			this.lbl_titulo.Text = "Nuevo Usuario";
+			this.lbl_titulo.Text = "Ingrese sus Datos";
 			// 
 			// txt_numeroTelefono
 			// 
@@ -240,6 +241,17 @@
 			this.txt_edad.Size = new System.Drawing.Size(242, 23);
 			this.txt_edad.TabIndex = 7;
 			// 
+			// btn_modificarUsuario
+			// 
+			this.btn_modificarUsuario.Font = new System.Drawing.Font("Lucida Fax", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+			this.btn_modificarUsuario.Location = new System.Drawing.Point(101, 449);
+			this.btn_modificarUsuario.Name = "btn_modificarUsuario";
+			this.btn_modificarUsuario.Size = new System.Drawing.Size(118, 32);
+			this.btn_modificarUsuario.TabIndex = 8;
+			this.btn_modificarUsuario.Text = "Confirmar";
+			this.btn_modificarUsuario.UseVisualStyleBackColor = true;
+			this.btn_modificarUsuario.Click += new System.EventHandler(this.btn_modificarUsuario_Click);
+			// 
 			// frmNuevoUsuario
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -248,6 +260,7 @@
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.ClientSize = new System.Drawing.Size(436, 493);
+			this.Controls.Add(this.btn_modificarUsuario);
 			this.Controls.Add(this.lbl_edad);
 			this.Controls.Add(this.txt_edad);
 			this.Controls.Add(this.lbl_numeroTelefono);
@@ -271,7 +284,6 @@
 			this.Name = "frmNuevoUsuario";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "NuevoUsuario";
-			this.Load += new System.EventHandler(this.frmNuevoUsuario_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -298,5 +310,6 @@
 		private Label lbl_numeroTelefono;
 		private Label lbl_edad;
 		private TextBox txt_edad;
+		private Button btn_modificarUsuario;
 	}
 }

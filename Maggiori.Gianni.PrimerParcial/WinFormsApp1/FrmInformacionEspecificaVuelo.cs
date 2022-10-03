@@ -74,6 +74,13 @@ namespace VistaAerolinea {
 				else {
 					lbl_clase.Text="Primera Clase";
 				}
+				if(pasajero.PrimeraClase) {
+					lbl_tipoPasajero.Text="Primera Clase";
+				}
+				else {
+					lbl_tipoPasajero.Text="Clase Comercial";
+				}
+
 			}
 		}
 

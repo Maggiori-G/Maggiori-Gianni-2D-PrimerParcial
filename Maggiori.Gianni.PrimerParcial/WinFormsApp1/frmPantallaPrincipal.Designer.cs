@@ -25,9 +25,6 @@
 		private void InitializeComponent() {
 			System.Windows.Forms.MenuStrip menuStrip1;
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPantallaPrincipal));
-			this.lbl_usuarioIngresado = new System.Windows.Forms.Label();
-			this.lbl_nombreUsuario = new System.Windows.Forms.Label();
-			this.lbl_fechaActual = new System.Windows.Forms.Label();
 			this.informaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.informaciónVuelosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.informaciónAvionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,45 +40,30 @@
 			this.modificarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.lbl_usuarioIngresado = new System.Windows.Forms.Label();
+			this.lbl_nombreUsuario = new System.Windows.Forms.Label();
+			this.lbl_fechaActual = new System.Windows.Forms.Label();
 			menuStrip1 = new System.Windows.Forms.MenuStrip();
 			menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// lbl_usuarioIngresado
+			// menuStrip1
 			// 
-			this.lbl_usuarioIngresado.AutoSize = true;
-			this.lbl_usuarioIngresado.BackColor = System.Drawing.Color.LightSkyBlue;
-			this.lbl_usuarioIngresado.Font = new System.Drawing.Font("Lucida Fax", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-			this.lbl_usuarioIngresado.ForeColor = System.Drawing.Color.Black;
-			this.lbl_usuarioIngresado.Location = new System.Drawing.Point(391, 659);
-			this.lbl_usuarioIngresado.Name = "lbl_usuarioIngresado";
-			this.lbl_usuarioIngresado.Size = new System.Drawing.Size(96, 32);
-			this.lbl_usuarioIngresado.TabIndex = 2;
-			this.lbl_usuarioIngresado.Text = "label1";
-			// 
-			// lbl_nombreUsuario
-			// 
-			this.lbl_nombreUsuario.AutoSize = true;
-			this.lbl_nombreUsuario.BackColor = System.Drawing.Color.LightSkyBlue;
-			this.lbl_nombreUsuario.Font = new System.Drawing.Font("Lucida Fax", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-			this.lbl_nombreUsuario.ForeColor = System.Drawing.Color.Black;
-			this.lbl_nombreUsuario.Location = new System.Drawing.Point(248, 659);
-			this.lbl_nombreUsuario.Name = "lbl_nombreUsuario";
-			this.lbl_nombreUsuario.Size = new System.Drawing.Size(137, 32);
-			this.lbl_nombreUsuario.TabIndex = 3;
-			this.lbl_nombreUsuario.Text = "Usuario: ";
-			// 
-			// lbl_fechaActual
-			// 
-			this.lbl_fechaActual.AutoSize = true;
-			this.lbl_fechaActual.BackColor = System.Drawing.Color.LightSkyBlue;
-			this.lbl_fechaActual.Font = new System.Drawing.Font("Lucida Fax", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-			this.lbl_fechaActual.ForeColor = System.Drawing.Color.Black;
-			this.lbl_fechaActual.Location = new System.Drawing.Point(12, 659);
-			this.lbl_fechaActual.Name = "lbl_fechaActual";
-			this.lbl_fechaActual.Size = new System.Drawing.Size(96, 32);
-			this.lbl_fechaActual.TabIndex = 4;
-			this.lbl_fechaActual.Text = "label1";
+			menuStrip1.BackColor = System.Drawing.Color.LightSkyBlue;
+			menuStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			menuStrip1.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.informaciónToolStripMenuItem,
+            this.venderPasajesToolStripMenuItem,
+            this.añadirAvionToolStripMenuItem,
+            this.configuraciónToolStripMenuItem,
+            this.salirToolStripMenuItem});
+			menuStrip1.Location = new System.Drawing.Point(0, 0);
+			menuStrip1.Name = "menuStrip1";
+			menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+			menuStrip1.Size = new System.Drawing.Size(1000, 26);
+			menuStrip1.TabIndex = 1;
+			menuStrip1.Text = "menuStrip1";
 			// 
 			// informaciónToolStripMenuItem
 			// 
@@ -97,21 +79,21 @@
 			// informaciónVuelosToolStripMenuItem
 			// 
 			this.informaciónVuelosToolStripMenuItem.Name = "informaciónVuelosToolStripMenuItem";
-			this.informaciónVuelosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.informaciónVuelosToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
 			this.informaciónVuelosToolStripMenuItem.Text = "Vuelos";
 			this.informaciónVuelosToolStripMenuItem.Click += new System.EventHandler(this.informaciónVuelosToolStripMenuItem_Click_1);
 			// 
 			// informaciónAvionesToolStripMenuItem
 			// 
 			this.informaciónAvionesToolStripMenuItem.Name = "informaciónAvionesToolStripMenuItem";
-			this.informaciónAvionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.informaciónAvionesToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
 			this.informaciónAvionesToolStripMenuItem.Text = "Aviones";
 			this.informaciónAvionesToolStripMenuItem.Click += new System.EventHandler(this.informaciónAvionesToolStripMenuItem_Click);
 			// 
 			// informaciónClientesToolStripMenuItem
 			// 
 			this.informaciónClientesToolStripMenuItem.Name = "informaciónClientesToolStripMenuItem";
-			this.informaciónClientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.informaciónClientesToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
 			this.informaciónClientesToolStripMenuItem.Text = "Clientes";
 			this.informaciónClientesToolStripMenuItem.Click += new System.EventHandler(this.informaciónClientesToolStripMenuItem_Click);
 			// 
@@ -137,7 +119,6 @@
 			this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
 			this.modificarToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
 			this.modificarToolStripMenuItem.Text = "Modificar";
-			this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
 			// 
 			// añadirAvionToolStripMenuItem
 			// 
@@ -203,23 +184,41 @@
 			this.salirToolStripMenuItem.Text = "Salir";
 			this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
 			// 
-			// menuStrip1
+			// lbl_usuarioIngresado
 			// 
-			menuStrip1.BackColor = System.Drawing.Color.LightSkyBlue;
-			menuStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			menuStrip1.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-			menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.informaciónToolStripMenuItem,
-            this.venderPasajesToolStripMenuItem,
-            this.añadirAvionToolStripMenuItem,
-            this.configuraciónToolStripMenuItem,
-            this.salirToolStripMenuItem});
-			menuStrip1.Location = new System.Drawing.Point(0, 0);
-			menuStrip1.Name = "menuStrip1";
-			menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-			menuStrip1.Size = new System.Drawing.Size(1000, 26);
-			menuStrip1.TabIndex = 1;
-			menuStrip1.Text = "menuStrip1";
+			this.lbl_usuarioIngresado.AutoSize = true;
+			this.lbl_usuarioIngresado.BackColor = System.Drawing.Color.LightSkyBlue;
+			this.lbl_usuarioIngresado.Font = new System.Drawing.Font("Lucida Fax", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.lbl_usuarioIngresado.ForeColor = System.Drawing.Color.Black;
+			this.lbl_usuarioIngresado.Location = new System.Drawing.Point(305, 659);
+			this.lbl_usuarioIngresado.Name = "lbl_usuarioIngresado";
+			this.lbl_usuarioIngresado.Size = new System.Drawing.Size(96, 32);
+			this.lbl_usuarioIngresado.TabIndex = 2;
+			this.lbl_usuarioIngresado.Text = "label1";
+			// 
+			// lbl_nombreUsuario
+			// 
+			this.lbl_nombreUsuario.AutoSize = true;
+			this.lbl_nombreUsuario.BackColor = System.Drawing.Color.LightSkyBlue;
+			this.lbl_nombreUsuario.Font = new System.Drawing.Font("Lucida Fax", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.lbl_nombreUsuario.ForeColor = System.Drawing.Color.Black;
+			this.lbl_nombreUsuario.Location = new System.Drawing.Point(175, 659);
+			this.lbl_nombreUsuario.Name = "lbl_nombreUsuario";
+			this.lbl_nombreUsuario.Size = new System.Drawing.Size(128, 32);
+			this.lbl_nombreUsuario.TabIndex = 3;
+			this.lbl_nombreUsuario.Text = "Usuario:";
+			// 
+			// lbl_fechaActual
+			// 
+			this.lbl_fechaActual.AutoSize = true;
+			this.lbl_fechaActual.BackColor = System.Drawing.Color.LightSkyBlue;
+			this.lbl_fechaActual.Font = new System.Drawing.Font("Lucida Fax", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.lbl_fechaActual.ForeColor = System.Drawing.Color.Black;
+			this.lbl_fechaActual.Location = new System.Drawing.Point(12, 659);
+			this.lbl_fechaActual.Name = "lbl_fechaActual";
+			this.lbl_fechaActual.Size = new System.Drawing.Size(96, 32);
+			this.lbl_fechaActual.TabIndex = 4;
+			this.lbl_fechaActual.Text = "label1";
 			// 
 			// FrmPantallaPrincipal
 			// 

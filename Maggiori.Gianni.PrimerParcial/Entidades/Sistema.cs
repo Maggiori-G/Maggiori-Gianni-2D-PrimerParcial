@@ -27,6 +27,7 @@ namespace Entidades {
 			Sistema.PrecargarVuelos();
 			PrecargarClientes();
 			PrecargarVuelosConPasajeros();
+			Sistema.PrecargarUsuario();
 		}
 		public static List<Usuario> ListaUsuarios {
 			get {
@@ -1085,7 +1086,7 @@ namespace Entidades {
 			}
 		}
 		public static void PrecargarUsuario() {
-			Sistema.listaUsuarios.Add(new Usuario("PepePeposo","pepe1","Lucas","Rodriguez","34","ejemplo@gmail.com","00.000.000","00-0000-0000"));
+			Sistema.listaUsuarios.Add(new Usuario("PepePeposo","pepe1","Lucas","Rodriguez","34","ejemplo@gmail.com","34.654.321","11-9375-4519"));
 			Sistema.listaUsuarios.Add(new Usuario("Tanito","maggiori2d","Gianni","Maggiori","30","taniitoo@gmail.com","94.270.046","11-5220-6650"));
 			Sistema.listaUsuarios.Add(new Usuario("Hoop","gatito11","Gatito Hooper","Felino","21","gatitoNaranjoso@gmail.com","54.158.199","11-5731-9086"));
 			Sistema.listaUsuarios.Add(new Usuario("May","magia2008","Mayra","Maestu","28","mayra@estonoesunmail.com","37.788.155","11-3184-3365"));
@@ -1596,6 +1597,14 @@ namespace Entidades {
 		private static void CalcularPrecioPasajerosHardcodeados(Vuelo vuelo) {
 			foreach(Pasajero item in vuelo.PasajerosAbordo) {
 				Sistema.CalcularPrecioPasaje(vuelo.Precio, item);
+			}
+		}
+		public static void ModificarUsuario(Usuario usuario) {
+			for(int i = 0;i<Sistema.listaUsuarios.Count;i++) {
+				if(Sistema.listaUsuarios[i].Dni==usuario.Dni) {
+					Sistema.listaUsuarios[i]=usuario;
+					break;
+				}
 			}
 		}
 	}
