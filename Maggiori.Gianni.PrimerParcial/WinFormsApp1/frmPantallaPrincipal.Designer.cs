@@ -101,12 +101,14 @@
 			this.destinosToolStripMenuItem.Name = "destinosToolStripMenuItem";
 			this.destinosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.destinosToolStripMenuItem.Text = "Destinos";
+			this.destinosToolStripMenuItem.Click += new System.EventHandler(this.destinosToolStripMenuItem_Click);
 			// 
 			// datosHistorialesDeFacturacionToolStripMenuItem
 			// 
 			this.datosHistorialesDeFacturacionToolStripMenuItem.Name = "datosHistorialesDeFacturacionToolStripMenuItem";
 			this.datosHistorialesDeFacturacionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.datosHistorialesDeFacturacionToolStripMenuItem.Text = "Facturacion";
+			this.datosHistorialesDeFacturacionToolStripMenuItem.Click += new System.EventHandler(this.datosHistorialesDeFacturacionToolStripMenuItem_Click);
 			// 
 			// venderPasajesToolStripMenuItem
 			// 

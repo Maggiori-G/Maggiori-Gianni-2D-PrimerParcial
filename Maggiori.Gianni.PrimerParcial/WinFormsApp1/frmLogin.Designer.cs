@@ -35,6 +35,7 @@
 			this.lbl_divisor = new System.Windows.Forms.Label();
 			this.btn_salir = new System.Windows.Forms.Button();
 			this.btn_autocompletar = new System.Windows.Forms.Button();
+			this.lbl_nombreApp = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// txt_usuario
@@ -183,6 +184,17 @@
 			this.btn_autocompletar.UseVisualStyleBackColor = false;
 			this.btn_autocompletar.Click += new System.EventHandler(this.btn_autocompletar_Click);
 			// 
+			// lbl_nombreApp
+			// 
+			this.lbl_nombreApp.AutoSize = true;
+			this.lbl_nombreApp.BackColor = System.Drawing.Color.Transparent;
+			this.lbl_nombreApp.Font = new System.Drawing.Font("Lucida Handwriting", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+			this.lbl_nombreApp.Location = new System.Drawing.Point(251, 38);
+			this.lbl_nombreApp.Name = "lbl_nombreApp";
+			this.lbl_nombreApp.Size = new System.Drawing.Size(392, 48);
+			this.lbl_nombreApp.TabIndex = 13;
+			this.lbl_nombreApp.Text = "Bazinga Airlines";
+			// 
 			// frmLogin
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -191,6 +203,7 @@
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.ClientSize = new System.Drawing.Size(880, 674);
+			this.Controls.Add(this.lbl_nombreApp);
 			this.Controls.Add(this.btn_autocompletar);
 			this.Controls.Add(this.btn_salir);
 			this.Controls.Add(this.lbl_divisor);
@@ -227,5 +240,6 @@
 		private Label lbl_divisor;
 		private Button btn_salir;
 		private Button btn_autocompletar;
+		private Label lbl_nombreApp;
 	}
 }

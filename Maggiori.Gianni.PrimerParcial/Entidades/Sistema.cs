@@ -16,7 +16,6 @@ namespace Entidades {
 		private static List<Cliente> listaClientes;
 		private static List<Vuelo> listaVuelos;
 		private static Dictionary<string, bool> diccionarioDestinos;
-		private static double recaudacionTotal;
 		
 		static Sistema() {
 			listaUsuarios = new List<Usuario>();
@@ -1603,6 +1602,15 @@ namespace Entidades {
 				}
 			}
 		}
+		public static int CalcularElTiempoDeVuelo(bool esInternacional) {
+			Random random=new Random();
+			if(esInternacional) {
+				return random.Next(8,12);
+			}
+			else {
+				return random.Next(2,4);
+			}
+		}
 		public static string MostrarDatosDeUnAvion(Avion avion) {
 			StringBuilder sb=new StringBuilder();
 			sb.AppendLine($"Patente: {avion.Patente}");
@@ -1613,6 +1621,30 @@ namespace Entidades {
 			sb.AppendLine($"Capacidad máxima de Equipaje: {avion.PesoMaximo}");
 			return sb.ToString();
 		}
-		
+		public static double CalcularRecaudacionTotal() {
+			double total = 0;
+			foreach(Vuelo item in Sistema.listaVuelos) {
+				total+=item.Recaudacion;
+			}
+			return Math.Round(total,2);
+		}
+		public static double CalcularRecaudacionInternacional() {
+			double total=0;
+			foreach(Vuelo item in Sistema.listaVuelos) {
+				if(item.EsInternacional) {
+					total=total+item.Recaudacion;
+				}
+			}
+			return Math.Round(total,2);
+		}
+		public static double CalcularRecaudacionNacional() {
+			double total=0;
+			foreach(Vuelo item in Sistema.listaVuelos) {
+				if(!item.EsInternacional) {
+					total=total+item.Recaudacion;
+				}
+			}
+			return Math.Round(total,2);
+		}
 	}
 }

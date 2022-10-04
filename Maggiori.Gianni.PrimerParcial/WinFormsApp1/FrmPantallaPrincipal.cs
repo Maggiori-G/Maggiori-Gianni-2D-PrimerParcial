@@ -44,8 +44,15 @@ namespace VistaAerolinea {
 				}
 			}
 		}
+		private void datosHistorialesDeFacturacionToolStripMenuItem_Click(object sender,EventArgs e) {
+			new FrmDatosHistoricos().ShowDialog();
+		}
 		private void salirToolStripMenuItem_Click(object sender,EventArgs e) {
 			ControlVista.Salir(this);
+		}
+
+		private void destinosToolStripMenuItem_Click(object sender,EventArgs e) {
+
 		}
 	}
 }

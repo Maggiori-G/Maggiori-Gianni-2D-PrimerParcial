@@ -25,7 +25,7 @@ namespace Entidades {
 			this.destinoDeLlegada=destinoDeLlegada;
 			this.fechaSalida=fechaSalida;
 			this.esInternacional=VerificarSiEsInternacional();
-			CalcularElTiempoDeVuelo();
+			this.duracionVuelo=Sistema.CalcularElTiempoDeVuelo(esInternacional);
 			this.precioVuelo=Sistema.CalcularPrecioDeVuelo(this.EsInternacional,this.Duracion);
 			avion.HorasDeVuelo=Sistema.ActualizarCantidadDeHorasDeVuelo(avion,this);
 		}
@@ -108,15 +108,7 @@ namespace Entidades {
 				return this.avion!.CapacidadDeAsientos-this.PasajerosAbordo.Count!;
 			}
 		}
-		private void CalcularElTiempoDeVuelo() {
-			Random random=new Random();
-			if(this.esInternacional) {
-				this.duracionVuelo=random.Next(8,12);
-			}
-			else {
-				this.duracionVuelo=random.Next(2,4);
-			}
-		}
+		
 		public bool VerificarSiEsInternacional() {
 			if(this.destinoDeLlegada is not null) {
 				if(this.destinoDeLlegada=="Buenos Aires" || Sistema.EsInternacional(this.destinoDeLlegada)) {
@@ -125,10 +117,5 @@ namespace Entidades {
 			}
 			return false;
 		}
-		public override string ToString() {
-			StringBuilder sb =new StringBuilder();
-			return "";
-		}
-		
 	}
 }
