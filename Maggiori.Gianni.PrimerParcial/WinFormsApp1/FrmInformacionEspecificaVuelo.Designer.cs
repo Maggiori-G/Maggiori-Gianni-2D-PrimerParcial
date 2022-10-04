@@ -63,6 +63,7 @@
 			this.dgw_listaPasajeros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgw_listaPasajeros.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.dgw_listaPasajeros.Location = new System.Drawing.Point(3, 22);
+			this.dgw_listaPasajeros.MultiSelect = false;
 			this.dgw_listaPasajeros.Name = "dgw_listaPasajeros";
 			this.dgw_listaPasajeros.RowHeadersVisible = false;
 			this.dgw_listaPasajeros.RowTemplate.Height = 25;

@@ -40,6 +40,8 @@
 			this.gb_historialVuelos = new System.Windows.Forms.GroupBox();
 			this.lbl_mensaje = new System.Windows.Forms.Label();
 			this.btn_agregarAvion = new System.Windows.Forms.Button();
+			this.lbl_horas = new System.Windows.Forms.Label();
+			this.lbl_horasTotalesDeVuelo = new System.Windows.Forms.Label();
 			this.gb_informacionActualAvion.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgw_listaPasajerosDeUnVuelo)).BeginInit();
 			this.gb_historialVuelos.SuspendLayout();
@@ -47,6 +49,8 @@
 			// 
 			// gb_informacionActualAvion
 			// 
+			this.gb_informacionActualAvion.Controls.Add(this.lbl_horasTotalesDeVuelo);
+			this.gb_informacionActualAvion.Controls.Add(this.lbl_horas);
 			this.gb_informacionActualAvion.Controls.Add(this.lbl_mostrarEstadoAvion);
 			this.gb_informacionActualAvion.Controls.Add(this.lbl_estadoVuelo);
 			this.gb_informacionActualAvion.Controls.Add(this.lbl_mostrarPesoMaximoBodega);
@@ -166,7 +170,7 @@
 			this.cb_seleccionarAvion.Location = new System.Drawing.Point(200, 6);
 			this.cb_seleccionarAvion.Name = "cb_seleccionarAvion";
 			this.cb_seleccionarAvion.Size = new System.Drawing.Size(201, 26);
-			this.cb_seleccionarAvion.TabIndex = 2;
+			this.cb_seleccionarAvion.TabIndex = 0;
 			this.cb_seleccionarAvion.SelectedIndexChanged += new System.EventHandler(this.cb_seleccionarAvion_SelectedIndexChanged);
 			// 
 			// lbl_seleccionAvion
@@ -185,6 +189,7 @@
 			this.dgw_listaPasajerosDeUnVuelo.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dgw_listaPasajerosDeUnVuelo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgw_listaPasajerosDeUnVuelo.Location = new System.Drawing.Point(6, 25);
+			this.dgw_listaPasajerosDeUnVuelo.MultiSelect = false;
 			this.dgw_listaPasajerosDeUnVuelo.Name = "dgw_listaPasajerosDeUnVuelo";
 			this.dgw_listaPasajerosDeUnVuelo.RowHeadersVisible = false;
 			this.dgw_listaPasajerosDeUnVuelo.RowTemplate.Height = 25;
@@ -220,10 +225,29 @@
 			this.btn_agregarAvion.Location = new System.Drawing.Point(407, 7);
 			this.btn_agregarAvion.Name = "btn_agregarAvion";
 			this.btn_agregarAvion.Size = new System.Drawing.Size(146, 36);
-			this.btn_agregarAvion.TabIndex = 6;
+			this.btn_agregarAvion.TabIndex = 1;
 			this.btn_agregarAvion.Text = "Agregar Avion";
 			this.btn_agregarAvion.UseVisualStyleBackColor = false;
 			this.btn_agregarAvion.Click += new System.EventHandler(this.btn_agregarAvion_Click);
+			// 
+			// lbl_horas
+			// 
+			this.lbl_horas.AutoSize = true;
+			this.lbl_horas.Location = new System.Drawing.Point(620, 70);
+			this.lbl_horas.Name = "lbl_horas";
+			this.lbl_horas.Size = new System.Drawing.Size(194, 18);
+			this.lbl_horas.TabIndex = 10;
+			this.lbl_horas.Text = "Horas totales de Vuelo:";
+			// 
+			// lbl_horasTotalesDeVuelo
+			// 
+			this.lbl_horasTotalesDeVuelo.AutoSize = true;
+			this.lbl_horasTotalesDeVuelo.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+			this.lbl_horasTotalesDeVuelo.Location = new System.Drawing.Point(820, 70);
+			this.lbl_horasTotalesDeVuelo.Name = "lbl_horasTotalesDeVuelo";
+			this.lbl_horasTotalesDeVuelo.Size = new System.Drawing.Size(22, 18);
+			this.lbl_horasTotalesDeVuelo.TabIndex = 11;
+			this.lbl_horasTotalesDeVuelo.Text = "ff";
 			// 
 			// FrmInformesAviones
 			// 
@@ -271,5 +295,7 @@
 		private GroupBox gb_historialVuelos;
 		private Label lbl_mensaje;
 		private Button btn_agregarAvion;
+		private Label lbl_horasTotalesDeVuelo;
+		private Label lbl_horas;
 	}
 }

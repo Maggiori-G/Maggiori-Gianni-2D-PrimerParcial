@@ -30,7 +30,7 @@ namespace VistaAerolinea {
 		}
 
 		private void btn_Aceptar_Click(object sender,EventArgs e) {
-			if(!string.IsNullOrEmpty(txt_ingresoCantidadBaños.Text) && !string.IsNullOrEmpty(txt_ingresoCapacidadBodega.Text) &&!string.IsNullOrEmpty(txt_ingresoMaxAsientos.Text)) {
+			if(ControlVista.ValidarTextBox(this)) {
 				if(int.TryParse(txt_ingresoCantidadBaños.Text.Trim(), out cantidadBaños) && double.TryParse(txt_ingresoCapacidadBodega.Text.Trim(), out capacidadBodega) &&int.TryParse(txt_ingresoMaxAsientos.Text.Trim(), out cantidadMaximaAsientos)){
 					avionNuevo=new Avion(Sistema.GenerarCodigoAlfanumericoRandom(),cantidadMaximaAsientos,cantidadBaños,capacidadBodega,false,0);
 					MessageBox.Show(Sistema.MostrarDatosDeUnAvion(avionNuevo)+"\n\nEstá seguro que desea confirmar?","Confirmar",MessageBoxButtons.YesNo);

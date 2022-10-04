@@ -13,7 +13,6 @@ namespace Entidades {
 		private bool contratoPeliculas;
 		private bool tieneBolsoDeMano;
 		private double precioPasaje;
-
 		public Pasajero(double pesoValijas,int cantidadMaximaTickets,bool contratoWifi,bool primeraClase,bool contratoPeliculas, string nombre, string apellido, string edad, string dni, string email, string numeroTelefono,Comida tipoComida, bool tieneBolsoDeMano)
 			:this(pesoValijas,cantidadMaximaTickets,contratoWifi,tipoComida,primeraClase,contratoPeliculas, new Cliente(nombre,apellido,edad,email,dni,numeroTelefono),tieneBolsoDeMano){
 		}
@@ -26,7 +25,6 @@ namespace Entidades {
 			this.tipoComida=tipoComida;
 			this.primeraClase=primeraClase;
 			this.contratoPeliculas=contratoPeliculas;
-			this.tieneBolsoDeMano=tieneBolsoDeMano;
 		}
 		public string CodigoTicket {
 			get {

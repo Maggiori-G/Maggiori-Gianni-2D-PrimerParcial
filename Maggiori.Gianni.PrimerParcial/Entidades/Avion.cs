@@ -72,13 +72,16 @@ namespace Entidades {
 				return this.asientosPrimerClase;
 			}
 		}
-		public int CantidadHorasDeVuelo {
+		public int HorasDeVuelo {
+			set {
+				this.cantidadHorasDeVuelo=value;
+			}
 			get {
 				return this.cantidadHorasDeVuelo;
 			}
 		}
 		private void CalcularAsientosPrimeraClase() {
-			this.asientosPrimerClase=(int)(this.capacidadMaximaDeAsientos*0.2);
+			this.asientosPrimerClase=this.CapacidadDeAsientos-(this.CapacidadDeAsientos*80/100);
 		}
 		private void CalcularAsientosComercial() {
 			this.asientosComercial=this.capacidadMaximaDeAsientos-this.asientosPrimerClase;

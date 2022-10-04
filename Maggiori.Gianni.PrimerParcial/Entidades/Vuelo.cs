@@ -27,6 +27,7 @@ namespace Entidades {
 			this.esInternacional=VerificarSiEsInternacional();
 			CalcularElTiempoDeVuelo();
 			this.precioVuelo=Sistema.CalcularPrecioDeVuelo(this.EsInternacional,this.Duracion);
+			avion.HorasDeVuelo=Sistema.ActualizarCantidadDeHorasDeVuelo(avion,this);
 		}
 		public Avion Avion {
 			get {

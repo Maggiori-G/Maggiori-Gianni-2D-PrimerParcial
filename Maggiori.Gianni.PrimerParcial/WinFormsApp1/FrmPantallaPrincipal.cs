@@ -19,23 +19,18 @@ namespace VistaAerolinea {
 			lbl_usuarioIngresado.Text=usuario.NombreDeUsuario;
 			lbl_fechaActual.Text=DateTime.Now.ToShortDateString();
 		}
-
 		private void cerrarSesiónToolStripMenuItem_Click(object sender,EventArgs e) {
 			this.DialogResult=DialogResult.OK;
 		}
-		
 		private void informaciónVuelosToolStripMenuItem_Click_1(object sender,EventArgs e) {
 			ControlVista.AbrirForm(this, new FrmInformesVuelo());
 		}
-
 		private void informaciónAvionesToolStripMenuItem_Click(object sender,EventArgs e) {
 			ControlVista.AbrirForm(this, new FrmInformesAviones());
 		}
-
 		private void informaciónClientesToolStripMenuItem_Click(object sender,EventArgs e) {
 			ControlVista.AbrirForm(this, new FrmInformesClientes());
 		}
-
 		private void venderToolStripMenuItem_Click(object sender,EventArgs e) {
 			ControlVista.AbrirForm(this, new frmVentasDePasajes());
 		}
@@ -49,7 +44,6 @@ namespace VistaAerolinea {
 				}
 			}
 		}
-
 		private void salirToolStripMenuItem_Click(object sender,EventArgs e) {
 			ControlVista.Salir(this);
 		}

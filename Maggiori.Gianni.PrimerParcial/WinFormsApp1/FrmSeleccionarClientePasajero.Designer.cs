@@ -31,6 +31,7 @@
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.lbl_esInternacional = new System.Windows.Forms.Label();
 			this.grp_equipaje = new System.Windows.Forms.GroupBox();
+			this.chk_tieneBolsoDeMano = new System.Windows.Forms.CheckBox();
 			this.lbl_mostrarPeso = new System.Windows.Forms.Label();
 			this.btn_repotarPeso = new System.Windows.Forms.Button();
 			this.lbl_cantidadValijas = new System.Windows.Forms.Label();
@@ -47,7 +48,6 @@
 			this.rtb_datosPaquete = new System.Windows.Forms.RichTextBox();
 			this.btn_confirmarPasajero = new System.Windows.Forms.Button();
 			this.dgw_pasajerosVuelo = new System.Windows.Forms.DataGridView();
-			this.chk_tieneBolsoDeMano = new System.Windows.Forms.CheckBox();
 			((System.ComponentModel.ISupportInitialize)(this.dgw_mostrarClientes)).BeginInit();
 			this.grp_datosDelVuelo.SuspendLayout();
 			this.groupBox2.SuspendLayout();
@@ -81,7 +81,7 @@
 			this.btn_cancelar.Location = new System.Drawing.Point(969, 464);
 			this.btn_cancelar.Name = "btn_cancelar";
 			this.btn_cancelar.Size = new System.Drawing.Size(146, 34);
-			this.btn_cancelar.TabIndex = 9;
+			this.btn_cancelar.TabIndex = 10;
 			this.btn_cancelar.Text = "Cancelar";
 			this.btn_cancelar.UseVisualStyleBackColor = false;
 			this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
@@ -94,7 +94,7 @@
 			this.btn_venderVuelo.Location = new System.Drawing.Point(969, 424);
 			this.btn_venderVuelo.Name = "btn_venderVuelo";
 			this.btn_venderVuelo.Size = new System.Drawing.Size(146, 34);
-			this.btn_venderVuelo.TabIndex = 8;
+			this.btn_venderVuelo.TabIndex = 9;
 			this.btn_venderVuelo.Text = "Vender Vuelo";
 			this.btn_venderVuelo.UseVisualStyleBackColor = false;
 			this.btn_venderVuelo.Click += new System.EventHandler(this.btn_venderVuelo_Click);
@@ -107,6 +107,7 @@
 			this.dgw_mostrarClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgw_mostrarClientes.GridColor = System.Drawing.SystemColors.ControlDarkDark;
 			this.dgw_mostrarClientes.Location = new System.Drawing.Point(12, 51);
+			this.dgw_mostrarClientes.MultiSelect = false;
 			this.dgw_mostrarClientes.Name = "dgw_mostrarClientes";
 			this.dgw_mostrarClientes.RowHeadersVisible = false;
 			this.dgw_mostrarClientes.RowTemplate.Height = 25;
@@ -160,6 +161,18 @@
 			this.grp_equipaje.TabStop = false;
 			this.grp_equipaje.Text = "Datos Del Equipaje";
 			// 
+			// chk_tieneBolsoDeMano
+			// 
+			this.chk_tieneBolsoDeMano.AutoSize = true;
+			this.chk_tieneBolsoDeMano.Checked = true;
+			this.chk_tieneBolsoDeMano.CheckState = System.Windows.Forms.CheckState.Indeterminate;
+			this.chk_tieneBolsoDeMano.Location = new System.Drawing.Point(15, 55);
+			this.chk_tieneBolsoDeMano.Name = "chk_tieneBolsoDeMano";
+			this.chk_tieneBolsoDeMano.Size = new System.Drawing.Size(146, 22);
+			this.chk_tieneBolsoDeMano.TabIndex = 3;
+			this.chk_tieneBolsoDeMano.Text = "Bolso de mano";
+			this.chk_tieneBolsoDeMano.UseVisualStyleBackColor = true;
+			// 
 			// lbl_mostrarPeso
 			// 
 			this.lbl_mostrarPeso.AutoSize = true;
@@ -177,7 +190,7 @@
 			this.btn_repotarPeso.Location = new System.Drawing.Point(210, 29);
 			this.btn_repotarPeso.Name = "btn_repotarPeso";
 			this.btn_repotarPeso.Size = new System.Drawing.Size(129, 46);
-			this.btn_repotarPeso.TabIndex = 5;
+			this.btn_repotarPeso.TabIndex = 4;
 			this.btn_repotarPeso.Text = "Reportar Peso de Valijas";
 			this.btn_repotarPeso.UseVisualStyleBackColor = false;
 			this.btn_repotarPeso.Click += new System.EventHandler(this.btn_repotarPeso_Click);
@@ -216,7 +229,7 @@
 			this.rdb_noPeliculas.Location = new System.Drawing.Point(23, 53);
 			this.rdb_noPeliculas.Name = "rdb_noPeliculas";
 			this.rdb_noPeliculas.Size = new System.Drawing.Size(48, 22);
-			this.rdb_noPeliculas.TabIndex = 3;
+			this.rdb_noPeliculas.TabIndex = 7;
 			this.rdb_noPeliculas.Text = "No";
 			this.rdb_noPeliculas.UseVisualStyleBackColor = true;
 			// 
@@ -282,7 +295,7 @@
 			this.chk_wifi.Location = new System.Drawing.Point(6, 25);
 			this.chk_wifi.Name = "chk_wifi";
 			this.chk_wifi.Size = new System.Drawing.Size(41, 22);
-			this.chk_wifi.TabIndex = 2;
+			this.chk_wifi.TabIndex = 5;
 			this.chk_wifi.Text = "Si";
 			this.chk_wifi.UseVisualStyleBackColor = true;
 			// 
@@ -316,7 +329,7 @@
 			this.btn_confirmarPasajero.Location = new System.Drawing.Point(969, 374);
 			this.btn_confirmarPasajero.Name = "btn_confirmarPasajero";
 			this.btn_confirmarPasajero.Size = new System.Drawing.Size(146, 44);
-			this.btn_confirmarPasajero.TabIndex = 7;
+			this.btn_confirmarPasajero.TabIndex = 8;
 			this.btn_confirmarPasajero.Text = "Confirmar Pasajero";
 			this.btn_confirmarPasajero.UseVisualStyleBackColor = false;
 			this.btn_confirmarPasajero.Click += new System.EventHandler(this.btn_confirmarPasajero_Click);
@@ -330,23 +343,12 @@
 			this.dgw_pasajerosVuelo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgw_pasajerosVuelo.GridColor = System.Drawing.SystemColors.ControlDarkDark;
 			this.dgw_pasajerosVuelo.Location = new System.Drawing.Point(12, 209);
+			this.dgw_pasajerosVuelo.MultiSelect = false;
 			this.dgw_pasajerosVuelo.Name = "dgw_pasajerosVuelo";
 			this.dgw_pasajerosVuelo.RowHeadersVisible = false;
 			this.dgw_pasajerosVuelo.RowTemplate.Height = 25;
 			this.dgw_pasajerosVuelo.Size = new System.Drawing.Size(1106, 150);
 			this.dgw_pasajerosVuelo.TabIndex = 7;
-			// 
-			// chk_tieneBolsoDeMano
-			// 
-			this.chk_tieneBolsoDeMano.AutoSize = true;
-			this.chk_tieneBolsoDeMano.Checked = true;
-			this.chk_tieneBolsoDeMano.CheckState = System.Windows.Forms.CheckState.Indeterminate;
-			this.chk_tieneBolsoDeMano.Location = new System.Drawing.Point(15, 55);
-			this.chk_tieneBolsoDeMano.Name = "chk_tieneBolsoDeMano";
-			this.chk_tieneBolsoDeMano.Size = new System.Drawing.Size(146, 22);
-			this.chk_tieneBolsoDeMano.TabIndex = 6;
-			this.chk_tieneBolsoDeMano.Text = "Bolso de mano";
-			this.chk_tieneBolsoDeMano.UseVisualStyleBackColor = true;
 			// 
 			// FrmSeleccionarClientePasajero
 			// 

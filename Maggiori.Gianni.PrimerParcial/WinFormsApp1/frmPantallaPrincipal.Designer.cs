@@ -30,6 +30,7 @@
 			this.informaciónAvionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.informaciónClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.destinosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.datosHistorialesDeFacturacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.venderPasajesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.venderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,7 +41,6 @@
 			this.lbl_usuarioIngresado = new System.Windows.Forms.Label();
 			this.lbl_nombreUsuario = new System.Windows.Forms.Label();
 			this.lbl_fechaActual = new System.Windows.Forms.Label();
-			this.datosHistorialesDeFacturacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			menuStrip1 = new System.Windows.Forms.MenuStrip();
 			menuStrip1.SuspendLayout();
 			this.SuspendLayout();
@@ -101,6 +101,12 @@
 			this.destinosToolStripMenuItem.Name = "destinosToolStripMenuItem";
 			this.destinosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.destinosToolStripMenuItem.Text = "Destinos";
+			// 
+			// datosHistorialesDeFacturacionToolStripMenuItem
+			// 
+			this.datosHistorialesDeFacturacionToolStripMenuItem.Name = "datosHistorialesDeFacturacionToolStripMenuItem";
+			this.datosHistorialesDeFacturacionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.datosHistorialesDeFacturacionToolStripMenuItem.Text = "Facturacion";
 			// 
 			// venderPasajesToolStripMenuItem
 			// 
@@ -193,12 +199,6 @@
 			this.lbl_fechaActual.Size = new System.Drawing.Size(96, 32);
 			this.lbl_fechaActual.TabIndex = 4;
 			this.lbl_fechaActual.Text = "label1";
-			// 
-			// datosHistorialesDeFacturacionToolStripMenuItem
-			// 
-			this.datosHistorialesDeFacturacionToolStripMenuItem.Name = "datosHistorialesDeFacturacionToolStripMenuItem";
-			this.datosHistorialesDeFacturacionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.datosHistorialesDeFacturacionToolStripMenuItem.Text = "Facturacion";
 			// 
 			// FrmPantallaPrincipal
 			// 

@@ -57,6 +57,7 @@ namespace VistaAerolinea {
 				lbl_mostrarCapacidadMaximaDeAsientos.Text=avionMostrar.CapacidadDeAsientos.ToString();
 				lbl_mostrarPesoMaximoBodega.Text=avionMostrar.PesoMaximo.ToString()+" Kg";
 				lbl_mostrarCantidadBaños.Text=avionMostrar.CantidadDeBaños.ToString();
+				lbl_horasTotalesDeVuelo.Text=avionMostrar.HorasDeVuelo.ToString();
 			}
 		}
 

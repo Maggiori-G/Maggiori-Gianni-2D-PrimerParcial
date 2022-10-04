@@ -100,6 +100,7 @@
 			this.dgw_vuelosMostrar.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dgw_vuelosMostrar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgw_vuelosMostrar.Location = new System.Drawing.Point(6, 95);
+			this.dgw_vuelosMostrar.MultiSelect = false;
 			this.dgw_vuelosMostrar.Name = "dgw_vuelosMostrar";
 			this.dgw_vuelosMostrar.RowHeadersVisible = false;
 			this.dgw_vuelosMostrar.RowTemplate.Height = 25;

@@ -23,7 +23,7 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
-			this.dgw1_dataClientes = new System.Windows.Forms.DataGridView();
+			this.dgw_dataClientes = new System.Windows.Forms.DataGridView();
 			this.lbl_listaDeClientes = new System.Windows.Forms.Label();
 			this.lbl_buscar = new System.Windows.Forms.Label();
 			this.txt_buscar = new System.Windows.Forms.TextBox();
@@ -32,21 +32,22 @@
 			this.btn_eliminarCliente = new System.Windows.Forms.Button();
 			this.btn_modificar = new System.Windows.Forms.Button();
 			this.btn_seleccionarCliente = new System.Windows.Forms.Button();
-			((System.ComponentModel.ISupportInitialize)(this.dgw1_dataClientes)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgw_dataClientes)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// dgw1_dataClientes
+			// dgw_dataClientes
 			// 
-			this.dgw1_dataClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.dgw1_dataClientes.BackgroundColor = System.Drawing.Color.LightSkyBlue;
-			this.dgw1_dataClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.dgw1_dataClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgw1_dataClientes.Location = new System.Drawing.Point(12, 77);
-			this.dgw1_dataClientes.Name = "dgw1_dataClientes";
-			this.dgw1_dataClientes.RowHeadersVisible = false;
-			this.dgw1_dataClientes.RowTemplate.Height = 25;
-			this.dgw1_dataClientes.Size = new System.Drawing.Size(956, 436);
-			this.dgw1_dataClientes.TabIndex = 0;
+			this.dgw_dataClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.dgw_dataClientes.BackgroundColor = System.Drawing.Color.LightSkyBlue;
+			this.dgw_dataClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.dgw_dataClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dgw_dataClientes.Location = new System.Drawing.Point(12, 77);
+			this.dgw_dataClientes.MultiSelect = false;
+			this.dgw_dataClientes.Name = "dgw_dataClientes";
+			this.dgw_dataClientes.RowHeadersVisible = false;
+			this.dgw_dataClientes.RowTemplate.Height = 25;
+			this.dgw_dataClientes.Size = new System.Drawing.Size(956, 436);
+			this.dgw_dataClientes.TabIndex = 0;
 			// 
 			// lbl_listaDeClientes
 			// 
@@ -154,7 +155,7 @@
 			this.Controls.Add(this.txt_buscar);
 			this.Controls.Add(this.lbl_buscar);
 			this.Controls.Add(this.lbl_listaDeClientes);
-			this.Controls.Add(this.dgw1_dataClientes);
+			this.Controls.Add(this.dgw_dataClientes);
 			this.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Margin = new System.Windows.Forms.Padding(4);
@@ -162,7 +163,7 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "FrmClientes";
 			this.Load += new System.EventHandler(this.FrmInformesClientes_Load);
-			((System.ComponentModel.ISupportInitialize)(this.dgw1_dataClientes)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dgw_dataClientes)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -170,7 +171,7 @@
 
 		#endregion
 
-		private DataGridView dgw1_dataClientes;
+		private DataGridView dgw_dataClientes;
 		private Label lbl_listaDeClientes;
 		private Label lbl_buscar;
 		private TextBox txt_buscar;

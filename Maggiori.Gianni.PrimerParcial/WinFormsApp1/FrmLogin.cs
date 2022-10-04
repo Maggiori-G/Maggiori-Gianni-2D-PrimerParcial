@@ -10,6 +10,7 @@ namespace VistaAerolinea {
 		public frmLogin() {
 			InitializeComponent();
 			musicaLogin = new WindowsMediaPlayer();
+			Sistema.PrecargarUsuario();
 		}
 		private void login_Load(object sender,EventArgs e) {
 			musicaLogin.URL = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"All_Aboard.wav");

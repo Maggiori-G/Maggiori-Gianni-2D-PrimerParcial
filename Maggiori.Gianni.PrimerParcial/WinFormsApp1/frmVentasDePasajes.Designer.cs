@@ -48,6 +48,7 @@
 			this.dgw_vuelosDisponibles.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dgw_vuelosDisponibles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgw_vuelosDisponibles.Location = new System.Drawing.Point(12, 146);
+			this.dgw_vuelosDisponibles.MultiSelect = false;
 			this.dgw_vuelosDisponibles.Name = "dgw_vuelosDisponibles";
 			this.dgw_vuelosDisponibles.RowHeadersVisible = false;
 			this.dgw_vuelosDisponibles.RowTemplate.Height = 25;
@@ -61,7 +62,7 @@
 			this.cmb_origen.Location = new System.Drawing.Point(6, 25);
 			this.cmb_origen.Name = "cmb_origen";
 			this.cmb_origen.Size = new System.Drawing.Size(198, 26);
-			this.cmb_origen.TabIndex = 4;
+			this.cmb_origen.TabIndex = 0;
 			this.cmb_origen.SelectedIndexChanged += new System.EventHandler(this.cmb_origen_SelectedIndexChanged);
 			// 
 			// gb_origen
@@ -90,7 +91,7 @@
 			this.cmb_destino.Location = new System.Drawing.Point(6, 25);
 			this.cmb_destino.Name = "cmb_destino";
 			this.cmb_destino.Size = new System.Drawing.Size(198, 26);
-			this.cmb_destino.TabIndex = 4;
+			this.cmb_destino.TabIndex = 1;
 			// 
 			// nud_asientos
 			// 
@@ -107,7 +108,7 @@
             0});
 			this.nud_asientos.Name = "nud_asientos";
 			this.nud_asientos.Size = new System.Drawing.Size(120, 26);
-			this.nud_asientos.TabIndex = 11;
+			this.nud_asientos.TabIndex = 4;
 			this.nud_asientos.Value = new decimal(new int[] {
             1,
             0,
@@ -131,7 +132,7 @@
 			this.btn_buscarVuelo.Location = new System.Drawing.Point(764, 25);
 			this.btn_buscarVuelo.Name = "btn_buscarVuelo";
 			this.btn_buscarVuelo.Size = new System.Drawing.Size(182, 38);
-			this.btn_buscarVuelo.TabIndex = 13;
+			this.btn_buscarVuelo.TabIndex = 5;
 			this.btn_buscarVuelo.Text = "Buscar Vuelo";
 			this.btn_buscarVuelo.UseVisualStyleBackColor = false;
 			this.btn_buscarVuelo.Click += new System.EventHandler(this.btn_buscarVuelo_Click);
@@ -153,7 +154,7 @@
 			this.rdb_ejecutiva.Location = new System.Drawing.Point(134, 25);
 			this.rdb_ejecutiva.Name = "rdb_ejecutiva";
 			this.rdb_ejecutiva.Size = new System.Drawing.Size(100, 22);
-			this.rdb_ejecutiva.TabIndex = 1;
+			this.rdb_ejecutiva.TabIndex = 3;
 			this.rdb_ejecutiva.Text = "Ejecutiva";
 			this.rdb_ejecutiva.UseVisualStyleBackColor = true;
 			// 
@@ -164,7 +165,7 @@
 			this.rdb_comercial.Location = new System.Drawing.Point(21, 25);
 			this.rdb_comercial.Name = "rdb_comercial";
 			this.rdb_comercial.Size = new System.Drawing.Size(107, 22);
-			this.rdb_comercial.TabIndex = 0;
+			this.rdb_comercial.TabIndex = 2;
 			this.rdb_comercial.TabStop = true;
 			this.rdb_comercial.Text = "Comercial";
 			this.rdb_comercial.UseVisualStyleBackColor = true;

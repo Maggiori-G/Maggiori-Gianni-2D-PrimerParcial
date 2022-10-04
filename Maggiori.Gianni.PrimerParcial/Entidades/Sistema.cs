@@ -26,9 +26,9 @@ namespace Entidades {
 			diccionarioDestinos=CargarDiccionarioDeDestinos(CargarTodosLosDestinos());
 			Sistema.PrecargarAviones();
 			Sistema.PrecargarVuelos();
-			PrecargarClientes();
-			PrecargarVuelosConPasajeros();
-			Sistema.PrecargarUsuario();
+			Sistema.PrecargarClientes();
+			Sistema.PrecargarVuelosConPasajeros();
+			
 		}
 		public static List<Usuario> ListaUsuarios {
 			get {
@@ -1422,6 +1422,13 @@ namespace Entidades {
 				vuelo.PasajerosAbordo.AddRange(pasajeros);
 			}
 		}
+		public static int ActualizarCantidadDeHorasDeVuelo(Avion avion, Vuelo vuelo) {
+			int retorno=0;
+			if(avion is not null && vuelo is not null) {
+				retorno=avion.HorasDeVuelo+vuelo.Duracion;
+			}
+			return retorno;
+		}
 		public static double CalcularPesoValijas(bool esPremium) {
 			Random random = new Random();
 			if(esPremium) {
@@ -1606,5 +1613,6 @@ namespace Entidades {
 			sb.AppendLine($"Capacidad máxima de Equipaje: {avion.PesoMaximo}");
 			return sb.ToString();
 		}
+		
 	}
 }

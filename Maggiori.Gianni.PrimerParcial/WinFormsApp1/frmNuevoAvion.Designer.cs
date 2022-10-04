@@ -24,14 +24,14 @@
 		/// </summary>
 		private void InitializeComponent() {
 			this.gb_datosNuevoAvion = new System.Windows.Forms.GroupBox();
-			this.lbl_asientos = new System.Windows.Forms.Label();
-			this.label5 = new System.Windows.Forms.Label();
-			this.label6 = new System.Windows.Forms.Label();
-			this.txt_ingresoMaxAsientos = new System.Windows.Forms.TextBox();
-			this.txt_ingresoCapacidadBodega = new System.Windows.Forms.TextBox();
+			this.btn_cancelar = new System.Windows.Forms.Button();
 			this.txt_ingresoCantidadBaños = new System.Windows.Forms.TextBox();
 			this.btn_Aceptar = new System.Windows.Forms.Button();
-			this.btn_cancelar = new System.Windows.Forms.Button();
+			this.txt_ingresoCapacidadBodega = new System.Windows.Forms.TextBox();
+			this.txt_ingresoMaxAsientos = new System.Windows.Forms.TextBox();
+			this.label6 = new System.Windows.Forms.Label();
+			this.label5 = new System.Windows.Forms.Label();
+			this.lbl_asientos = new System.Windows.Forms.Label();
 			this.gb_datosNuevoAvion.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -52,53 +52,24 @@
 			this.gb_datosNuevoAvion.TabStop = false;
 			this.gb_datosNuevoAvion.Text = "Ingrese los Datos del Nuevo Avion";
 			// 
-			// lbl_asientos
+			// btn_cancelar
 			// 
-			this.lbl_asientos.AutoSize = true;
-			this.lbl_asientos.Location = new System.Drawing.Point(6, 46);
-			this.lbl_asientos.Name = "lbl_asientos";
-			this.lbl_asientos.Size = new System.Drawing.Size(251, 18);
-			this.lbl_asientos.TabIndex = 0;
-			this.lbl_asientos.Text = "Cantidad Maxima de Asientos:";
-			// 
-			// label5
-			// 
-			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(93, 74);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(164, 18);
-			this.label5.TabIndex = 4;
-			this.label5.Text = "Cantidad de Baños:";
-			// 
-			// label6
-			// 
-			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(51, 102);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(206, 18);
-			this.label6.TabIndex = 5;
-			this.label6.Text = "Capacidad de la Bodega:";
-			// 
-			// txt_ingresoMaxAsientos
-			// 
-			this.txt_ingresoMaxAsientos.Location = new System.Drawing.Point(263, 43);
-			this.txt_ingresoMaxAsientos.Name = "txt_ingresoMaxAsientos";
-			this.txt_ingresoMaxAsientos.Size = new System.Drawing.Size(147, 26);
-			this.txt_ingresoMaxAsientos.TabIndex = 6;
-			// 
-			// txt_ingresoCapacidadBodega
-			// 
-			this.txt_ingresoCapacidadBodega.Location = new System.Drawing.Point(263, 99);
-			this.txt_ingresoCapacidadBodega.Name = "txt_ingresoCapacidadBodega";
-			this.txt_ingresoCapacidadBodega.Size = new System.Drawing.Size(147, 26);
-			this.txt_ingresoCapacidadBodega.TabIndex = 7;
+			this.btn_cancelar.BackColor = System.Drawing.Color.Salmon;
+			this.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+			this.btn_cancelar.Location = new System.Drawing.Point(205, 225);
+			this.btn_cancelar.Name = "btn_cancelar";
+			this.btn_cancelar.Size = new System.Drawing.Size(122, 53);
+			this.btn_cancelar.TabIndex = 3;
+			this.btn_cancelar.Text = "Cancelar Compra";
+			this.btn_cancelar.UseVisualStyleBackColor = false;
+			this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
 			// 
 			// txt_ingresoCantidadBaños
 			// 
 			this.txt_ingresoCantidadBaños.Location = new System.Drawing.Point(263, 71);
 			this.txt_ingresoCantidadBaños.Name = "txt_ingresoCantidadBaños";
 			this.txt_ingresoCantidadBaños.Size = new System.Drawing.Size(147, 26);
-			this.txt_ingresoCantidadBaños.TabIndex = 8;
+			this.txt_ingresoCantidadBaños.TabIndex = 1;
 			// 
 			// btn_Aceptar
 			// 
@@ -112,17 +83,46 @@
 			this.btn_Aceptar.UseVisualStyleBackColor = false;
 			this.btn_Aceptar.Click += new System.EventHandler(this.btn_Aceptar_Click);
 			// 
-			// btn_cancelar
+			// txt_ingresoCapacidadBodega
 			// 
-			this.btn_cancelar.BackColor = System.Drawing.Color.Salmon;
-			this.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-			this.btn_cancelar.Location = new System.Drawing.Point(205, 225);
-			this.btn_cancelar.Name = "btn_cancelar";
-			this.btn_cancelar.Size = new System.Drawing.Size(122, 53);
-			this.btn_cancelar.TabIndex = 3;
-			this.btn_cancelar.Text = "Cancelar Compra";
-			this.btn_cancelar.UseVisualStyleBackColor = false;
-			this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
+			this.txt_ingresoCapacidadBodega.Location = new System.Drawing.Point(263, 99);
+			this.txt_ingresoCapacidadBodega.Name = "txt_ingresoCapacidadBodega";
+			this.txt_ingresoCapacidadBodega.Size = new System.Drawing.Size(147, 26);
+			this.txt_ingresoCapacidadBodega.TabIndex = 2;
+			// 
+			// txt_ingresoMaxAsientos
+			// 
+			this.txt_ingresoMaxAsientos.Location = new System.Drawing.Point(263, 43);
+			this.txt_ingresoMaxAsientos.Name = "txt_ingresoMaxAsientos";
+			this.txt_ingresoMaxAsientos.Size = new System.Drawing.Size(147, 26);
+			this.txt_ingresoMaxAsientos.TabIndex = 0;
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Location = new System.Drawing.Point(51, 102);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(206, 18);
+			this.label6.TabIndex = 5;
+			this.label6.Text = "Capacidad de la Bodega:";
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Location = new System.Drawing.Point(93, 74);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(164, 18);
+			this.label5.TabIndex = 4;
+			this.label5.Text = "Cantidad de Baños:";
+			// 
+			// lbl_asientos
+			// 
+			this.lbl_asientos.AutoSize = true;
+			this.lbl_asientos.Location = new System.Drawing.Point(6, 46);
+			this.lbl_asientos.Name = "lbl_asientos";
+			this.lbl_asientos.Size = new System.Drawing.Size(251, 18);
+			this.lbl_asientos.TabIndex = 0;
+			this.lbl_asientos.Text = "Cantidad Maxima de Asientos:";
 			// 
 			// frmNuevoAvion
 			// 
