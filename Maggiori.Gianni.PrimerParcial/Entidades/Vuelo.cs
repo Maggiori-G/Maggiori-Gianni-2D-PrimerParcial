@@ -28,9 +28,6 @@ namespace Entidades {
 			CalcularElTiempoDeVuelo();
 			this.precioVuelo=Sistema.CalcularPrecioDeVuelo(this.EsInternacional,this.Duracion);
 		}
-		public Vuelo(Avion avion,string destinoDeSalida,string destinoDeLlegada, DateTime fechaSalida, List<Pasajero> listaPasajeros):this(avion, destinoDeSalida, destinoDeLlegada, fechaSalida) {
-			this.pasajerosAbordo=listaPasajeros;
-		}
 		public Avion Avion {
 			get {
 				return this.avion!;

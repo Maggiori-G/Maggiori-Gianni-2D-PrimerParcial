@@ -23,7 +23,7 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
-			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.gb_informacionActualAvion = new System.Windows.Forms.GroupBox();
 			this.lbl_mostrarEstadoAvion = new System.Windows.Forms.Label();
 			this.lbl_estadoVuelo = new System.Windows.Forms.Label();
 			this.lbl_mostrarPesoMaximoBodega = new System.Windows.Forms.Label();
@@ -39,29 +39,30 @@
 			this.dgw_listaPasajerosDeUnVuelo = new System.Windows.Forms.DataGridView();
 			this.gb_historialVuelos = new System.Windows.Forms.GroupBox();
 			this.lbl_mensaje = new System.Windows.Forms.Label();
-			this.groupBox1.SuspendLayout();
+			this.btn_agregarAvion = new System.Windows.Forms.Button();
+			this.gb_informacionActualAvion.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgw_listaPasajerosDeUnVuelo)).BeginInit();
 			this.gb_historialVuelos.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// groupBox1
+			// gb_informacionActualAvion
 			// 
-			this.groupBox1.Controls.Add(this.lbl_mostrarEstadoAvion);
-			this.groupBox1.Controls.Add(this.lbl_estadoVuelo);
-			this.groupBox1.Controls.Add(this.lbl_mostrarPesoMaximoBodega);
-			this.groupBox1.Controls.Add(this.lbl_pesoMaximoBodega);
-			this.groupBox1.Controls.Add(this.lbl_mostrarCantidadBaños);
-			this.groupBox1.Controls.Add(this.lbl_cantidadDebaños);
-			this.groupBox1.Controls.Add(this.lbl_mostrarCapacidadMaximaDeAsientos);
-			this.groupBox1.Controls.Add(this.lbl_capacidadMaximaDeAsientos);
-			this.groupBox1.Controls.Add(this.lbl_mostrarPatente);
-			this.groupBox1.Controls.Add(this.lbl_patente);
-			this.groupBox1.Location = new System.Drawing.Point(12, 38);
-			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(956, 114);
-			this.groupBox1.TabIndex = 1;
-			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "Información del Avion";
+			this.gb_informacionActualAvion.Controls.Add(this.lbl_mostrarEstadoAvion);
+			this.gb_informacionActualAvion.Controls.Add(this.lbl_estadoVuelo);
+			this.gb_informacionActualAvion.Controls.Add(this.lbl_mostrarPesoMaximoBodega);
+			this.gb_informacionActualAvion.Controls.Add(this.lbl_pesoMaximoBodega);
+			this.gb_informacionActualAvion.Controls.Add(this.lbl_mostrarCantidadBaños);
+			this.gb_informacionActualAvion.Controls.Add(this.lbl_cantidadDebaños);
+			this.gb_informacionActualAvion.Controls.Add(this.lbl_mostrarCapacidadMaximaDeAsientos);
+			this.gb_informacionActualAvion.Controls.Add(this.lbl_capacidadMaximaDeAsientos);
+			this.gb_informacionActualAvion.Controls.Add(this.lbl_mostrarPatente);
+			this.gb_informacionActualAvion.Controls.Add(this.lbl_patente);
+			this.gb_informacionActualAvion.Location = new System.Drawing.Point(12, 38);
+			this.gb_informacionActualAvion.Name = "gb_informacionActualAvion";
+			this.gb_informacionActualAvion.Size = new System.Drawing.Size(956, 114);
+			this.gb_informacionActualAvion.TabIndex = 1;
+			this.gb_informacionActualAvion.TabStop = false;
+			this.gb_informacionActualAvion.Text = "Información Actual del Avion";
 			// 
 			// lbl_mostrarEstadoAvion
 			// 
@@ -212,16 +213,29 @@
 			this.lbl_mensaje.TabIndex = 5;
 			this.lbl_mensaje.Text = "No hay datos para mostrar";
 			// 
+			// btn_agregarAvion
+			// 
+			this.btn_agregarAvion.BackColor = System.Drawing.Color.Salmon;
+			this.btn_agregarAvion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+			this.btn_agregarAvion.Location = new System.Drawing.Point(407, 7);
+			this.btn_agregarAvion.Name = "btn_agregarAvion";
+			this.btn_agregarAvion.Size = new System.Drawing.Size(146, 36);
+			this.btn_agregarAvion.TabIndex = 6;
+			this.btn_agregarAvion.Text = "Agregar Avion";
+			this.btn_agregarAvion.UseVisualStyleBackColor = false;
+			this.btn_agregarAvion.Click += new System.EventHandler(this.btn_agregarAvion_Click);
+			// 
 			// FrmInformesAviones
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.LightSkyBlue;
 			this.ClientSize = new System.Drawing.Size(980, 525);
+			this.Controls.Add(this.btn_agregarAvion);
 			this.Controls.Add(this.gb_historialVuelos);
 			this.Controls.Add(this.lbl_seleccionAvion);
 			this.Controls.Add(this.cb_seleccionarAvion);
-			this.Controls.Add(this.groupBox1);
+			this.Controls.Add(this.gb_informacionActualAvion);
 			this.Font = new System.Drawing.Font("Lucida Fax", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Margin = new System.Windows.Forms.Padding(4);
@@ -229,8 +243,8 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "FrmInformesAviones";
 			this.Load += new System.EventHandler(this.FrmInformesAviones_Load);
-			this.groupBox1.ResumeLayout(false);
-			this.groupBox1.PerformLayout();
+			this.gb_informacionActualAvion.ResumeLayout(false);
+			this.gb_informacionActualAvion.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgw_listaPasajerosDeUnVuelo)).EndInit();
 			this.gb_historialVuelos.ResumeLayout(false);
 			this.gb_historialVuelos.PerformLayout();
@@ -240,7 +254,7 @@
 		}
 
 		#endregion
-		private GroupBox groupBox1;
+		private GroupBox gb_informacionActualAvion;
 		private ComboBox cb_seleccionarAvion;
 		private Label lbl_seleccionAvion;
 		private Label lbl_cantidadDebaños;
@@ -256,5 +270,6 @@
 		private DataGridView dgw_listaPasajerosDeUnVuelo;
 		private GroupBox gb_historialVuelos;
 		private Label lbl_mensaje;
+		private Button btn_agregarAvion;
 	}
 }

@@ -78,13 +78,13 @@ namespace Entidades {
 			}
 		}
 		private void CalcularAsientosPrimeraClase() {
-			this.asientosPrimerClase=(int)(this.capacidadMaximaDeAsientos*0.8);
+			this.asientosPrimerClase=(int)(this.capacidadMaximaDeAsientos*0.2);
 		}
 		private void CalcularAsientosComercial() {
 			this.asientosComercial=this.capacidadMaximaDeAsientos-this.asientosPrimerClase;
 		}
 		public override string ToString() {
-			return this.patente;
+			return this.Patente;
 		}
 
 	}

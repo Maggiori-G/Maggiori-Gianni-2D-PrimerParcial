@@ -10,13 +10,14 @@ using System.Threading.Tasks;
 
 namespace Entidades {
 	public static class Sistema {
+
 		private static List<Usuario> listaUsuarios;
 		private static List<Avion> listaDeAviones;
 		private static List<Cliente> listaClientes;
 		private static List<Vuelo> listaVuelos;
 		private static Dictionary<string, bool> diccionarioDestinos;
 		private static double recaudacionTotal;
-
+		
 		static Sistema() {
 			listaUsuarios = new List<Usuario>();
 			listaDeAviones= new List<Avion>();
@@ -1098,21 +1099,9 @@ namespace Entidades {
 			Sistema.GenerarVuelo(50,"Buenos Aires","Acapulco, México");
 			Sistema.GenerarVuelo(50,"Buenos Aires","Miami, EEUU");
 			Sistema.GenerarVuelo(50,"Recife, Brasil","Buenos Aires");
-			Sistema.GenerarVuelo(50,"Recife, Brasil","Roma, Italia");
-			Sistema.GenerarVuelo(50,"Recife, Brasil","Acapulco, México");
-			Sistema.GenerarVuelo(50,"Recife, Brasil","Miami, EEUU");
 			Sistema.GenerarVuelo(50,"Roma, Italia","Buenos Aires");
-			Sistema.GenerarVuelo(50,"Roma, Italia","Recife, Brasil");
-			Sistema.GenerarVuelo(50,"Roma, Italia","Acapulco, México");
-			Sistema.GenerarVuelo(50,"Roma, Italia","Miami, EEUU");
 			Sistema.GenerarVuelo(50,"Acapulco, México","Buenos Aires");
-			Sistema.GenerarVuelo(50,"Acapulco, México","Roma, Italia");
-			Sistema.GenerarVuelo(50,"Acapulco, México","Recife, Brasil");
-			Sistema.GenerarVuelo(50,"Acapulco, México","Miami, EEUU");
 			Sistema.GenerarVuelo(50,"Miami, EEUU","Buenos Aires");
-			Sistema.GenerarVuelo(50,"Miami, EEUU","Roma, Italia");
-			Sistema.GenerarVuelo(50,"Miami, EEUU","Recife, Brasil");
-			Sistema.GenerarVuelo(50,"Miami, EEUU","Acapulco, México");
 			Sistema.GenerarVuelo(50,"Buenos Aires","Santa Rosa");
 			Sistema.GenerarVuelo(50,"Buenos Aires","Bariloche");
 			Sistema.GenerarVuelo(50,"Buenos Aires","Corrientes");
@@ -1606,6 +1595,16 @@ namespace Entidades {
 					break;
 				}
 			}
+		}
+		public static string MostrarDatosDeUnAvion(Avion avion) {
+			StringBuilder sb=new StringBuilder();
+			sb.AppendLine($"Patente: {avion.Patente}");
+			sb.AppendLine($"Tiene una capacidad máxima de: {avion.CapacidadDeAsientos}");
+			sb.AppendLine($"En primera clase: {avion.AsientosPrimerClase}");
+			sb.AppendLine($"En clase comercial: {avion.AsientosComercial}");
+			sb.AppendLine($"Cantidad de baños: {avion.CantidadDeBaños}");
+			sb.AppendLine($"Capacidad máxima de Equipaje: {avion.PesoMaximo}");
+			return sb.ToString();
 		}
 	}
 }

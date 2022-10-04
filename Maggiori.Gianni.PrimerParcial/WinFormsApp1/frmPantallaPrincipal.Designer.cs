@@ -33,8 +33,6 @@
 			this.venderPasajesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.venderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.añadirAvionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.nuevoAvionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.configuraciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.modificarUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,6 +40,7 @@
 			this.lbl_usuarioIngresado = new System.Windows.Forms.Label();
 			this.lbl_nombreUsuario = new System.Windows.Forms.Label();
 			this.lbl_fechaActual = new System.Windows.Forms.Label();
+			this.datosHistorialesDeFacturacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			menuStrip1 = new System.Windows.Forms.MenuStrip();
 			menuStrip1.SuspendLayout();
 			this.SuspendLayout();
@@ -54,7 +53,6 @@
 			menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.informaciónToolStripMenuItem,
             this.venderPasajesToolStripMenuItem,
-            this.añadirAvionToolStripMenuItem,
             this.configuraciónToolStripMenuItem,
             this.salirToolStripMenuItem});
 			menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -70,7 +68,8 @@
             this.informaciónVuelosToolStripMenuItem,
             this.informaciónAvionesToolStripMenuItem,
             this.informaciónClientesToolStripMenuItem,
-            this.destinosToolStripMenuItem});
+            this.destinosToolStripMenuItem,
+            this.datosHistorialesDeFacturacionToolStripMenuItem});
 			this.informaciónToolStripMenuItem.ForeColor = System.Drawing.Color.MidnightBlue;
 			this.informaciónToolStripMenuItem.Name = "informaciónToolStripMenuItem";
 			this.informaciónToolStripMenuItem.Size = new System.Drawing.Size(236, 22);
@@ -79,28 +78,28 @@
 			// informaciónVuelosToolStripMenuItem
 			// 
 			this.informaciónVuelosToolStripMenuItem.Name = "informaciónVuelosToolStripMenuItem";
-			this.informaciónVuelosToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+			this.informaciónVuelosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.informaciónVuelosToolStripMenuItem.Text = "Vuelos";
 			this.informaciónVuelosToolStripMenuItem.Click += new System.EventHandler(this.informaciónVuelosToolStripMenuItem_Click_1);
 			// 
 			// informaciónAvionesToolStripMenuItem
 			// 
 			this.informaciónAvionesToolStripMenuItem.Name = "informaciónAvionesToolStripMenuItem";
-			this.informaciónAvionesToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+			this.informaciónAvionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.informaciónAvionesToolStripMenuItem.Text = "Aviones";
 			this.informaciónAvionesToolStripMenuItem.Click += new System.EventHandler(this.informaciónAvionesToolStripMenuItem_Click);
 			// 
 			// informaciónClientesToolStripMenuItem
 			// 
 			this.informaciónClientesToolStripMenuItem.Name = "informaciónClientesToolStripMenuItem";
-			this.informaciónClientesToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+			this.informaciónClientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.informaciónClientesToolStripMenuItem.Text = "Clientes";
 			this.informaciónClientesToolStripMenuItem.Click += new System.EventHandler(this.informaciónClientesToolStripMenuItem_Click);
 			// 
 			// destinosToolStripMenuItem
 			// 
 			this.destinosToolStripMenuItem.Name = "destinosToolStripMenuItem";
-			this.destinosToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+			this.destinosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.destinosToolStripMenuItem.Text = "Destinos";
 			// 
 			// venderPasajesToolStripMenuItem
@@ -125,22 +124,6 @@
 			this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
 			this.modificarToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
 			this.modificarToolStripMenuItem.Text = "Modificar";
-			// 
-			// añadirAvionToolStripMenuItem
-			// 
-			this.añadirAvionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuevoAvionToolStripMenuItem});
-			this.añadirAvionToolStripMenuItem.ForeColor = System.Drawing.Color.MidnightBlue;
-			this.añadirAvionToolStripMenuItem.Name = "añadirAvionToolStripMenuItem";
-			this.añadirAvionToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
-			this.añadirAvionToolStripMenuItem.Text = "Aerolinea";
-			// 
-			// nuevoAvionToolStripMenuItem
-			// 
-			this.nuevoAvionToolStripMenuItem.Name = "nuevoAvionToolStripMenuItem";
-			this.nuevoAvionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.nuevoAvionToolStripMenuItem.Text = "Nuevo Avion";
-			this.nuevoAvionToolStripMenuItem.Click += new System.EventHandler(this.nuevoAvionToolStripMenuItem_Click);
 			// 
 			// configuraciónToolStripMenuItem
 			// 
@@ -211,6 +194,12 @@
 			this.lbl_fechaActual.TabIndex = 4;
 			this.lbl_fechaActual.Text = "label1";
 			// 
+			// datosHistorialesDeFacturacionToolStripMenuItem
+			// 
+			this.datosHistorialesDeFacturacionToolStripMenuItem.Name = "datosHistorialesDeFacturacionToolStripMenuItem";
+			this.datosHistorialesDeFacturacionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.datosHistorialesDeFacturacionToolStripMenuItem.Text = "Facturacion";
+			// 
 			// FrmPantallaPrincipal
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
@@ -248,12 +237,11 @@
 		private ToolStripMenuItem venderPasajesToolStripMenuItem;
 		private ToolStripMenuItem venderToolStripMenuItem;
 		private ToolStripMenuItem modificarToolStripMenuItem;
-		private ToolStripMenuItem añadirAvionToolStripMenuItem;
-		private ToolStripMenuItem nuevoAvionToolStripMenuItem;
 		private ToolStripMenuItem configuraciónToolStripMenuItem;
 		private ToolStripMenuItem modificarUsuarioToolStripMenuItem;
 		private ToolStripMenuItem cerrarSesiónToolStripMenuItem;
 		private ToolStripMenuItem salirToolStripMenuItem;
 		private ToolStripMenuItem destinosToolStripMenuItem;
+		private ToolStripMenuItem datosHistorialesDeFacturacionToolStripMenuItem;
 	}
 }

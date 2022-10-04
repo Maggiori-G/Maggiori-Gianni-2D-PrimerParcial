@@ -12,7 +12,7 @@ namespace VistaAerolinea {
 	public partial class FrmInformesAviones:Form {
 		private List<Vuelo> vuelosParaMostrar;
 		private Avion? avionMostrar;
-
+		List<Vuelo>? auxLista;
 		public FrmInformesAviones() {
 			InitializeComponent();
 			vuelosParaMostrar=new List<Vuelo>();
@@ -23,7 +23,7 @@ namespace VistaAerolinea {
 		}
 
 		private void GenerarHistorialVuelos(string patente) {
-			List<Vuelo> auxLista =Sistema.GenerarHistorialDeVuelos(patente, vuelosParaMostrar!)!;
+			auxLista =Sistema.GenerarHistorialDeVuelos(patente, vuelosParaMostrar!)!;
 			if(auxLista.Count>0) {
 				lbl_mensaje.Visible=false; 
 				dgw_listaPasajerosDeUnVuelo.Visible=true;
@@ -57,6 +57,14 @@ namespace VistaAerolinea {
 				lbl_mostrarCapacidadMaximaDeAsientos.Text=avionMostrar.CapacidadDeAsientos.ToString();
 				lbl_mostrarPesoMaximoBodega.Text=avionMostrar.PesoMaximo.ToString()+" Kg";
 				lbl_mostrarCantidadBaños.Text=avionMostrar.CantidadDeBaños.ToString();
+			}
+		}
+
+		private void btn_agregarAvion_Click(object sender,EventArgs e) {
+			frmNuevoAvion frmNuevoAvion = new frmNuevoAvion();
+			frmNuevoAvion.ShowDialog();
+			if(frmNuevoAvion.DialogResult==DialogResult.OK) {
+				Sistema.ListaDeAviones.Add(frmNuevoAvion.AvionNuevo!);
 			}
 		}
 	}

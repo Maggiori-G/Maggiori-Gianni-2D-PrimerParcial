@@ -45,13 +45,9 @@ namespace VistaAerolinea {
 				usuarioParaModificar.ShowDialog();
 				if(usuarioParaModificar.DialogResult==DialogResult.OK) {
 					usuario=usuarioParaModificar.UsuarioAuxiliar;
-					lbl_usuarioIngresado.Text=usuario.NombreDeUsuario;
+					lbl_usuarioIngresado.Text=usuario!.NombreDeUsuario;
 				}
 			}
-		}
-
-		private void nuevoAvionToolStripMenuItem_Click(object sender,EventArgs e) {
-			ControlVista.AbrirForm(this, new frmNuevoAvion());
 		}
 
 		private void salirToolStripMenuItem_Click(object sender,EventArgs e) {
